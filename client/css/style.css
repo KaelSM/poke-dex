@@ -55,7 +55,7 @@ body, html {
   width: 35px;
   height: 35px;
   border-radius: 50%;
-  position: relative;
+  position: absolute;
   top: 17px;
   left: 17px;
   animation: lightCircleBlinks 5s ease 0s infinite alternate none;
@@ -166,12 +166,11 @@ body, html {
 /* lower dex styles */
 
 .lowerLeftDex{
+  position: relative;
+  bottom: 10px;
+  left: 10px;
   display: flex;
-  flex-direction: column; 
   align-items: center;
-  justify-content: center;    
-  position: absolute; 
-  transform: translate(2px, 20px); 
   }
   
   #name-row{
@@ -183,8 +182,10 @@ body, html {
     width: 400px; 
     height: 100px;
     display: flex;
+    position:absolute;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    transform: translate(790px, -370px);
   }
 
   #name-screen{
@@ -200,10 +201,12 @@ body, html {
     padding-left: 5px;
     text-transform: capitalize;
     box-shadow: inset 1px 1px #306938, inset 2px 2px #000000;
-  }
+  } 
 
   #arrows-container {
     display: flex;
+    transform: translate(940px, -290px);
+    position: absolute;
   }
   
   div#upT
@@ -384,6 +387,8 @@ body, html {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    position: absolute;
+    transform: translate(880px, -290px);
   }
   #button-red{
     width: 40px;
@@ -442,3 +447,43 @@ body, html {
     background-color: #232323;
   }
   
+  /* Footer left dex styles */
+.footer-left {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translate(0px, -10px);
+} 
+
+#list-row{ 
+    display: flex;
+    justify-content: center;
+} 
+
+#list-container{
+     width: 400px;
+     height: 100px; 
+     display: flex; 
+     align-items: center; 
+     justify-content: space-between; 
+     position:absolute; 
+     transform: translate(710px, -295px); 
+} 
+
+#list-screen{ 
+    background-color: #52af5f; 
+    color: white; 
+    height: 45px; 
+    width: 150px; 
+    border: 1px solid #000000; 
+    text-align: center; 
+    font-size: 25px; 
+    display:flex; 
+    align-items: center; 
+    padding-left: 5px; 
+    text-transform: capitalize; 
+    box-shadow: inset 1px 1px #306938, inset 2px 2px #000000; 
+}
