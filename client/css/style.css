@@ -1,23 +1,28 @@
+
+/* General styles */
+
 body, html {
+    margin: 0; 
     height: 100%;
-    margin: 0;
+    overflow: hidden;
   }
   
-.bg {     
-    /* Full height */
-    height: 100%; 
-    /* Center and scale the image nicely */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+.bg {    
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw; 
+  height: 100vh; 
+  z-index: -1; 
+  overflow: hidden;
 }
 
-  
+/* Left main dex styles */
+
 .mainDex {
     background-image: url('../source/img/2.png');
-    /* Set dimensions for .mainDex or it won't show */
-    width: 110%; /* or whatever width you want */
-    height: 110%; /* or whatever height you want */
+    width: 110%; 
+    height: 110%; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -25,18 +30,16 @@ body, html {
     background-repeat: no-repeat;
     background-size: contain;
     position: relative;
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.25); /* Add drop shadow */
 }
   
   #circle-container {
-    display: flex; /* This will align the child elements (the circles) in a row */
-    justify-content: start; /* This will align the child elements to the start of the container */
-    position: absolute; /* Position it absolutely within .mainDex */
-    top: 10px; /* Change this value as needed to position the container from the top */
-    transform: translate(-290px, 200px);
-    z-index: 2; /* This ensures that the circles are above the background image */
+    display: flex; 
+    justify-content: start; 
+    position: absolute; 
+    top: 10px; 
+    transform: translate(-290px, 205px);
+    z-index: 2; 
   }
-
   
   #big-circle {
     width: 70px;
@@ -46,7 +49,6 @@ body, html {
     box-shadow: 0 0 0 1px #000000, 0 0 0 15px #e9eef3, 0 0 0 16px #000000;
     position: relative;
     margin-right: 30px;
-    
   }
   
   #blinking-light {
@@ -58,6 +60,7 @@ body, html {
   left: 17px;
   animation: lightCircleBlinks 5s ease 0s infinite alternate none;
   }
+
   @keyframes lightCircleBlinks{
     0%{
       background-color: #146b9f;
@@ -127,6 +130,7 @@ body, html {
   #small-circle-menu {
     animation: circleMenuBlinks 2s ease 3s infinite;
   }
+
   @keyframes circleMenuBlinks{
     0%{
       background-color: #710000;
@@ -156,8 +160,285 @@ body, html {
     border-radius: 50%;
     margin-right: 10px;
     transform: translate(15px, 0px);
+    cursor: pointer;
 }
 
+/* lower dex styles */
 
+.lowerLeftDex{
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  justify-content: center;    
+  position: absolute; 
+  transform: translate(2px, 20px); 
+  }
   
+  #name-row{
+    display: flex;
+    justify-content: center;
+  }
+
+  #name-container{
+    width: 400px; 
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  #name-screen{
+    background-color: #52af5f;
+    color: white;
+    height: 45px;
+    width: 150px;
+    border: 1px solid #000000;
+    text-align: center;
+    font-size: 25px;
+    display:flex;
+    align-items: center;
+    padding-left: 5px;
+    text-transform: capitalize;
+    box-shadow: inset 1px 1px #306938, inset 2px 2px #000000;
+  }
+
+  #arrows-container {
+    display: flex;
+  }
+  
+  div#upT
+      {
+          width: 0;
+          height: 0;
+          border-left: 10px solid transparent;
+          border-right: 10px solid transparent;
+          border-bottom: 10px solid #111;
+          position: absolute;
+          top: 5px;
+          left: 4px;
+      }
+  
+      div#downT
+      {
+          width: 0;
+          height: 0;
+          border-left: 10px solid transparent;
+          border-right: 10px solid transparent;
+          border-top: 10px solid #111;
+  
+          position: absolute;
+          bottom: 5px;
+          left: 4px;
+      }
+  
+      div#leftT
+      {
+          width: 0;
+          height: 0;
+          border-top: 10px solid transparent;
+          border-right: 10px solid #111;
+          border-bottom: 10px solid transparent;
+  
+          position: absolute;
+          top: 5px;
+          left: 4px;
+      }
+  
+      div#rightT
+      {
+          width: 0;
+          height: 0;
+          border-top: 10px solid transparent;
+          border-left: 10px solid #111;
+          border-bottom: 10px solid transparent;
+  
+          position: absolute;
+          top: 5px;
+          right: 5px;
+      }
+  
+      div#midCircle
+      {
+          width: 20px;
+          height: 20px;
+  
+          position: absolute;
+          top: 5px;
+          left: 4px;
+  
+          border-radius: 30px;
+          -webkit-border-radius: 30px;
+          -moz-border-radius: 30px;
+          -o-border-radius: 30px;
+  
+          background: radial-gradient(#111, #222);
+          background: -webkit-radial-gradient(#111, #222);
+          background: -moz-radial-gradient(#111, #222);
+          background: -o-radial-gradient(#111, #222);
+      } 
+  div#cross
+      {
+          width: 90px;
+          height: 90px;
+  
+          position: relative;
+      }
+  
+      div#topcross
+      {
+          width: 30px;
+          height: 30px;
+          background-color: #222;
+      cursor: pointer;
+  
+          position: absolute;
+          top: 0;
+          left: 30px;
+  
+          box-shadow: 3px 2px 0px 0px #010101;
+          border-top-left-radius: 5px;
+          border-top-right-radius: 5px;
+      }
+    div#topcross:active div#upT{
+      border-bottom: 10px solid #9b9d6e;
+    }
+  
+      div#leftcross
+      {
+          width: 30px;
+          height: 30px;
+          background-color: #222;
+          z-index: 1;
+      cursor: pointer;
+  
+          position: absolute;
+          left: 0;
+          top: 30px;
+  
+          box-shadow: 0px 4px 0px -2px #010101, 
+                  1px 6px 0px -2px #010101, 
+                  2px 7px 0px -2px #010101;
+          border-top-left-radius: 5px;
+          border-bottom-left-radius: 5px;
+      }
+    div#leftcross:active div#leftT{
+      border-right: 10px solid #9b9d6e;
+    }
+  
+      div#midcross
+      {
+          width: 30px;
+          height: 30px;
+          background-color: #222;
+  
+          position: absolute;
+          top: 30px;
+          left: 30px;
+  
+          box-shadow: -3px 2px #010101;
+          -webkit-box-shadow: -3px 2px #010101;
+          -moz-box-shadow: -3px 2px #010101;
+          -o-box-shadow: -3px 2px #010101;
+      }
+  
+      div#rightcross
+      {
+          width: 30px;
+          height: 30px;
+          background-color: #222;
+      cursor: pointer;
+  
+          position: absolute;
+          top: 30px;
+          right: 0;
+  
+          box-shadow: 1px 3px 0 2px #010101;
+          border-top-right-radius: 5px;
+          border-bottom-right-radius: 5px;
+      }
+    div#rightcross:active div#rightT{
+      border-left: 10px solid #9b9d6e;
+    }
+  
+      div#botcross
+      {
+          width: 30px;
+          height: 30px;
+          background-color: #222;
+      cursor: pointer;
+  
+          position: absolute;
+          bottom: 0;
+          left: 30px;
+  
+          box-shadow: 2px 3px #010101, 3px 4px #010101;
+          border-bottom-left-radius: 5px;
+          border-bottom-right-radius: 5px;
+      }
+    div#botcross:active div#downT{
+      border-top: 10px solid #9b9d6e;
+    }
+  
+  #buttons-container{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  #button-red{
+    width: 40px;
+    height: 10px;
+    background-color: #710000;
+    border-radius: 20px;
+    margin-bottom: 3px;
+    border: 1px solid #000000;
+    cursor: pointer;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 4px;
+    box-shadow: 1px 1px #89061c,
+                2px 2px #89061c,
+                3px 3px #000000;
+    position: relative;
+  }
+  #button-red:active{
+    box-shadow: none;
+    top: 3px;
+    right: -3px;
+  }
+  #button-blue{
+    width: 40px;
+    height: 10px;
+    background-color: #146b9f;
+    margin-top: 3px;
+    border: 1px solid #000000;
+    border-radius: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 4px;
+    box-shadow: 1px 1px #0f537b,
+                2px 2px #0f537b,
+                3px 3px #000000;
+    position: relative;
+  }
+  #button-blue:active{
+    box-shadow: none;
+    top: 3px;
+    right: -3px;
+  }
+  .light{
+    height: 5px;
+    width: 5px;
+    border: 1px solid #232323;
+    border-radius: 50%;
+  }
+  .on{
+    background-color: #e3e98e;
+  }
+  .off{
+    background-color: #232323;
+  }
   
