@@ -3,19 +3,13 @@ body, html {
     margin: 0;
   }
   
-.bg {
-    /* The image used */
-    background-image: url('../source/img/PIzGoY.gif');
-  
+.bg {     
     /* Full height */
     height: 100%; 
-  
     /* Center and scale the image nicely */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-
-   
 }
 
   
@@ -56,16 +50,27 @@ body, html {
   }
   
   #blinking-light {
-    width: 35px;
-    height: 35px;
-    background-color: #146b9f;
-    border-radius: 50%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    
-    /* The animation will be controlled by JavaScript */
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  position: relative;
+  top: 17px;
+  left: 17px;
+  animation: lightCircleBlinks 5s ease 0s infinite alternate none;
+  }
+  @keyframes lightCircleBlinks{
+    0%{
+      background-color: #146b9f;
+      box-shadow: none;
+    }
+    97%{
+      background-color: #146b9f;
+      box-shadow: none;
+    }
+    100%{
+      background-color: rgb(0 255 255 / 25%);
+      box-shadow: 0 0 40px 0 #0ff;
+    }
   }
   
   .small-circle {
@@ -76,8 +81,7 @@ body, html {
     border: 1px solid #000000;
     transition: all 2s;
     margin-right: 10px;
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.25); /* Add drop shadow */
-   /* The animation and background color will be controlled by JavaScript */
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.25); 
   }
   
   #small-circle-red {
@@ -100,6 +104,60 @@ body, html {
     left: 160px;
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.25); /* Add drop shadow */
   }
+
+  /* mid dex styles */
+
+  .midDex{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translate(-270px, 90px);
+  }
+
+  .small-circle-menu {
+    background-color: #710000; /* default state color */
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid #000000;
+    position: absolute;
+  }
+
+  #small-circle-menu {
+    animation: circleMenuBlinks 2s ease 3s infinite;
+  }
+  @keyframes circleMenuBlinks{
+    0%{
+      background-color: #710000;
+      box-shadow: none;
+    }
+    90%{
+      background-color: #710000;
+      box-shadow: none;
+    }
+    100%{
+      background-color: rgb(255 0 0 / 25%);
+      box-shadow: 0 0 9px 0 #f00;
+    }
+  }
+
+  .gender-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    transform: translate(50px, 0px);
+  }
+
+  .gender {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-right: 10px;
+    transform: translate(15px, 0px);
+}
+
 
   
   

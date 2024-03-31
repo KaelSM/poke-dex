@@ -7,14 +7,7 @@ function startSequence() {
     { element: document.getElementById('small-circle-green'), rgb: '0, 128, 0', boxShadow: '0 0 9px rgb(0, 255, 0)' },
   ];
 
-  const blinkingLight = document.getElementById('blinking-light');
   let activeIndex = 0; // start with the first light
-
-  function updateBigCircle() {   
-    const isLit = blinkingLight.style.opacity === '1'; // Directly access blinkingLight
-    blinkingLight.style.opacity = isLit ? '0.5' : '5';  
-  }    
-
   function updateLights() {
     // turn all lights off
     lights.forEach((light, index) => {
@@ -34,7 +27,6 @@ function startSequence() {
   }
 
   setInterval(updateLights, 2000); // change light every 2 seconds
-  setInterval(updateBigCircle, 4000); // blink every 5 seconds   
 }
 
 document.addEventListener('DOMContentLoaded', startSequence);

@@ -3,25 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Webpage Title</title>
+    <title>Kael Pokedex</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <div class="bg">
-        <div class="mainDex">
-            <div id="circle-container">
-                <!-- Big blue circle with a blinking light inside -->
-                <div id="big-circle">
-                    <div id="blinking-light" style="opacity: 1;"></div>
+        <img class="bg" src="source/img/PIzGoY.gif" alt="background">
+    </div>
+
+    <div class="mainDex">
+
+        <!-- Top left of the Pokedex -->
+        <div id="circle-container">
+            <!-- Big blue circle with a blinking light inside -->
+            <div id="big-circle">
+                <div id="blinking-light" style="opacity: 1;"></div>
+            </div>
+          
+            <!-- Small circles that light up in sequence -->
+            <div id="small-circle-red" class="small-circle"></div>
+            <div id="small-circle-yellow" class="small-circle"></div>
+            <div id="small-circle-green" class="small-circle"></div>
+        </div>  
+
+        <!-- Mid section of the Pokedex -->
+        <div class="midDex">
+            <div id="small-circle-menu" class="small-circle-menu"></div>
+            <div class="gender-icons">
+                <div class="gender-icons"></div>
+                    <i class="fas fa-mars-stroke gender" aria-hidden="true"></i>
+                    <i class="fas fa-venus gender" aria-hidden="true"></i>
                 </div>
-              
-                <!-- Small circles that light up in sequence -->
-                <div id="small-circle-red" class="small-circle"></div>
-                <div id="small-circle-yellow" class="small-circle"></div>
-                <div id="small-circle-green" class="small-circle"></div>
-            </div>              
+            </div>
+        </div>
+        
+        <!-- Bottom left of the Pokedex -->
+        <div class="lowerLeftDex">               
+            <div id="name-row">
+                <div id="name-container">
+                  <div id="name-screen">
+                  </div>
+                  <div id="buttons-container">
+                    <div id="button-red" onclick="clickNormalColor()">
+                      <div id="light-button-red" class="light on"></div>
+                    </div>
+                    <div id="button-blue" onclick="clickShinyColor()">
+                      <div id="light-button-blue" class="light off"></div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div id="buttons-container">
+                <div id="button-red" onclick="clickNormalColor()">
+                  <div id="light-button-red" class="light on"></div>
+                </div>
+                <div id="button-blue" onclick="clickShinyColor()">
+                  <div id="light-button-blue" class="light off"></div>
+                </div>
+              </div>
+              <div id="arrows-container">
+                <div id="cross">
+              <div id="leftcross" onclick="clickLeftRight()">
+                <div id="leftT"></div>
+              </div>
+              <div id="topcross" onclick="clickUp()">
+                <div id="upT"></div>
+              </div>
+              <div id="rightcross" onclick="clickLeftRight()">
+                <div id="rightT"></div>
+              </div>
+              <div id="midcross">
+                <div id="midCircle"></div>
+              </div>
+              <div id="botcross" onclick="clickBottom()">
+                <div id="downT"></div>
+              </div>
+            </div>
         </div>
     </div>
+    
+
     
     <script src="js/design.js"></script>
 </body>
