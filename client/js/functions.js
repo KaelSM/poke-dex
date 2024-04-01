@@ -42,35 +42,37 @@ function updateDisplays(pokemonData, nameScreenTextElement, searchInputElement) 
     if (!errorElement) {
       errorElement = document.createElement('div');
       errorElement.id = errorElementId;
-      document.body.appendChild(errorElement);
+      document.body.appendChild(errorElement); // Or append to a specific element as needed.
     }
     errorElement.textContent = message;
+    errorElement.style.display = 'block'; // Ensure the element is visible.
   }
   
   function clearErrorMessage(errorElementId) {
     const errorElement = document.getElementById(errorElementId);
     if (errorElement) {
-      errorElement.remove();
+      errorElement.style.display = 'none'; // Hide the element.
     }
   }
   
   // Helper function to fetch and display Pokémon
-  function fetchAndDisplayPokemon(query, nameScreenTextElement, searchInputElement, selectElement, placeholderPokemonImgElement, staticImgElement, gender) {
+function fetchAndDisplayPokemon(query, nameScreenTextElement, searchInputElement, selectElement, placeholderPokemonImgElement, staticImgElement, gender, isUserInitiated = false) {
     fetch(`https://pokeapi.co/api/v2/pokemon/${query.toLowerCase()}`)
       .then(response => {
         if (!response.ok) throw new Error('Pokémon not found');
         return response.json();
       })
       .then(data => {
-        // Make sure you pass in the correct elements when calling updateDisplays
         updateDisplays(data, nameScreenTextElement, searchInputElement);
-        updateSprite(data, placeholderPokemonImg, staticImg, gender);
+        updateSprite(data, placeholderPokemonImgElement, staticImgElement, gender);
         selectPokemonByName(selectElement, data.name);
+        clearErrorMessage('error-message'); // Make sure error-message ID matches your HTML
       })
       .catch(error => {
         console.error('Error fetching Pokémon details:', error);
-        // Make sure you have a function to display errors to the user
-        displayError('error-message', 'Pokémon not found!');
+        if (isUserInitiated) {
+          displayError('error-message', 'Pokémon not found!'); // Make sure error-message ID matches your HTML
+        }
       });
-  }
+}
   

@@ -32,13 +32,13 @@ document.addEventListener('DOMContentLoaded', function() {
     searchInput.addEventListener('input', function() {
       const query = this.value.trim();
       if (query) {
-        fetchAndDisplayPokemon(query);
+        fetchAndDisplayPokemon(query, true);
       }
     });
   
     // Update display when a Pokémon is selected from the dropdown
     selectElement.addEventListener('change', function() {
-      fetchAndDisplayPokemon(this.value);
+      fetchAndDisplayPokemon(this.value, true);
     });
   
     // Gender icon click events
@@ -63,21 +63,24 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   
     // Helper function to fetch and display Pokémon
-    function fetchAndDisplayPokemon(query) {
-      fetch(`https://pokeapi.co/api/v2/pokemon/${query.toLowerCase()}`)
-        .then(response => {
-          if (!response.ok) throw new Error('Pokémon not found');
-          return response.json();
-        })
-        .then(data => {
-            updateDisplays(data, nameScreenText, searchInput); // Make sure to pass nameScreenText here
+    function fetchAndDisplayPokemon(query, isUserInitiated) {
+        fetch(`https://pokeapi.co/api/v2/pokemon/${query.toLowerCase()}`)
+          .then(response => {
+            if (!response.ok) throw new Error('Pokémon not found');
+            return response.json();
+          })
+          .then(data => {
+            updateDisplays(data, nameScreenText, searchInput);
             updateSprite(data, placeholderPokemonImg, staticImg, gender);
             selectPokemonByName(selectElement, data.name);
+            clearErrorMessage(errorElementId); // Clears any existing error message.
           })
           .catch(error => {
-          console.error('Error fetching Pokémon details:', error);
-          displayError(errorElementId, 'Pokémon not found!');
+            console.error('Error fetching Pokémon details:', error);
+            if (isUserInitiated) {
+              displayError(errorElementId, 'Pokémon not found!');
+            }
         });
     }
-  });
+});
   
