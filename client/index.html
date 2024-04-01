@@ -9,6 +9,7 @@
 </head>
 <body>
 
+    <!-- Background files-->
     <div class="bg" style=" position: fixed;">
         <div class="mainsc">            
             <img src="source/img/PIzGoY.gif" alt="bg">
@@ -27,7 +28,6 @@
 
     <div class="mainDex"style="position: fixed;">
 
-        <!-- Top left of the Pokedex -->
         <div id="circle-container">
             <!-- Big blue circle with a blinking light inside -->
             <div id="big-circle">
@@ -49,7 +49,7 @@
                 position: fixed;
             ">
         </div>
-        <!-- Mid section of the Pokedex -->        
+     
             <div id="small-circle-menu" class="small-circle-menu"></div>
             <div class="gender-icons">
                 <div class="gender-icons">
@@ -57,8 +57,7 @@
                     <i class="fas fa-venus gender" aria-hidden="true"></i>
                 </div>
             </div>
-        
-        <!-- Bottom left of the Pokedex -->                   
+                  
             <div id="name-row">
                 <div id="name-container">
                   <div id="name-screen">
@@ -96,28 +95,26 @@
                     </div>
                 </div>
             </div>
-        
 
-        <!-- footer left of the Pokedex -->        
+        <!-- list to select pokemon -->        
         <div id="footer-left">
             <div id="footer-left-screen">
-                <div id="List-row">
-                    <div id="list-container">
-                        <div id="list-screen">
-                            <div id="list-screen-text">
-                                <div id="pokemon-list">
-                                    -Select Pokemon-
-                                </div>        
-                            </div>
-                        </div>
-                      
-                    </div>
+            <div id="List-row">
+                <div id="list-container">
+                <div id="list-screen">
+                    <div id="list-screen-text">
+                    <select id="pokemon-select">
+                        <option value="">Select a Pokémon</option>
+                        <!-- JavaScript will populate this select with options -->
+                    </select>
+                    </div>        
+                </div>
                 </div>
             </div>
+            </div>
         </div>
+          
 
-        <!-- Right side of the Pokedex --> 
-        
             <div id="sound-container">
                 <img id="sound-img" src="source/img/sound-svg.png" alt="sound"
                 style="
@@ -149,7 +146,7 @@
             <div id="type-row">
                 <div id="type-container">
                   <div id="type-screen">
-                    <div id="type-screen-text">TYPE:</div>
+                    <div id="type-screen-text">Lorem</div>
                   </div>                  
                 </div>
             </div> 
@@ -195,7 +192,10 @@
                 </div>
             </div>
     </div>    
+
+    <script src="https://unpkg.com/vue@next"></script>
     <script src="js/design.js"></script>
+    <script src="js/pokemonlowerScreens2.js"></script>
 </body>
 <footer>
     <medium>&copy; Copyright {{currentYear}}, Kael Moreira</medium>
