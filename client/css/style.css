@@ -214,13 +214,44 @@ body, html {
 }
 
 .gender.selected {
-    opacity: 1;
-    animation: fa-beat-fade 1s ease infinite; 
+    opacity: 1;   
   }
   
   .gender { 
     opacity: 0.5; 
   } 
+
+  #search-row{
+    display: flex;
+    justify-content: center;
+  }
+
+  #search-container{
+    width: 400px; 
+    height: 100px;
+    display: flex;
+    position:fixed;
+    align-items: center;
+    justify-content: center;
+    transform: translate(-90px, -250px);
+  }
+
+  #search-screen{
+  background-color: #52af5f;
+  color: white;
+  height: 45px;
+  width: 100px; /* Adjust width as needed */
+  border: 1px solid #000000;
+  text-align: center;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  padding-left: 5px;
+  text-transform: capitalize;
+  cursor: text;
+  box-shadow: inset 1px 1px #306938, inset 2px 2px #000000;
+  } 
+
 
 /* lower dex styles */
 
