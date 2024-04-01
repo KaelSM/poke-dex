@@ -41,7 +41,14 @@
         </div>  
 
         <div class="container-IMG">
-            <img id="placeholder-pokemon-img" src="source/img/static.gif" alt="pokemon"
+            <img id="placeholder-pokemon-img" src="" alt="pokemon"
+            style="
+                height: 200px;
+                width: 200px;
+                transform: translate(-190px , -35px);
+                position: fixed;
+            ">
+            <img id="static-img" src="source/img/static.gif" alt="static"
             style="
                 height: 210px;
                 width: 290px;
@@ -57,11 +64,12 @@
                     <i class="fas fa-venus gender" aria-hidden="true"></i>
                 </div>
             </div>
-                  
+               
+            <!-- Name of Pokemon selected-->
             <div id="name-row">
                 <div id="name-container">
                   <div id="name-screen">
-                    <div id="name-screen-text">### KAEL POKEDEX</div>
+                    <div id="name-screen-text"></div>
                   </div>
                   
                 </div>
@@ -105,7 +113,7 @@
                     <div id="list-screen-text">
                     <select id="pokemon-select">
                         <option value="">Select a Pokémon</option>
-                        <!-- JavaScript will populate this select with options -->
+                        <!-- JavaScript will populate this select with options from the api-->
                     </select>
                     </div>        
                 </div>

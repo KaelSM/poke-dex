@@ -15,16 +15,23 @@ document.addEventListener('DOMContentLoaded', function() {
       console.error('Error fetching Pokémon list:', error);
     });
   
-      selectElement.addEventListener('change', function() {
-        const pokemonName = this.value;
-        fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
-          .then(response => response.json())
-          .then(data => {
-            // Here, you can process and display the Pokémon data
-            console.log(data); 
-          })
-          .catch(error => {
-            console.error('Error fetching Pokémon details:', error);
-          });
-      });
+    selectElement.addEventListener('change', function() {
+      const pokemonName = this.value;
+      fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
+        .then(response => response.json())
+        .then(data => {
+          const pokemonId = data.id;
+          const pokemonName = data.name.toUpperCase();
+          const spriteUrl = data.sprites.front_default;
+
+          document.getElementById('name-screen-text').textContent = `${pokemonId} - ${pokemonName}`;
+          document.getElementById('placeholder-pokemon-img').src = spriteUrl;
+          document.getElementById('placeholder-pokemon-img').style.display = 'block';
+          //hide the static image
+          document.getElementById('static-img').style.display = 'none';
+        })
+        .catch(error => {
+          console.error('Error fetching Pokémon details:', error);
+        });
+    });
   });

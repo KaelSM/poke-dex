@@ -78,6 +78,10 @@ body, html {
     position: fixed;
 }
 
+#placeholder-pokemon-img {
+    display: none; 
+  }
+
   #circle-container {
     display: flex; 
     justify-content: start; 
@@ -520,6 +524,7 @@ body, html {
     width: 150px;
     border: 1px solid #000000;  
     text-align: center;
+    font-family: 'BitGame', sans-serif;
     font-size: 12px;         
     text-transform: capitalize; 
     box-shadow: inset 1px 1px #306938, inset 2px 2px #000000;
