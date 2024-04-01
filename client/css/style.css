@@ -227,31 +227,38 @@ body, html {
   }
 
   #search-container{
-    width: 400px; 
+    width: 410px; 
     height: 100px;
     display: flex;
     position:fixed;
     align-items: center;
     justify-content: center;
-    transform: translate(-90px, -250px);
+    transform: translate(-82px, -250px);
   }
 
-  #search-screen{
-  background-color: #52af5f;
-  color: white;
-  height: 45px;
-  width: 100px; /* Adjust width as needed */
-  border: 1px solid #000000;
-  text-align: center;
-  font-size: 12px;
-  display: flex;
-  align-items: center;
-  padding-left: 5px;
-  text-transform: capitalize;
-  cursor: text;
-  box-shadow: inset 1px 1px #306938, inset 2px 2px #000000;
-  } 
+  #search-input {
+    background-color: #52af5f; /* Same background as the box */
+    color: white;
+    height: 45px;
+    width: 140px;
+    border: 1px solid #000000;  
+    text-align: center;
+    font-family: 'BitGame', sans-serif;
+    font-size: 12px;         
+    text-transform: capitalize; 
+    box-shadow: inset 1px 1px #306938, inset 2px 2px #000000;
+  }
+/* Remove the focus outline to match the dropdown style */
+#search-input:focus {
+  outline: none;
+}
 
+/* Match the search input placeholder color to the dropdown's style */
+#search-input::placeholder {
+  color: white;
+  background-color: #52af5f;
+  opacity: 1; 
+}
 
 /* lower dex styles */
 
