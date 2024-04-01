@@ -8,11 +8,24 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="bg">
-        <img class="bg" src="source/img/PIzGoY.gif" alt="background">
-    </div>
 
-    <div class="mainDex">
+    <div class="bg" style=" position: fixed;">
+        <div class="mainsc">            
+            <img src="source/img/PIzGoY.gif" alt="bg">
+        </div>
+        <div class="bgTooSmall">
+            <div class="bgBlackBox">                
+                <div class="bgTooSmallText">
+                    <h1>Screen too small</h1>
+                    <p>Please use a bigger screen</p>
+                </div>
+            </div>
+            <img src="source/img/animation_definitivo_nat_lesscol.gif" alt="bg">
+        </div>
+    </div>
+   
+
+    <div class="mainDex"style="position: fixed;">
 
         <!-- Top left of the Pokedex -->
         <div id="circle-container">
@@ -27,19 +40,25 @@
             <div id="small-circle-green" class="small-circle"></div>
         </div>  
 
-        <!-- Mid section of the Pokedex -->
-        <div class="midDex">
+        <div class="container-IMG">
+            <img id="placeholder-pokemon-img" src="source/img/static.gif" alt="pokemon"
+            style="
+                height: 210px;
+                width: 290px;
+                transform: translate(-185px , -40px);
+                position: fixed;
+            ">
+        </div>
+        <!-- Mid section of the Pokedex -->        
             <div id="small-circle-menu" class="small-circle-menu"></div>
             <div class="gender-icons">
-                <div class="gender-icons"></div>
+                <div class="gender-icons">
                     <i class="fas fa-mars-stroke gender" aria-hidden="true"></i>
                     <i class="fas fa-venus gender" aria-hidden="true"></i>
                 </div>
             </div>
-        </div>
         
-        <!-- Bottom left of the Pokedex -->
-        <div class="lowerLeftDex">               
+        <!-- Bottom left of the Pokedex -->                   
             <div id="name-row">
                 <div id="name-container">
                   <div id="name-screen">
@@ -60,41 +79,72 @@
 
             <div id="arrows-container">
                 <div id="cross">
-              <div id="leftcross" onclick="clickLeftRight()">
-                <div id="leftT"></div>
-              </div>
-              <div id="topcross" onclick="clickUp()">
-                <div id="upT"></div>
-              </div>
-              <div id="rightcross" onclick="clickLeftRight()">
-                <div id="rightT"></div>
-              </div>
-              <div id="midcross">
-                <div id="midCircle"></div>
-              </div>
-              <div id="botcross" onclick="clickBottom()">
-                <div id="downT"></div>
-              </div>
+                    <div id="leftcross" onclick="clickLeftRight()">
+                        <div id="leftT"></div>
+                    </div>
+                    <div id="topcross" onclick="clickUp()">
+                        <div id="upT"></div>
+                    </div>
+                    <div id="rightcross" onclick="clickLeftRight()">
+                        <div id="rightT"></div>
+                    </div>
+                    <div id="midcross">
+                        <div id="midCircle"></div>
+                    </div>
+                    <div id="botcross" onclick="clickBottom()">
+                        <div id="downT"></div>
+                    </div>
+                </div>
             </div>
-        </div>
-
-        <!-- footer left of the Pokedex -->
         
+
+        <!-- footer left of the Pokedex -->        
         <div id="footer-left">
             <div id="footer-left-screen">
                 <div id="List-row">
                     <div id="list-container">
-                      <div id="list-screen">
-                        <div id="list-screen-text">
-                            <ol id="pokemon-list">
-                                <li>--Select Pokemon--</li>
-                            </ol>        
+                        <div id="list-screen">
+                            <div id="list-screen-text">
+                                <div id="pokemon-list">
+                                    -Select Pokemon-
+                                </div>        
+                            </div>
                         </div>
-                      </div>
                       
                     </div>
                 </div>
+            </div>
         </div>
+
+        <!-- Right side of the Pokedex 
+        
+            <div id="sound-container">
+                <img id="sound-img" src="source/img/sound-svg.png" alt="sound">
+            </div>
+            
+            <div id="stats-container">
+                <div id="screen">
+                    <div id="screen-text">
+                        <div id="description-screen-text">
+                            <p>KAEL POKEDEX</p>
+                        </div>
+                        <div id="stats-screen-text">
+                            <ul id="pokemon-stats">
+                                <li>HP: 0</li>
+                                <li>Attack: 0</li>
+                                <li>Defense: 0</li>
+                                <li>Special Attack: 0</li>
+                                <li>Special Defense: 0</li>
+                                <li>Speed: 0</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>  -->              
+
+
+
+
     </div>
     
 

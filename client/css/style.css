@@ -1,20 +1,66 @@
 
 /* General styles */
 
+@font-face {
+    font-family: 'BitGame';
+    src: url('../source/font/Compixs-Regular.otf') format('opentype'),
+         url('../source/font/Compixs-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body, html {
-    margin: 0; 
-    height: 100%;
-    overflow: hidden;
-  }
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  height: 100%;
+  font-family: 'BitGame', sans-serif;
+}
   
 .bg {    
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw; 
-  height: 100vh; 
+  width: 100%; 
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
   z-index: -1; 
   overflow: hidden;
+}
+
+.bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    justify-content: center;
+    align-items: center;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: fixed;
+    background-size: cover;
+}
+
+.bgBlackBox {
+    background-color: rgba(0, 0, 0, 0.712);
+    border: 3px solid #ffff;
+    width: 45%;
+    height: 25%;
+    position: fixed;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    margin-left: 40%;
+    margin-top: 40%;
+    margin-bottom: 50%;
+    margin-right: 50%;
+    color: white;
+    font-size: 20px;
+    position: fixed;
+    text-align: center;
+    font-weight: bold;
+    font-family: 'BitGame', sans-serif;
 }
 
 /* Left main dex styles */
@@ -29,15 +75,15 @@ body, html {
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
-    position: relative;
+    position: fixed;
 }
-  
+
   #circle-container {
     display: flex; 
     justify-content: start; 
-    position: absolute; 
+    position: fixed;
     top: 10px; 
-    transform: translate(-290px, 205px);
+    transform: translate(-350px, 200px);
     z-index: 2; 
   }
   
@@ -47,7 +93,7 @@ body, html {
     background-color: #146b9f;
     border-radius: 50%;
     box-shadow: 0 0 0 1px #000000, 0 0 0 15px #e9eef3, 0 0 0 16px #000000;
-    position: relative;
+    position: fixed;
     margin-right: 30px;
   }
   
@@ -55,7 +101,7 @@ body, html {
   width: 35px;
   height: 35px;
   border-radius: 50%;
-  position: absolute;
+  position: fixed;
   top: 17px;
   left: 17px;
   animation: lightCircleBlinks 5s ease 0s infinite alternate none;
@@ -80,7 +126,7 @@ body, html {
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    position: absolute;
+    position: fixed;
     border: 1px solid #000000;
     transition: all 2s;
     margin-right: 10px;
@@ -88,43 +134,48 @@ body, html {
   }
   
   #small-circle-red {
-    background-color: #710000; /* default state color */
-    top: 20px; /* position accordingly */
+    background-color: #710000;
+    top: 20px; 
     left: 100px;
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.25); /* Add drop shadow */
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.25); 
   }
   
   #small-circle-yellow {
-    background-color: #c3ba00; /* default state color */
-    top: 20px; /* position accordingly */
+    background-color: #c3ba00; 
+    top: 20px;
     left: 130px;
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.25); /* Add drop shadow */
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.25); 
   }
   
   #small-circle-green {
-    background-color: #1f743b; /* default state color */
-    top: 20px; /* position accordingly */
+    background-color: #1f743b;
+    top: 20px; 
     left: 160px;
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.25); /* Add drop shadow */
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.25); 
   }
 
   /* mid dex styles */
 
-  .midDex{
-    position: relative;
+  .container-IMG {
     display: flex;
     justify-content: center;
     align-items: center;
-    transform: translate(-270px, 90px);
+    position: fixed;
+    transform: translate(0px, 0px);
+  }
+
+  .placeholder-pokemon-img {
+    
   }
 
   .small-circle-menu {
-    background-color: #710000; /* default state color */
+    background-color: #710000; 
     width: 20px;
     height: 20px;
     border-radius: 50%;
     border: 1px solid #000000;
-    position: absolute;
+    position: fixed;
+    transform: translate(-290px, 90px);
   }
 
   #small-circle-menu {
@@ -150,8 +201,8 @@ body, html {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: absolute;
-    transform: translate(50px, 0px);
+    position: fixed;
+    transform: translate(-100px, 47px);
   }
 
   .gender {
@@ -165,14 +216,6 @@ body, html {
 
 /* lower dex styles */
 
-.lowerLeftDex{
-  position: relative;
-  bottom: 10px;
-  left: 10px;
-  display: flex;
-  align-items: center;
-  }
-  
   #name-row{
     display: flex;
     justify-content: center;
@@ -182,10 +225,10 @@ body, html {
     width: 400px; 
     height: 100px;
     display: flex;
-    position:absolute;
+    position:fixed;
     align-items: center;
     justify-content: center;
-    transform: translate(790px, -370px);
+    transform: translate(-270px, 115px);
   }
 
   #name-screen{
@@ -195,7 +238,7 @@ body, html {
     width: 150px;
     border: 1px solid #000000;
     text-align: center;
-    font-size: 25px;
+    font-size: 16px;
     display:flex;
     align-items: center;
     padding-left: 5px;
@@ -205,8 +248,8 @@ body, html {
 
   #arrows-container {
     display: flex;
-    transform: translate(940px, -290px);
-    position: absolute;
+    transform: translate(-70px, 200px);
+    position: fixed;
   }
   
   div#upT
@@ -387,8 +430,8 @@ body, html {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    position: absolute;
-    transform: translate(880px, -290px);
+    position: fixed;
+    transform: translate(-150px, 170px);
   }
   #button-red{
     width: 40px;
@@ -449,13 +492,12 @@ body, html {
   
   /* Footer left dex styles */
 .footer-left {
-    position: relative;
+    position: fixed;
     bottom: 0;
     left: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    transform: translate(0px, -10px);
 } 
 
 #list-row{ 
@@ -467,11 +509,11 @@ body, html {
      width: 400px;
      height: 100px; 
      display: flex; 
-     align-items: center; 
+     align-items: fixed; 
      justify-content: space-between; 
-     position:absolute; 
-     transform: translate(710px, -295px); 
-} 
+     position:fixed; 
+     transform: translate(-348px, 215px);
+    } 
 
 #list-screen{ 
     background-color: #52af5f; 
@@ -480,10 +522,28 @@ body, html {
     width: 150px; 
     border: 1px solid #000000; 
     text-align: center; 
-    font-size: 25px; 
+    font-size: 16px; 
     display:flex; 
     align-items: center; 
     padding-left: 5px; 
     text-transform: capitalize; 
     box-shadow: inset 1px 1px #306938, inset 2px 2px #000000; 
+}
+
+@media only screen and (max-width: 1026px) {
+    .mainDex, .mainsc {
+        display: none;
+    }
+    .bgTooSmall {
+        display: show;
+    }
+}
+
+@media only screen and (min-width: 1026px) {
+    .midDex, .mainsc {
+        display: show;
+    }
+    .bgTooSmall {
+        display: none;
+    }
 }
