@@ -116,19 +116,23 @@
             </div>
         </div>
 
-        <!-- Right side of the Pokedex 
+        <!-- Right side of the Pokedex --> 
         
             <div id="sound-container">
-                <img id="sound-img" src="source/img/sound-svg.png" alt="sound">
+                <img id="sound-img" src="source/img/sound-svg.png" alt="sound"
+                style="
+                height: 40px;
+                width: 90px;
+                transform: translate(100px , -200px);
+                position: fixed;
+                cursor: pointer;
+            ">
             </div>
-            
+
             <div id="stats-container">
-                <div id="screen">
-                    <div id="screen-text">
-                        <div id="description-screen-text">
-                            <p>KAEL POKEDEX</p>
-                        </div>
-                        <div id="stats-screen-text">
+                <div id="screen-container">
+                    <div id="desc-screen">
+                        <div id="description-screen-text">KAEL POKEDEX
                             <ul id="pokemon-stats">
                                 <li>HP: 0</li>
                                 <li>Attack: 0</li>
@@ -139,16 +143,61 @@
                             </ul>
                         </div>
                     </div>
+                </div>                
+            </div>
+            
+            <div id="type-row">
+                <div id="type-container">
+                  <div id="type-screen">
+                    <div id="type-screen-text">TYPE:</div>
+                  </div>                  
                 </div>
-            </div>  -->              
-
-
-
-
-    </div>
-    
-
-    
+            </div> 
+            <div id="typ-placeholder-row">
+                <div id="typ-placeholder-container">
+                  <div id="typ-placeholder-screen">
+                    <div id="typ-placeholder-screen-text">Lorem</div>
+                  </div>                  
+                </div>
+            </div>
+            <div id="height-row">
+                <div id="height-container">
+                  <div id="height-screen">
+                    <div id="height-screen-text">Height: 0</div>
+                  </div>                  
+                </div>
+            </div>
+            <div id="weight-row">
+                <div id="weight-container">
+                  <div id="weight-screen">
+                    <div id="weight-screen-text">Weight: 0</div>
+                  </div>                  
+                </div>
+            </div> 
+            <div id="buttons-form-attk-container">
+                <div id="button-form" onclick="clickFormr()">
+                    Alternative Forms
+                  <div id="light-button-red-form" class="lights on">                    
+                  </div>
+                </div>
+                <div id="button-atk" onclick="clickAtk()">
+                    Attacks
+                  <div id="light-button-blue-atk" class="lights off">                    
+                  </div>
+                </div>
+            </div> 
+            <div id="buttons-prev-next-container">
+                <div id="button-prev" onclick="clickPrev()">
+                    Previous                 
+                </div>
+                <div id="button-next" onclick="clickNext()">
+                    Next               
+                </div>
+            </div>
+    </div>    
     <script src="js/design.js"></script>
 </body>
+<footer>
+    <medium>&copy; Copyright {{currentYear}}, Kael Moreira</medium>
+</footer>
 </html>

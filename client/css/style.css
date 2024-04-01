@@ -83,7 +83,7 @@ body, html {
     justify-content: start; 
     position: fixed;
     top: 10px; 
-    transform: translate(-350px, 200px);
+    transform: translate(-350px, 205px);
     z-index: 2; 
   }
   
@@ -162,10 +162,6 @@ body, html {
     align-items: center;
     position: fixed;
     transform: translate(0px, 0px);
-  }
-
-  .placeholder-pokemon-img {
-    
   }
 
   .small-circle-menu {
@@ -547,3 +543,323 @@ body, html {
         display: none;
     }
 }
+
+.soundContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    transform: translate(40px, -100px);
+}
+
+#stats-container{ 
+    display: flex;
+    justify-content: center;
+} 
+
+#screen-container{
+     width: 480px;
+     height: 100px; 
+     display: flex; 
+     align-items: fixed; 
+     justify-content: space-between; 
+     position:fixed;     
+    } 
+
+#desc-screen{ 
+    background-color: #000000; 
+    color: white; 
+    height: 200px; 
+    width: 320px; 
+    border: 1px solid #000000; 
+    text-align: center; 
+    font-size: 16px; 
+    display:flex; 
+    align-items: center; 
+    padding-left: 5px; 
+    text-transform: capitalize; 
+    box-shadow: inset 1px 1px #ffff, inset 2px 2px #ffffff; 
+    transform: translate(330px, -120px);
+}
+
+#desc-screen ul {
+    list-style-type: none;
+    padding: 0;
+    margin-left: 10px;
+    text-align: left;
+}
+
+#type-row{ 
+    display: flex;
+    justify-content: center;
+} 
+
+#type-container{
+     width: 400px;
+     height: 100px; 
+     display: flex; 
+     align-items: fixed; 
+     justify-content: space-between; 
+     position:fixed; 
+     transform: translate(290px, 100px);
+    } 
+
+#type-screen{ 
+    background-color: #fff; 
+    color: black; 
+    height: 35px; 
+    width: 70px; 
+    border: 1px solid #000000; 
+    text-align: center; 
+    font-size: 16px; 
+    display:flex; 
+    align-items: center; 
+    padding-left: 5px; 
+    text-transform: capitalize; 
+    box-shadow: inset 1px 1px #ffff, inset 2px 2px #000000; 
+}
+
+#typ-placeholder-row{ 
+    display: flex;
+    justify-content: center;
+} 
+
+#typ-placeholder-container{
+     width: 400px;
+     height: 100px; 
+     display: flex; 
+     align-items: fixed; 
+     justify-content: space-between; 
+     position:fixed; 
+     transform: translate(370px, 100px);
+    } 
+
+#typ-placeholder-screen{ 
+    background-color: #fff; 
+    color: black; 
+    height: 35px; 
+    width: 70px; 
+    border: 1px solid #000000; 
+    text-align: center; 
+    font-size: 16px; 
+    display:flex; 
+    align-items: center; 
+    padding-left: 5px; 
+    text-transform: capitalize; 
+    box-shadow: inset 1px 1px #ffff, inset 2px 2px #000000; 
+}
+
+#height-row{ 
+    display: flex;
+    justify-content: center;
+} 
+
+#height-container{
+     width: 400px;
+     height: 100px; 
+     display: flex; 
+     align-items: fixed; 
+     justify-content: space-between; 
+     position:fixed; 
+     transform: translate(290px,145px);     
+    } 
+
+#height-screen{ 
+    background-color: #000000; 
+    color: white; 
+    height: 35px; 
+    width: 120px; 
+    border: 1px solid #000000; 
+    text-align: center; 
+    font-size: 16px; 
+    display:flex; 
+    align-items: center; 
+    padding-left: 5px; 
+    text-transform: capitalize; 
+    box-shadow: inset 1px 1px #ffff, inset 2px 2px #ffffff; 
+}
+
+#weight-row{ 
+    display: flex;
+    justify-content: center;
+} 
+
+#weight-container{
+     width: 400px;
+     height: 100px; 
+     display: flex; 
+     align-items: fixed; 
+     justify-content: space-between; 
+     position:fixed; 
+     transform: translate(290px, 200px);
+    } 
+
+#weight-screen{ 
+    background-color: #000000; 
+    color: white; 
+    height: 35px; 
+    width: 120px; 
+    border: 1px solid #000000; 
+    text-align: center; 
+    font-size: 16px; 
+    display:flex; 
+    align-items: center; 
+    padding-left: 5px; 
+    text-transform: capitalize; 
+    box-shadow: inset 1px 1px #ffff, inset 2px 2px #ffffff; 
+}
+
+#buttons-form-attk-container{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: fixed;
+    transform: translate(340px, 130px);
+  }
+  #button-form{
+    width: 140px;
+    height: 35px;
+    background-color: #710000;
+    border-radius: 20px;
+    margin-bottom: 3px;
+    border: 1px solid #000000;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 4px;
+    box-shadow: 1px 1px #89061c,
+                2px 2px #89061c,
+                3px 3px #000000;
+    position: relative;
+    text-align: center;
+    color: white;
+    font-size: 12px;
+  }
+
+  #button-form:active{
+    box-shadow: none;
+    top: 3px;
+    right: -3px;
+  }
+
+  #button-atk{
+    width: 140px;
+    height: 35px;
+    background-color: #146b9f;
+    margin-top: 3px;
+    border: 1px solid #000000;
+    border-radius: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 1px 1px #0f537b,
+                2px 2px #0f537b,
+                3px 3px #000000;
+    position: relative;
+    text-align: center;
+    color: white;
+    font-size: 12px;
+  }
+
+  #button-atk:active{
+    box-shadow: none;
+    top: 3px;
+    right: -3px;
+  }
+
+  .lights{
+    height: 10px;
+    width: 10px;
+    margin: 5px;
+    border: 1px solid #232323;
+    border-radius: 50%;
+  }
+
+  .on{
+    background-color: #e3e98e;
+  }
+
+  .off{
+    background-color: #232323;
+  }
+
+  #buttons-prev-next-container{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: fixed;
+    transform: translate(340px, 130px);
+  }
+  #button-prev{
+    width: 70px;
+    height: 25px;
+    background-color: #000000;
+    border-radius: 20px;
+    margin-bottom: 3px;
+    border: 1px solid #ffffff;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 4px;
+    box-shadow: 1px 1px #ffffff,
+                2px 2px #ffffff,
+                3px 3px #000000;
+    position: relative;
+    text-align: center;
+    color: white;
+    font-size: 10px;
+    transform: translate(-60px, 100px);
+  }
+
+  #button-prev:active{
+    box-shadow: none;
+    top: 3px;
+    right: -3px;
+  }
+
+  #button-next{
+    width: 70px;
+    height: 25px;
+    background-color: #000000;
+    border-radius: 20px;
+    margin-bottom: 3px;
+    border: 1px solid #ffffff;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 4px;
+    box-shadow: 1px 1px #ffffff,
+                2px 2px #ffffff,
+                3px 3px #000000;
+    position: relative;
+    text-align: center;
+    color: white;
+    font-size: 10px;
+    transform: translate(30px, 70px);
+  }
+
+  #button-next:active{
+    box-shadow: none;
+    top: 3px;
+    right: -3px;
+  }
+
+  footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    background-color: #000000;
+    color: white;
+    font-family: 'BitGame', sans-serif;
+  }
