@@ -240,11 +240,11 @@ body, html {
     background-color: #52af5f; /* Same background as the box */
     color: white;
     height: 45px;
-    width: 140px;
+    width: 120px;
     border: 1px solid #000000;  
     text-align: center;
     font-family: 'BitGame', sans-serif;
-    font-size: 12px;         
+    font-size: 10px;         
     text-transform: capitalize; 
     box-shadow: inset 1px 1px #306938, inset 2px 2px #000000;
   }
@@ -426,7 +426,7 @@ body, html {
           position: absolute;
           top: 30px;
           left: 30px;
-  
+           z-index: -2; 
           box-shadow: -3px 2px #010101;
           -webkit-box-shadow: -3px 2px #010101;
           -moz-box-shadow: -3px 2px #010101;
@@ -452,20 +452,18 @@ body, html {
       border-left: 10px solid #9b9d6e;
     }
   
-      div#botcross
-      {
-          width: 30px;
-          height: 30px;
-          background-color: #222;
-      cursor: pointer;
-  
-          position: absolute;
-          bottom: 0;
-          left: 30px;
-  
-          box-shadow: 2px 3px #010101, 3px 4px #010101;
-          border-bottom-left-radius: 5px;
-          border-bottom-right-radius: 5px;
+    div#botcross {
+        width: 30px;
+        height: 30px;
+        background-color: #222;
+        cursor: pointer;
+        position: absolute;
+        bottom: 0;
+        left: 30px;
+        z-index: 20; /* Ensure it's above other elements */
+        box-shadow: 2px 3px #010101, 3px 4px #010101;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
       }
     div#botcross:active div#downT{
       border-top: 10px solid #9b9d6e;

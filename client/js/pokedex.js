@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let shiny = false; // Assuming 'shiny' and 'frontView' are defined here for demonstration
     let frontView = true;
     let numPokemon = 1; // Example default value
+    let lastPokemon = 1025;
 
     // Fetch and populate the dropdown with Pokémon names
     fetch('https://pokeapi.co/api/v2/pokemon?limit=1025')
@@ -150,6 +151,30 @@ window.clickNormalColor = function() {
   document.getElementById("light-button-red").classList.remove("off");
   document.getElementById("light-button-blue").classList.remove("on");
   document.getElementById("light-button-blue").classList.add("off");
+};
+
+window.clickLeftRight = function() {
+  frontView = !frontView;
+  setURLimage();
+};
+
+window.clickUp = function() {
+  if (numPokemon > 1) {
+      numPokemon -= 1;
+  } else {
+      numPokemon = lastPokemon; // If at the first pokemon, wrap to the last
+  }
+  fetchAndDisplayPokemon(numPokemon.toString(), true);
+};
+
+window.clickBottom = function() {
+  console.log("clickBottom function called");
+  if (numPokemon < lastPokemon) {
+      numPokemon += 1;
+  } else {
+      numPokemon = 1; // If at the last pokemon, wrap to the first
+  }
+  fetchAndDisplayPokemon(numPokemon.toString(), true);
 };
 
 });
