@@ -78,6 +78,7 @@ document.addEventListener('DOMContentLoaded', function() {
             selectPokemonByName(selectElement, data.name);
             clearErrorMessage(errorElementId); 
             numPokemon = data.id;
+            playPokemonCry(data.id);
           })
           .catch(error => {
             console.error('Error fetching Pokémon details:', error);
@@ -121,6 +122,12 @@ document.addEventListener('DOMContentLoaded', function() {
       // Update the image source
       document.getElementById('placeholder-pokemon-img').src = url;
     }
+
+    function playPokemonCry(pokemonId) {
+      const cryUrl = `https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/${pokemonId}.ogg`;
+      const audio = new Audio(cryUrl);
+      audio.play();
+  }
   
   // Implementation of the clickShinyColor function
   // Making clickShinyColor globally accessible
