@@ -9,7 +9,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const nameScreenText = document.getElementById('name-screen-text');
     const errorElementId = 'error-message'; // ID for the error message element
     let gender = 'male'; // Default gender
-  
+    let shiny = false; // Assuming 'shiny' and 'frontView' are defined here for demonstration
+    let frontView = true;
+    let numPokemon = 1; // Example default value
+
     // Fetch and populate the dropdown with Pokémon names
     fetch('https://pokeapi.co/api/v2/pokemon?limit=1025')
       .then(response => response.json())
@@ -73,7 +76,8 @@ document.addEventListener('DOMContentLoaded', function() {
             updateDisplays(data, nameScreenText, searchInput);
             updateSprite(data, placeholderPokemonImg, staticImg, gender);
             selectPokemonByName(selectElement, data.name);
-            clearErrorMessage(errorElementId); // Clears any existing error message.
+            clearErrorMessage(errorElementId); 
+            numPokemon = data.id;
           })
           .catch(error => {
             console.error('Error fetching Pokémon details:', error);
@@ -82,5 +86,64 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+
+    async function setURLimage() {
+      var url = '';
+      if (gender === 'male') {
+          url = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon";
+          if (!frontView) {
+              url += "/back";
+          }
+          if (shiny) {
+              url += "/shiny";
+          }
+          url += "/" + numPokemon + ".png";
+      } else {
+          await fetch("https://pokeapi.co/api/v2/pokemon/" + numPokemon)
+              .then((response) => response.json())
+              .then((data) => {
+                  if (data.sprites.front_female !== null && gender === 'female') {
+                      if (frontView) {
+                          url = shiny ? data.sprites.front_shiny_female : data.sprites.front_female;
+                      } else {
+                          url = shiny ? data.sprites.back_shiny_female : data.sprites.back_female;
+                      }
+                  } else {
+                      if (frontView) {
+                          url = shiny ? data.sprites.front_shiny : data.sprites.front_default;
+                      } else {
+                          url = shiny ? data.sprites.back_shiny : data.sprites.back_default;
+                      }
+                  }
+              });
+              document.getElementById('placeholder-pokemon-img').src = url;
+      }
+      // Update the image source
+      document.getElementById('placeholder-pokemon-img').src = url;
+    }
+  
+  // Implementation of the clickShinyColor function
+  // Making clickShinyColor globally accessible
+  window.clickShinyColor = function() {
+    shiny = !shiny; // Toggle the shiny state
+    setURLimage(); // Update the image to reflect the shiny state
+    // Toggle the light buttons to reflect the shiny state
+    document.getElementById("light-button-red").classList.toggle("on", !shiny);
+    document.getElementById("light-button-red").classList.toggle("off", shiny);
+    document.getElementById("light-button-blue").classList.toggle("on", shiny);
+    document.getElementById("light-button-blue").classList.toggle("off", !shiny);
+};
+
+window.clickNormalColor = function() {
+  shiny = false; // Set shiny to false to get the normal sprite
+  setURLimage(); // Update the image to reflect the normal state
+
+  // Update UI elements to reflect the normal state
+  document.getElementById("light-button-red").classList.add("on");
+  document.getElementById("light-button-red").classList.remove("off");
+  document.getElementById("light-button-blue").classList.remove("on");
+  document.getElementById("light-button-blue").classList.add("off");
+};
+
 });
   
