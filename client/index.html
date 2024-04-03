@@ -153,6 +153,27 @@
             <div id="typ-placeholder-container">
                 <img id="typ-placeholder-screen-text" src="" alt="Type 2" />
             </div>
+
+
+            <div id="moves-container">
+                <div id="screen-moves-container">
+                    <div id="moves-screen">                    
+                        <div id="move-details">
+                            <div id="move-name" class="move-detail"></div>                
+                            <div id="move-type" class="move-detail"></div>
+                            <div id="move-power" class="move-detail"></div>
+                            <div id="move-pp" class="move-detail"></div>
+                            <div id="move-accuracy" class="move-detail"></div>
+                            <div id="move-level" class="move-detail"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="button-next-move-container">
+                <div id="button-move" onclick="clickNextMove()">                                 
+                </div>
+            </div>
             
             <div id="height-row">
                 <div id="height-container">
@@ -169,14 +190,15 @@
                 </div>
             </div> 
 
+
             <div id="buttons-form-attk-container">
+                <div id="button-stats" onclick="clickFormr()">
+                    Stats
+                  <div id="light-button-green-form" class="lights on"></div>
+                </div>
                 <div id="button-form" onclick="clickFormr()">
                     Alternative Forms
-                  <div id="light-button-red-form" class="lights on"></div>
-                </div>
-                <div id="button-atk" onclick="clickAtk()">
-                    Attacks
-                  <div id="light-button-blue-atk" class="lights off"></div>
+                  <div id="light-button-red-form" class="lights off"></div>
                 </div>
             </div> 
             

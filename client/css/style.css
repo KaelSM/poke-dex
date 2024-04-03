@@ -487,7 +487,7 @@ body, html {
     border-radius: 50%;
   }
   .on{
-    background-color: #e3e98e;
+    background-color: #ffe600;
   }
   .off{
     background-color: #232323;
@@ -598,7 +598,7 @@ body, html {
     padding-left: 20px; 
     text-transform: capitalize; 
     box-shadow: inset 1px 1px #ffff, inset 2px 2px #ffffff; 
-    transform: translate(327px, -100px);
+    transform: translate(327px, -120px);
 }
 
 #desc-screen ul {
@@ -641,7 +641,7 @@ body, html {
      align-items: fixed; 
      justify-content: space-between; 
      position:fixed; 
-     transform: translate(290px, 80px);
+     transform: translate(290px, 40px);
     } 
 
 #type-screen{ 
@@ -671,7 +671,7 @@ body, html {
      align-items: fixed; 
      justify-content: space-between; 
      position:fixed; 
-     transform: translate(370px, 80px);
+     transform: translate(370px, 40px);
     } 
 
 #typ-placeholder-screen{ 
@@ -701,7 +701,7 @@ body, html {
      align-items: fixed; 
      justify-content: space-between; 
      position:fixed; 
-     transform: translate(290px,145px);     
+     transform: translate(290px,90px);     
     } 
 
 #height-screen{ 
@@ -731,7 +731,7 @@ body, html {
      align-items: fixed; 
      justify-content: space-between; 
      position:fixed; 
-     transform: translate(290px, 200px);
+     transform: translate(290px, 140px);
     } 
 
 #weight-screen{ 
@@ -749,20 +749,91 @@ body, html {
     box-shadow: inset 1px 1px #ffff, inset 2px 2px #ffffff; 
 }
 
+#moves-container{ 
+  display: flex;
+  justify-content: center;
+} 
+
+#screen-moves-container{
+   width: 480px;
+   height: 100px; 
+   display: flex; 
+   align-items: fixed; 
+   justify-content: space-between; 
+   position:fixed;     
+  } 
+
+#moves-screen{ 
+  background-color: #000000; 
+  color: white; 
+  height: 80px; 
+  width: 210px; 
+  border: 1px solid #000000; 
+  text-align: left; 
+  font-size: 10px; 
+  display:flex; 
+  align-items: center; 
+  padding-left: 20px; 
+  text-transform: capitalize; 
+  box-shadow: inset 1px 1px #ffff, inset 2px 2px #ffffff; 
+  transform: translate(327px, 190px);
+}
+
+#moves-screen ul {
+  list-style-type: none;
+  padding: 0;
+  margin-left: 10px;
+  text-align: left;
+}
+
+#button-next-move-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: fixed;
+  /* Adjust the transform values to place the button where you need it */
+  transform: translate(370px, 230px); 
+}
+
+#button-move {
+  width: 50px; /* Diameter of the circle */
+  height: 50px; /* Diameter of the circle */
+  background-color: #f8e825; /* Yellow color */
+  border-radius: 50%; /* This makes it circular */
+  border: 1px solid #000000;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 1px 1px #f8e825,
+              2px 2px #f8e825,
+              3px 3px #000000;             
+  position: relative;
+}
+
+#button-move:active {
+  box-shadow: none;
+  top: 3px;
+  right: -3px;
+}
+
 #buttons-form-attk-container{
     display:flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     position: fixed;
-    transform: translate(340px, 130px);
+    transform: translate(340px, 90px);
   }
+  
   #button-form{
     width: 140px;
     height: 35px;
     background-color: #710000;
     border-radius: 20px;
-    margin-bottom: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     border: 1px solid #000000;
     cursor: pointer;
     display: flex;
@@ -782,21 +853,21 @@ body, html {
     box-shadow: none;
     top: 3px;
     right: -3px;
-  }
+  } 
 
-  #button-atk{
+  #button-stats{
     width: 140px;
     height: 35px;
-    background-color: #146b9f;
-    margin-top: 3px;
+    background-color: #0e7e1d;
+    margin-top: 10px;
     border: 1px solid #000000;
     border-radius: 20px;
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 1px 1px #0f537b,
-                2px 2px #0f537b,
+    box-shadow: 1px 1px #0e7e1d,
+                2px 2px #0e7e1d,
                 3px 3px #000000;
     position: relative;
     text-align: center;
@@ -804,7 +875,7 @@ body, html {
     font-size: 12px;
   }
 
-  #button-atk:active{
+  #button-stats:active{
     box-shadow: none;
     top: 3px;
     right: -3px;
@@ -818,17 +889,9 @@ body, html {
     border-radius: 50%;
   }
 
-  .on{
-    background-color: green;
+  #move-details {
+    display: none; /* Hide by default */
   }
-
-  .off{
-    background-color: grey;
-  }
-
-.active .lights {
-  background-color: green; /* Example active color */
-}
 
   #buttons-prev-next-container{
     display:flex;
@@ -836,7 +899,7 @@ body, html {
     align-items: center;
     flex-direction: column;
     position: fixed;
-    transform: translate(340px, 140px);
+    transform: translate(340px, 80px);
   }
   #button-prev{
     width: 70px;

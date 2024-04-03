@@ -1,7 +1,5 @@
 // Defines utility functions related to updating UI components and fetching data
 let isAttackShown = false;
-let pokemonMoves = []; // Stores the detailed move data
-let currentMoveIndex = 0; 
 
 
 function updateDisplays(pokemonData, nameScreenTextElement, searchInputElement) {
@@ -78,89 +76,6 @@ function fetchAndDisplayPokemon(query, nameScreenTextElement, searchInputElement
           displayError('error-message', 'Pokémon not found!'); // Make sure error-message ID matches your HTML
         }
       });
-}
-
-function clickAtk() {
-  if (pokemonAttacks && pokemonAttacks.length > 0) {
-    currentAttackIndex = 0; // Reset to the first attack
-    displayAttack(pokemonAttacks[currentAttackIndex].move);
-  }
-}
-
-function clickPrev() {
-  if (currentMoveIndex > 0) {
-    currentMoveIndex--; // Decrease index to show previous move
-  } else {
-    currentMoveIndex = pokemonMoves.length - 1; // Wrap around to the last move
-  }
-  fetchMoveDetails(pokemonMoves[currentMoveIndex].move.url);
-}
-
-function clickNext() {
-  if (currentMoveIndex < pokemonMoves.length - 1) {
-    currentMoveIndex++; // Increase index to show next move
-  } else {
-    currentMoveIndex = 0; // Wrap around to the first move
-  }
-  fetchMoveDetails(pokemonMoves[currentMoveIndex].move.url);
-}
-function toggleAttackDisplay() {
-  const lightElement = document.getElementById('light-button-blue-atk');
-  lightElement.classList.toggle('on'); // Toggle the class 'on' to show the light is active
-
-  // Check the state of the light to decide what to do
-  if (lightElement.classList.contains('on')) {
-    // The light is now on, fetch the first move's data
-    fetchFirstMoveData();
-  } else {
-    // The light is now off, clear the attack information
-    clearAttackDisplay();
-  }
-}
-
-function fetchFirstMoveData() {
-  if (pokemonMoves.length > 0) {
-    fetchMoveDetails(pokemonMoves[0].move.url); // Assumes pokemonMoves is populated when the Pokémon is fetched
-  }
-}
-
-function fetchMoveDetails(url) {
-  fetch(url)
-    .then(response => response.json())
-    .then(moveDetails => {
-      displayMove(moveDetails); // Display the move details
-      pokemonMoves[currentMoveIndex] = moveDetails; // Update the current move's data
-    })
-    .catch(error => {
-      console.error('Failed to fetch move details:', error);
-    });
-}
-
-function displayMove(move) {
-  // Clear current move details
-  const descriptionElement = document.getElementById('pokemon-description');
-  const statsListElement = document.getElementById('pokemon-stats');
-  descriptionElement.textContent = '';
-  statsListElement.innerHTML = '';
-
-  // Display new move details
-  statsListElement.innerHTML = `
-    <li>Type: ${move.type.name}</li>
-    <li>Power: ${move.power || '—'}</li>
-    <li>PP: ${move.pp}</li>
-    <li>Accuracy: ${move.accuracy || '—'}</li>
-    <li>Effect: ${move.effect_entries.find(e => e.language.name === 'en').effect}</li>
-  `;
-
-  descriptionElement.textContent = move.flavor_text_entries.find(f => f.language.name === 'en').flavor_text;
-}
-
-function clearAttackDisplay() {
-  // Clear the attack details
-  const descriptionElement = document.getElementById('pokemon-description');
-  const statsListElement = document.getElementById('pokemon-stats');
-  descriptionElement.textContent = 'Description and stats cleared.';
-  statsListElement.innerHTML = '';
 }
 
 function getAssetType(type){
