@@ -4,7 +4,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const searchInput = document.getElementById('search-input');
     const maleIcon = document.querySelector('.fa-mars-stroke');
     const femaleIcon = document.querySelector('.fa-venus');
-    const placeholderPokemonImg = document.getElementById('placeholder-pokemon-img');
+    const type1Element = document.getElementById("type-screen-text"); 
+    const type2Element = document.getElementById("typ-placeholder-screen-text");    const placeholderPokemonImg = document.getElementById('placeholder-pokemon-img');
     const staticImg = document.getElementById('static-img');
     const nameScreenText = document.getElementById('name-screen-text');
     const errorElementId = 'error-message'; // ID for the error message element
@@ -80,13 +81,51 @@ document.addEventListener('DOMContentLoaded', function() {
             clearErrorMessage(errorElementId); 
             numPokemon = data.id;
             playPokemonCry(data.id);
+            type1Element.src = '';
+            type2Element.src = '';
+            
+            // Update Stats
+            document.getElementById('stat-hp').textContent = `HP: ${data.stats.find(stat => stat.stat.name === 'hp').base_stat}`;
+            document.getElementById('stat-attack').textContent = `Attack: ${data.stats.find(stat => stat.stat.name === 'attack').base_stat}`;
+            document.getElementById('stat-defense').textContent = `Defense: ${data.stats.find(stat => stat.stat.name === 'defense').base_stat}`;
+            document.getElementById('stat-special-attack').textContent = `Special Attack: ${data.stats.find(stat => stat.stat.name === 'special-attack').base_stat}`;
+            document.getElementById('stat-special-defense').textContent = `Special Defense: ${data.stats.find(stat => stat.stat.name === 'special-defense').base_stat}`;
+            document.getElementById('stat-speed').textContent = `Speed: ${data.stats.find(stat => stat.stat.name === 'speed').base_stat}`;
+            document.getElementById('weight-screen-text').textContent = `Weight: ${data.weight}`;
+            document.getElementById('height-screen-text').textContent = `Height: ${data.height}`;
+
+            if (data.types.length > 0) {
+              type1Element.src = getAssetType(data.types[0].type.name);
+              type1Element.style.display = 'block';
+            } else {
+              type1Element.style.display = 'none';
+            }
+
+            if (data.types.length > 1) {
+              type2Element.src = getAssetType(data.types[1].type.name);
+              type2Element.style.display = 'block';
+            } else {
+              type2Element.style.display = 'none';
+            }
+
+
+            return fetch(data.species.url);
+          })
+          
+          .then(response => {
+            if (!response.ok) throw new Error('Species not found');
+            return response.json();
+          })
+          .then(speciesData => {
+            const flavorTextEntry = speciesData.flavor_text_entries.find(entry => entry.language.name === 'en');
+            document.getElementById('pokemon-description').textContent = `Description: ${flavorTextEntry.flavor_text.replace(/[\n\f]/g, ' ')}`;
           })
           .catch(error => {
-            console.error('Error fetching Pokémon details:', error);
+            console.error('Error:', error);
             if (isUserInitiated) {
-              displayError(errorElementId, 'Pokémon not found!');
+              displayError(errorElementId, 'Failed to fetch Pokémon details!');
             }
-        });
+          });
     }
 
     async function setURLimage() {

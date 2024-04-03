@@ -89,24 +89,13 @@
                 </div>
             </div>   
 
-            <div id="arrows-container">
-                <div id="cross">
-                    <div id="leftcross" onclick="clickLeftRight()">
-                        <div id="leftT"></div>
-                    </div>
-                    <div id="topcross" onclick="clickUp()">
-                        <div id="upT"></div>
-                    </div>
-                    <div id="rightcross" onclick="clickLeftRight()">
-                        <div id="rightT"></div>
-                    </div>
-                    <div id="midcross">
-                        <div id="midCircle"></div>
-                    </div>
-                    <div id="botcross" onclick="clickBottom()">
-                        <div id="downT"></div>
-                    </div>
-                                      
+            <div id="controls-container">
+                <div class="dpad">
+                    <div class="up"><i class="fa fa-caret-up"></i></div>
+                    <div class="right"><i class="fa fa-caret-right"></i></div>
+                    <div class="down"><i class="fa fa-caret-down"></i></div>
+                    <div class="left"><i class="fa fa-caret-left"></i></div>
+                    <div class=middle></div>
                 </div>
             </div>
 
@@ -143,45 +132,40 @@
             <div id="stats-container">
                 <div id="screen-container">
                     <div id="desc-screen">
-                        <div id="description-screen-text">KAEL POKEDEX
+                        <div id="description-screen-text">
+                            <p id="pokemon-description"></p>
                             <ul id="pokemon-stats">
-                                <li>HP: 0</li>
-                                <li>Attack: 0</li>
-                                <li>Defense: 0</li>
-                                <li>Special Attack: 0</li>
-                                <li>Special Defense: 0</li>
-                                <li>Speed: 0</li>
+                                <li id="stat-hp"></li>
+                                <li id="stat-attack"></li>
+                                <li id="stat-defense"> </li>
+                                <li id="stat-special-attack"> </li>
+                                <li id="stat-special-defense"> </li>
+                                <li id="stat-speed"> </li>
                             </ul>
                         </div>
                     </div>
                 </div>                
             </div>
+
+
+            <div id="type-container">
+                <img id="type-screen-text" src="" alt="Type 1" />
+              </div>
+              <div id="typ-placeholder-container">
+                <img id="typ-placeholder-screen-text" src="" alt="Type 2" />
+              </div>
             
-            <div id="type-row">
-                <div id="type-container">
-                  <div id="type-screen">
-                    <div id="type-screen-text">Lorem</div>
-                  </div>                  
-                </div>
-            </div> 
-            <div id="typ-placeholder-row">
-                <div id="typ-placeholder-container">
-                  <div id="typ-placeholder-screen">
-                    <div id="typ-placeholder-screen-text">Lorem</div>
-                  </div>                  
-                </div>
-            </div>
             <div id="height-row">
                 <div id="height-container">
                   <div id="height-screen">
-                    <div id="height-screen-text">Height: 0</div>
+                    <div id="height-screen-text"></div>
                   </div>                  
                 </div>
             </div>
             <div id="weight-row">
                 <div id="weight-container">
                   <div id="weight-screen">
-                    <div id="weight-screen-text">Weight: 0</div>
+                    <div id="weight-screen-text"></div>
                   </div>                  
                 </div>
             </div> 
@@ -211,7 +195,6 @@
     <script src="https://unpkg.com/vue@next"></script>
     <!-- Global usage-->    
     <script src="js/design.js"></script>
-    <script src="js/globalVariables.js"></script>
     <script src="js/functions.js"></script>
     <script src="js/pokedex.js"></script>
 

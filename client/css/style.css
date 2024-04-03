@@ -292,182 +292,141 @@ body, html {
     box-shadow: inset 1px 1px #306938, inset 2px 2px #000000;
   } 
 
-  #arrows-container {
+  #controls-container {
     display: flex;
     transform: translate(-70px, 200px);
     position: fixed;
+    justify-content:space-between;
+      
+    .dpad {
+      position:relative;
+      display:inline-block;
+      width:90px;
+      height:90px;
+      z-index:5;
+      
+      > * {
+        width:33%;
+        height:33%;
+        position:absolute;
+        background-color:#565e6a;
+        cursor:pointer;
+        
+        i {
+          position:relative;
+          display:block;
+          margin:0 auto;
+          text-align:center;
+          height:100%;
+          font-size:28px;
+          color:#333a4a;
+          text-shadow:0px -0.5px 0px #aaa;
+        }
+      }
+      
+      .up {
+        top:calc(0% + 4px);
+        left:33%;
+        border-top:4px solid black;
+        border-left:4px solid black;
+        border-right:4px solid black;
+        border-radius:5px 5px 0px 0px;
+        
+        &:active {
+          background:linear-gradient(to top, #565e6a 0%, #333 100%);
+        }
+        
+        i {
+          top:-5px;
+        }
+      }
+      .right {
+        top:33%;
+        left:calc(75% - 4px);
+        border-top:4px solid black;
+        border-bottom:4px solid black;
+        border-right:4px solid black;
+        border-radius:0px 5px 5px 0px;
+        box-shadow:0px -2px 0px #888 inset;
+        
+        &:active {
+          background:linear-gradient(to right, #565e6a 0%, #333 100%);
+        }
+        
+        i {
+          top:-5px;
+        }
+      }
+      .down {
+        top: calc(75% - 4px);
+        left: 33%;
+        border-left: 4px solid black;
+        border-bottom: 4px solid black;
+        border-right: 4px solid black;
+        border-radius: 0px 0px 5px 5px;
+        box-shadow: 0px -2px 0px #888 inset;
+        cursor: pointer; /* Ensure the cursor changes to a pointer */
+      
+        &:active {
+          background: linear-gradient(to bottom, #565e6a 0%, #333 100%);
+        }
+      }
+      
+      .left {
+        top:33%;
+        left:calc(-5% + 4px);
+        border-top:4px solid black;
+        border-bottom:4px solid black;
+        border-left:4px solid black;
+        border-radius:5px 0px 0px 5px;
+        box-shadow:0px -2px 0px #888 inset;
+        
+        i {
+          top:-5px;
+        }
+        
+        &:active {
+          background:linear-gradient(to left, #565e6a 0%, #333 100%);
+        }
+      }
+      .middle {
+        top:33%;
+        left:33%;
+        width:40%;
+        height:40%;
+        z-index:-5;
+        
+        &::after {
+          content:'';
+          position:absolute;
+          top:20%;
+          left:20%;
+          display:inline-block;
+          border:1px solid #6e737a;
+          background:linear-gradient(to bottom, #6d7075 0%, #6d7075 30%, #23272f 70%, #23272f 100%);
+          border-radius:50%;
+          height:60%;
+          width:60%;
+        }
+      }
+      
+      .up-down {
+        background-color:#565e6a;
+        border:4px solid black;
+                border-radius:5px;
+        width:20px;
+        height:60px;
+      }
+      .left-right {
+        background-color:#565e6a;
+        border:4px solid black;
+        border-radius:5px;
+        width:60px;
+        height:20px;
+      }
+    }
   }
   
-  div#upT
-      {
-          width: 0;
-          height: 0;
-          border-left: 10px solid transparent;
-          border-right: 10px solid transparent;
-          border-bottom: 10px solid #111;
-          position: absolute;
-          top: 5px;
-          left: 4px;
-      }
-  
-      div#downT
-      {
-          width: 0;
-          height: 0;
-          border-left: 10px solid transparent;
-          border-right: 10px solid transparent;
-          border-top: 10px solid #111;
-  
-          position: absolute;
-          bottom: 5px;
-          left: 4px;
-      }
-  
-      div#leftT
-      {
-          width: 0;
-          height: 0;
-          border-top: 10px solid transparent;
-          border-right: 10px solid #111;
-          border-bottom: 10px solid transparent;
-  
-          position: absolute;
-          top: 5px;
-          left: 4px;
-      }
-  
-      div#rightT
-      {
-          width: 0;
-          height: 0;
-          border-top: 10px solid transparent;
-          border-left: 10px solid #111;
-          border-bottom: 10px solid transparent;
-  
-          position: absolute;
-          top: 5px;
-          right: 5px;
-      }
-  
-      div#midCircle
-      {
-          width: 20px;
-          height: 20px;
-  
-          position: absolute;
-          top: 5px;
-          left: 4px;
-  
-          border-radius: 30px;
-          -webkit-border-radius: 30px;
-          -moz-border-radius: 30px;
-          -o-border-radius: 30px;
-  
-          background: radial-gradient(#111, #222);
-          background: -webkit-radial-gradient(#111, #222);
-          background: -moz-radial-gradient(#111, #222);
-          background: -o-radial-gradient(#111, #222);
-      } 
-  div#cross
-      {
-          width: 90px;
-          height: 90px;
-  
-          position: relative;
-      }
-  
-      div#topcross
-      {
-          width: 30px;
-          height: 30px;
-          background-color: #222;
-      cursor: pointer;
-  
-          position: absolute;
-          top: 0;
-          left: 30px;
-  
-          box-shadow: 3px 2px 0px 0px #010101;
-          border-top-left-radius: 5px;
-          border-top-right-radius: 5px;
-      }
-    div#topcross:active div#upT{
-      border-bottom: 10px solid #9b9d6e;
-    }
-  
-      div#leftcross
-      {
-          width: 30px;
-          height: 30px;
-          background-color: #222;
-          z-index: 1;
-      cursor: pointer;
-  
-          position: absolute;
-          left: 0;
-          top: 30px;
-  
-          box-shadow: 0px 4px 0px -2px #010101, 
-                  1px 6px 0px -2px #010101, 
-                  2px 7px 0px -2px #010101;
-          border-top-left-radius: 5px;
-          border-bottom-left-radius: 5px;
-      }
-    div#leftcross:active div#leftT{
-      border-right: 10px solid #9b9d6e;
-    }
-  
-      div#midcross
-      {
-          width: 30px;
-          height: 30px;
-          background-color: #222;
-  
-          position: absolute;
-          top: 30px;
-          left: 30px;
-           z-index: -2; 
-          box-shadow: -3px 2px #010101;
-          -webkit-box-shadow: -3px 2px #010101;
-          -moz-box-shadow: -3px 2px #010101;
-          -o-box-shadow: -3px 2px #010101;
-      }
-  
-      div#rightcross
-      {
-          width: 30px;
-          height: 30px;
-          background-color: #222;
-      cursor: pointer;
-  
-          position: absolute;
-          top: 30px;
-          right: 0;
-  
-          box-shadow: 1px 3px 0 2px #010101;
-          border-top-right-radius: 5px;
-          border-bottom-right-radius: 5px;
-      }
-    div#rightcross:active div#rightT{
-      border-left: 10px solid #9b9d6e;
-    }
-  
-    div#botcross {
-        width: 30px;
-        height: 30px;
-        background-color: #222;
-        cursor: pointer;
-        position: absolute;
-        bottom: 0;
-        left: 30px;
-        z-index: 20; /* Ensure it's above other elements */
-        box-shadow: 2px 3px #010101, 3px 4px #010101;
-        border-bottom-left-radius: 5px;
-        border-bottom-right-radius: 5px;
-      }
-    div#botcross:active div#downT{
-      border-top: 10px solid #9b9d6e;
-    }
   
   #buttons-container{
     display:flex;
@@ -629,17 +588,17 @@ body, html {
 #desc-screen{ 
     background-color: #000000; 
     color: white; 
-    height: 200px; 
-    width: 320px; 
+    height: 150px; 
+    width: 310px; 
     border: 1px solid #000000; 
-    text-align: center; 
-    font-size: 16px; 
+    text-align: left; 
+    font-size: 10px; 
     display:flex; 
     align-items: center; 
-    padding-left: 5px; 
+    padding-left: 20px; 
     text-transform: capitalize; 
     box-shadow: inset 1px 1px #ffff, inset 2px 2px #ffffff; 
-    transform: translate(330px, -120px);
+    transform: translate(327px, -100px);
 }
 
 #desc-screen ul {
@@ -647,6 +606,27 @@ body, html {
     padding: 0;
     margin-left: 10px;
     text-align: left;
+}
+
+#type-screen-text, #typ-placeholder-screen-text {
+  display: inline-block;
+  text-align: center;
+  padding: 0.5px 7px;
+  font-weight: bold;
+  color: white;
+  transform: translate(5px, 60px);
+}
+
+#type-screen-text, #typ-placeholder-screen-text {
+  width: 50px; /* Fixed width, adjust as needed */
+  height: 20px; /* Maintain aspect ratio */
+  border-radius: 10px; /* If you want rounded corners for your images */
+
+}
+
+/* You may want to hide the images by default and only show them when a source is set */
+#type-screen-text, #typ-placeholder-screen-text {
+  display: none;
 }
 
 #type-row{ 
@@ -661,7 +641,7 @@ body, html {
      align-items: fixed; 
      justify-content: space-between; 
      position:fixed; 
-     transform: translate(290px, 100px);
+     transform: translate(290px, 80px);
     } 
 
 #type-screen{ 
@@ -691,7 +671,7 @@ body, html {
      align-items: fixed; 
      justify-content: space-between; 
      position:fixed; 
-     transform: translate(370px, 100px);
+     transform: translate(370px, 80px);
     } 
 
 #typ-placeholder-screen{ 
@@ -731,7 +711,7 @@ body, html {
     width: 120px; 
     border: 1px solid #000000; 
     text-align: center; 
-    font-size: 16px; 
+    font-size: 14px; 
     display:flex; 
     align-items: center; 
     padding-left: 5px; 
@@ -761,7 +741,7 @@ body, html {
     width: 120px; 
     border: 1px solid #000000; 
     text-align: center; 
-    font-size: 16px; 
+    font-size: 14px; 
     display:flex; 
     align-items: center; 
     padding-left: 5px; 
@@ -782,7 +762,7 @@ body, html {
     height: 35px;
     background-color: #710000;
     border-radius: 20px;
-    margin-bottom: 3px;
+    margin-bottom: 20px;
     border: 1px solid #000000;
     cursor: pointer;
     display: flex;
@@ -852,7 +832,7 @@ body, html {
     align-items: center;
     flex-direction: column;
     position: fixed;
-    transform: translate(340px, 130px);
+    transform: translate(340px, 140px);
   }
   #button-prev{
     width: 70px;
