@@ -14,6 +14,9 @@ document.addEventListener('DOMContentLoaded', function() {
     let frontView = true;
     let numPokemon = 1; // Example default value
     let lastPokemon = 1025;
+    document.getElementById('button-atk').addEventListener('click', toggleAttackDisplay);
+    document.getElementById('button-prev').addEventListener('click', clickPrev);
+    document.getElementById('button-next').addEventListener('click', clickNext);
 
     // Fetch and populate the dropdown with Pokémon names
     fetch('https://pokeapi.co/api/v2/pokemon?limit=1025')
@@ -83,6 +86,7 @@ document.addEventListener('DOMContentLoaded', function() {
             playPokemonCry(data.id);
             type1Element.src = '';
             type2Element.src = '';
+            pokemonAttacks = data.moves;
             
             // Update Stats
             document.getElementById('stat-hp').textContent = `HP: ${data.stats.find(stat => stat.stat.name === 'hp').base_stat}`;
@@ -107,7 +111,6 @@ document.addEventListener('DOMContentLoaded', function() {
             } else {
               type2Element.style.display = 'none';
             }
-
 
             return fetch(data.species.url);
           })

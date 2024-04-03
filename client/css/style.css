@@ -819,12 +819,16 @@ body, html {
   }
 
   .on{
-    background-color: #e3e98e;
+    background-color: green;
   }
 
   .off{
-    background-color: #232323;
+    background-color: grey;
   }
+
+.active .lights {
+  background-color: green; /* Example active color */
+}
 
   #buttons-prev-next-container{
     display:flex;
