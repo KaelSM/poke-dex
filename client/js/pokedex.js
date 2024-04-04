@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function() {
         fetch(moveUrl)
           .then(response => response.json())
           .then(moveData => {
-            document.getElementById('move-name').textContent = moveData.name;
+            document.getElementById('move-name').textContent = ` ${moveData.name}`;
             document.getElementById('move-type').textContent = `Type: ${moveData.type.name}`;
             document.getElementById('move-learn-method').textContent = `Learn by: ${pokemonMoves[currentMoveIndex].version_group_details[0].move_learn_method.name}`;
             document.getElementById('move-level-learn').textContent = `Learned lvl: ${pokemonMoves[currentMoveIndex].version_group_details[0].level_learned_at}`;
@@ -139,22 +139,19 @@ document.addEventListener('DOMContentLoaded', function() {
                   type2Element.style.display = 'none';
               }
   
-               // Fetch and Display Move (Only the first move)
-            // Fetch and Display First Move
             if (data.moves.length > 0) {
-              // const firstMoveData = data.moves[0];
-              // const firstMoveUrl = firstMoveData.move.url;
+              
               const moveUrl = data.moves[currentMoveIndex].move.url
-              return fetch(moveUrl) // Fetch the move details
+              fetch(moveUrl) 
                 .then(moveResponse => moveResponse.json())
                 .then(moveData => {
                   document.getElementById('move-name').textContent = `${moveData.name}`;
                   // Type of the move
                   document.getElementById('move-type').textContent =  `Type: ${moveData.type.name}`; 
                   // Learn method (assuming the first listed method)
-                  document.getElementById('move-learn-method').textContent = `Learn by: ${firstMoveData.version_group_details[0].move_learn_method.name}`;
+                  document.getElementById('move-learn-method').textContent = `Learn by: ${moveData.version_group_details[0].move_learn_method.name}`;
                   // Level learned at (assuming the first listed method)
-                  document.getElementById('move-level-learn').textContent = `Learned lvl: ${firstMoveData.version_group_details[0].level_learned_at}`;
+                  document.getElementById('move-level-learn').textContent = `Learned lvl: ${moveData.version_group_details[0].level_learned_at}`;
                   // Category of the move
                   document.getElementById('move-category').textContent = `Category: ${moveData.damage_class.name}`;
                   // Accuracy of the move
@@ -165,7 +162,11 @@ document.addEventListener('DOMContentLoaded', function() {
                   document.getElementById('move-pp').textContent = `PP: ${moveData.pp}`;
       
                   // Continue chaining with the species data fetch
-                  return fetch(data.species.url);
+                  return fetch(data.species.url)
+                })
+                .catch(error => {
+                  console.error('Error fetching move data:', error);
+                  // Consider adding error display here, specific to move data
                 });
             } else {
               document.getElementById('move-name').textContent = 'No moves';
@@ -176,22 +177,28 @@ document.addEventListener('DOMContentLoaded', function() {
               document.getElementById('move-accuracy').textContent = '';
               document.getElementById('move-power').textContent = '';
               document.getElementById('move-pp').textContent = '';
-      }
-    })
-        .then(response => {
-            if (!response.ok) throw new Error('Species not found');
-            return response.json();
-        })
+              
+          } 
+
+        // Nested fetch for species data (Correct Promise Chaining)
+      fetch(data.species.url) 
+        .then(speciesResponse => speciesResponse.json())
         .then(speciesData => {
-            const flavorTextEntry = speciesData.flavor_text_entries.find(entry => entry.language.name === 'en');
-            document.getElementById('pokemon-description').textContent = `Description: ${flavorTextEntry.flavor_text.replace(/[\n\f]/g, ' ')}`;
+          const flavorTextEntry = speciesData.flavor_text_entries.find(entry => entry.language.name === 'en');
+          document.getElementById('pokemon-description').textContent = `Description: ${flavorTextEntry.flavor_text.replace(/[\n\f]/g, ' ')}`;
         })
         .catch(error => {
-            console.error('Error:', error);
-            if (isUserInitiated) {
-                displayError(errorElementId, 'Failed to fetch Pokémon details!');
-            }
+          console.error('Error fetching species data:', error);
+          // Consider adding error display here, specific to species data
         });
+
+    })
+    .catch(error => {
+      console.error('Error fetching Pokémon data:', error); // Main error logging
+      if (isUserInitiated) { 
+        displayError(errorElementId, 'Failed to fetch Pokémon details!');
+      }
+    });
 }
   
   
