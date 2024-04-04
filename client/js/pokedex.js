@@ -68,6 +68,31 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       }
     });
+
+    window.clickNextMove = function() {
+      if (pokemonMoves.length > 0) {
+        currentMoveIndex = (currentMoveIndex + 1) % pokemonMoves.length; // Cycle through moves
+        const moveUrl = pokemonMoves[currentMoveIndex].move.url;
+    
+        // Fetch the next move's details and update the UI
+        fetch(moveUrl)
+          .then(response => response.json())
+          .then(moveData => {
+            document.getElementById('move-name').textContent = moveData.name;
+            document.getElementById('move-type').textContent = `Type: ${moveData.type.name}`;
+            document.getElementById('move-learn-method').textContent = `Learn by: ${pokemonMoves[currentMoveIndex].version_group_details[0].move_learn_method.name}`;
+            document.getElementById('move-level-learn').textContent = `Learned lvl: ${pokemonMoves[currentMoveIndex].version_group_details[0].level_learned_at}`;
+            document.getElementById('move-category').textContent = `Category: ${moveData.damage_class.name}`;
+            document.getElementById('move-accuracy').textContent = `Accuracy: ${moveData.accuracy}`;
+            document.getElementById('move-power').textContent = `Power: ${moveData.power}`;
+            document.getElementById('move-pp').textContent = `PP: ${moveData.pp}`;
+        
+          })
+          .catch(error => {
+            console.error("Error fetching next move details:", error);
+          });
+      }
+    }
   
     // Helper function to fetch and display Pokémon
     function fetchAndDisplayPokemon(query, isUserInitiated) {
@@ -86,6 +111,8 @@ document.addEventListener('DOMContentLoaded', function() {
                playPokemonCry(data.id);
               type1Element.src = '';
               type2Element.src = '';
+              pokemonMoves = data.moves;
+              currentMoveIndex = 0; 
   
               // Update Stats 
               document.getElementById('stat-hp').textContent = `HP.................................................... ${data.stats.find(stat => stat.stat.name === 'hp').base_stat}`;
@@ -115,10 +142,10 @@ document.addEventListener('DOMContentLoaded', function() {
                // Fetch and Display Move (Only the first move)
             // Fetch and Display First Move
             if (data.moves.length > 0) {
-              const firstMoveData = data.moves[0];
-              const firstMoveUrl = firstMoveData.move.url;
-      
-              return fetch(firstMoveUrl) // Fetch the move details
+              // const firstMoveData = data.moves[0];
+              // const firstMoveUrl = firstMoveData.move.url;
+              const moveUrl = data.moves[currentMoveIndex].move.url
+              return fetch(moveUrl) // Fetch the move details
                 .then(moveResponse => moveResponse.json())
                 .then(moveData => {
                   document.getElementById('move-name').textContent = `${moveData.name}`;
