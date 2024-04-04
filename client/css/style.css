@@ -801,6 +801,11 @@ body, html {
   } 
 
 
+  .disabled {
+    pointer-events: none;
+    opacity: 0.5; /* Example style */
+  }
+
 #button-next-move-container {
   display: flex;
   justify-content: center;
