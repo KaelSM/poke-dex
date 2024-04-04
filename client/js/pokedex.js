@@ -88,12 +88,12 @@ document.addEventListener('DOMContentLoaded', function() {
               type2Element.src = '';
   
               // Update Stats 
-              document.getElementById('stat-hp').textContent = `HP: ${data.stats.find(stat => stat.stat.name === 'hp').base_stat}`;
-              document.getElementById('stat-attack').textContent = `Attack: ${data.stats.find(stat => stat.stat.name === 'attack').base_stat}`;
-              document.getElementById('stat-defense').textContent = `Defense: ${data.stats.find(stat => stat.stat.name === 'defense').base_stat}`;
-              document.getElementById('stat-special-attack').textContent = `Special Attack: ${data.stats.find(stat => stat.stat.name === 'special-attack').base_stat}`;
-              document.getElementById('stat-special-defense').textContent = `Special Defense: ${data.stats.find(stat => stat.stat.name === 'special-defense').base_stat}`;
-              document.getElementById('stat-speed').textContent = `Speed: ${data.stats.find(stat => stat.stat.name === 'speed').base_stat}`;
+              document.getElementById('stat-hp').textContent = `HP.................................................... ${data.stats.find(stat => stat.stat.name === 'hp').base_stat}`;
+              document.getElementById('stat-attack').textContent = `Attack....................................... ${data.stats.find(stat => stat.stat.name === 'attack').base_stat}`;
+              document.getElementById('stat-defense').textContent = `Defense.................................... ${data.stats.find(stat => stat.stat.name === 'defense').base_stat}`;
+              document.getElementById('stat-special-attack').textContent = `Special Attack.................. ${data.stats.find(stat => stat.stat.name === 'special-attack').base_stat}`;
+              document.getElementById('stat-special-defense').textContent = `Special Defense............... ${data.stats.find(stat => stat.stat.name === 'special-defense').base_stat}`;
+              document.getElementById('stat-speed').textContent = `Speed............................................ ${data.stats.find(stat => stat.stat.name === 'speed').base_stat}`;
               document.getElementById('weight-screen-text').textContent = `Weight: ${data.weight}`;
               document.getElementById('height-screen-text').textContent = `Height: ${data.height}`;
   
@@ -115,24 +115,42 @@ document.addEventListener('DOMContentLoaded', function() {
                // Fetch and Display Move (Only the first move)
             // Fetch and Display First Move
             if (data.moves.length > 0) {
-              const firstMoveUrl = data.moves[0].move.url;
-              fetch(firstMoveUrl)
-                  .then(moveResponse => moveResponse.json())
-                  .then(moveData => {
-                      document.getElementById('move-name').textContent = moveData.name.toUpperCase();
-                  })
-                  .catch(error => {
-                      console.error("Error fetching move details:", error);
-                      document.getElementById('move-name').textContent = 'Move unavailable';
-                  });
-          } else {
+              const firstMoveData = data.moves[0];
+              const firstMoveUrl = firstMoveData.move.url;
+      
+              return fetch(firstMoveUrl) // Fetch the move details
+                .then(moveResponse => moveResponse.json())
+                .then(moveData => {
+                  document.getElementById('move-name').textContent = `${moveData.name}`;
+                  // Type of the move
+                  document.getElementById('move-type').textContent =  `Type: ${moveData.type.name}`; 
+                  // Learn method (assuming the first listed method)
+                  document.getElementById('move-learn-method').textContent = `Learn by: ${firstMoveData.version_group_details[0].move_learn_method.name}`;
+                  // Level learned at (assuming the first listed method)
+                  document.getElementById('move-level-learn').textContent = `Learned lvl: ${firstMoveData.version_group_details[0].level_learned_at}`;
+                  // Category of the move
+                  document.getElementById('move-category').textContent = `Category: ${moveData.damage_class.name}`;
+                  // Accuracy of the move
+                  document.getElementById('move-accuracy').textContent = `Accuracy: ${moveData.accuracy}`;
+                  // Power of the move
+                  document.getElementById('move-power').textContent = `Power: ${moveData.power}`;
+                  // PP of the move
+                  document.getElementById('move-pp').textContent = `PP: ${moveData.pp}`;
+      
+                  // Continue chaining with the species data fetch
+                  return fetch(data.species.url);
+                });
+            } else {
               document.getElementById('move-name').textContent = 'No moves';
-          }
-
-
-            // Fetch Species Data for Description
-            return fetch(data.species.url); 
-        })
+              document.getElementById('move-type').textContent = '';
+              document.getElementById('move-learn-method').textContent = '';
+              document.getElementById('move-level-learn').textContent = '';
+              document.getElementById('move-category').textContent = '';
+              document.getElementById('move-accuracy').textContent = '';
+              document.getElementById('move-power').textContent = '';
+              document.getElementById('move-pp').textContent = '';
+      }
+    })
         .then(response => {
             if (!response.ok) throw new Error('Species not found');
             return response.json();

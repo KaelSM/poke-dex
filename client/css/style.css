@@ -750,8 +750,8 @@ body, html {
 }
 
 #moves-container{ 
-  display: flex;
-  justify-content: center;
+    display: flex;
+    justify-content: center;
 } 
 
 #screen-moves-container{
@@ -761,36 +761,45 @@ body, html {
    align-items: fixed; 
    justify-content: space-between; 
    position:fixed;     
+  }
+
+  #pokemon-move-stats {
+    list-style-type: none;
+    padding: 0;
+    background-color: #000000; 
+    color: white; 
+    height: 95px; 
+    width: 245px; 
+    border: 1px solid #000000; 
+    text-align: left; 
+    font-size: 12px; 
+    display:flex;   
+    align-items: center; 
+    text-align: left;
+    text-transform: capitalize; 
+    box-shadow: inset 1px 1px #ffff, inset 2px 2px #ffffff; 
+    transform: translate(325px, 175px);
+    display:flex; 
+    flex-direction: column;      
+    visibility: visible;
+    color: white;         
+    font-size: 10px;     
+    z-index: 1000;        
+  }
+
+  #pokemon-move-stats li {
+    width: 100%; /* Each li will take full width of the ul */
+    transform: translate(10px, 0px);
+   
+    white-space: nowrap; /* Prevent text wrapping */
+    text-overflow: ellipsis; /* Show an ellipsis when text overflows */
+  }
+
+  #pokemon-move-stats p {
+    margin: 0; /* Remove default margin */
+    
   } 
 
-  
-#move-name {
-  background-color: #000000; 
-  color: white; 
-  height: 80px; 
-  width: 210px; 
-  border: 1px solid #000000; 
-  text-align: left; 
-  font-size: 10px; 
-  display:flex;   
-  align-items: center; 
-  text-align: left;
-  padding-left: 20px; 
-  text-transform: capitalize; 
-  box-shadow: inset 1px 1px #ffff, inset 2px 2px #ffffff; 
-  transform: translate(290px, 170px);
-  display: block;       /* or 'inline', 'inline-block', etc. */
-  visibility: visible;
-  color: white;         /* or any color that stands out */
-  font-size: 10px;      /* or any appropriate size */
-  z-index: 1000;        /* to bring it to the front */
-}
-
-#pokemon-move-stats li {
-  margin-top: 10px;
-  padding-top: 10px;
-  list-style-type: none;
-}
 
 #button-next-move-container {
   display: flex;
