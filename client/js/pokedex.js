@@ -14,6 +14,8 @@ document.addEventListener('DOMContentLoaded', function() {
     let frontView = true;
     let numPokemon = 1; // Example default value
     let lastPokemon = 1025;
+    let currentMoveIndex = 0; // Added this to keep track of the current move index
+    let pokemonMoves = [];
     
     // Fetch and populate the dropdown with Pokémon names
     fetch('https://pokeapi.co/api/v2/pokemon?limit=1025')
@@ -69,65 +71,85 @@ document.addEventListener('DOMContentLoaded', function() {
   
     // Helper function to fetch and display Pokémon
     function fetchAndDisplayPokemon(query, isUserInitiated) {
-        fetch(`https://pokeapi.co/api/v2/pokemon/${query.toLowerCase()}`)
+      fetch(`https://pokeapi.co/api/v2/pokemon/${query.toLowerCase()}`)
           .then(response => {
-            if (!response.ok) throw new Error('Pokémon not found');
-            return response.json();
+              if (!response.ok) throw new Error('Pokémon not found');
+              return response.json();
           })
           .then(data => {
-            updateDisplays(data, nameScreenText, searchInput);
-            updateSprite(data, placeholderPokemonImg, staticImg, gender);
-            selectPokemonByName(selectElement, data.name);
-            clearErrorMessage(errorElementId); 
-            numPokemon = data.id;
-            playPokemonCry(data.id);
-            type1Element.src = '';
-            type2Element.src = '';
-            
-            
-            // Update Stats
-            document.getElementById('stat-hp').textContent = `HP: ${data.stats.find(stat => stat.stat.name === 'hp').base_stat}`;
-            document.getElementById('stat-attack').textContent = `Attack: ${data.stats.find(stat => stat.stat.name === 'attack').base_stat}`;
-            document.getElementById('stat-defense').textContent = `Defense: ${data.stats.find(stat => stat.stat.name === 'defense').base_stat}`;
-            document.getElementById('stat-special-attack').textContent = `Special Attack: ${data.stats.find(stat => stat.stat.name === 'special-attack').base_stat}`;
-            document.getElementById('stat-special-defense').textContent = `Special Defense: ${data.stats.find(stat => stat.stat.name === 'special-defense').base_stat}`;
-            document.getElementById('stat-speed').textContent = `Speed: ${data.stats.find(stat => stat.stat.name === 'speed').base_stat}`;
-            document.getElementById('weight-screen-text').textContent = `Weight: ${data.weight}`;
-            document.getElementById('height-screen-text').textContent = `Height: ${data.height}`;
+               //Update Basic Displays (Replace with your specific updates)
+               updateDisplays(data, nameScreenText, searchInput);
+               updateSprite(data, placeholderPokemonImg, staticImg, gender);
+               selectPokemonByName(selectElement, data.name);
+               clearErrorMessage(errorElementId); 
+              numPokemon = data.id;
+               playPokemonCry(data.id);
+              type1Element.src = '';
+              type2Element.src = '';
+  
+              // Update Stats 
+              document.getElementById('stat-hp').textContent = `HP: ${data.stats.find(stat => stat.stat.name === 'hp').base_stat}`;
+              document.getElementById('stat-attack').textContent = `Attack: ${data.stats.find(stat => stat.stat.name === 'attack').base_stat}`;
+              document.getElementById('stat-defense').textContent = `Defense: ${data.stats.find(stat => stat.stat.name === 'defense').base_stat}`;
+              document.getElementById('stat-special-attack').textContent = `Special Attack: ${data.stats.find(stat => stat.stat.name === 'special-attack').base_stat}`;
+              document.getElementById('stat-special-defense').textContent = `Special Defense: ${data.stats.find(stat => stat.stat.name === 'special-defense').base_stat}`;
+              document.getElementById('stat-speed').textContent = `Speed: ${data.stats.find(stat => stat.stat.name === 'speed').base_stat}`;
+              document.getElementById('weight-screen-text').textContent = `Weight: ${data.weight}`;
+              document.getElementById('height-screen-text').textContent = `Height: ${data.height}`;
+  
+              // Update Types
+              if (data.types.length > 0) {
+                  type1Element.src = getAssetType(data.types[0].type.name);
+                  type1Element.style.display = 'block';
+              } else {
+                  type1Element.style.display = 'none';
+              }
+  
+              if (data.types.length > 1) {
+                  type2Element.src = getAssetType(data.types[1].type.name);
+                  type2Element.style.display = 'block';
+              } else {
+                  type2Element.style.display = 'none';
+              }
+  
+               // Fetch and Display Move (Only the first move)
+            // Fetch and Display First Move
+            if (data.moves.length > 0) {
+              const firstMoveUrl = data.moves[0].move.url;
+              fetch(firstMoveUrl)
+                  .then(moveResponse => moveResponse.json())
+                  .then(moveData => {
+                      document.getElementById('move-name').textContent = moveData.name.toUpperCase();
+                  })
+                  .catch(error => {
+                      console.error("Error fetching move details:", error);
+                      document.getElementById('move-name').textContent = 'Move unavailable';
+                  });
+          } else {
+              document.getElementById('move-name').textContent = 'No moves';
+          }
 
-            if (data.types.length > 0) {
-              type1Element.src = getAssetType(data.types[0].type.name);
-              type1Element.style.display = 'block';
-            } else {
-              type1Element.style.display = 'none';
-            }
 
-            if (data.types.length > 1) {
-              type2Element.src = getAssetType(data.types[1].type.name);
-              type2Element.style.display = 'block';
-            } else {
-              type2Element.style.display = 'none';
-            }
-
-            return fetch(data.species.url);
-          })
-          
-          .then(response => {
+            // Fetch Species Data for Description
+            return fetch(data.species.url); 
+        })
+        .then(response => {
             if (!response.ok) throw new Error('Species not found');
             return response.json();
-          })
-          .then(speciesData => {
+        })
+        .then(speciesData => {
             const flavorTextEntry = speciesData.flavor_text_entries.find(entry => entry.language.name === 'en');
             document.getElementById('pokemon-description').textContent = `Description: ${flavorTextEntry.flavor_text.replace(/[\n\f]/g, ' ')}`;
-          })
-          .catch(error => {
+        })
+        .catch(error => {
             console.error('Error:', error);
             if (isUserInitiated) {
-              displayError(errorElementId, 'Failed to fetch Pokémon details!');
+                displayError(errorElementId, 'Failed to fetch Pokémon details!');
             }
-          });
-    }
-
+        });
+}
+  
+  
     async function setURLimage() {
       var url = '';
       if (gender === 'male') {

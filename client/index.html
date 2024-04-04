@@ -6,6 +6,7 @@
     <title>Kael Pokedex</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="source/img/favicon-32x32.png">
 </head>
 <body>
 
@@ -157,21 +158,24 @@
 
             <div id="moves-container">
                 <div id="screen-moves-container">
-                    <div id="moves-screen">                    
-                        <div id="move-details">
-                            <div id="move-name" class="move-detail"></div>                
-                            <div id="move-type" class="move-detail"></div>
-                            <div id="move-power" class="move-detail"></div>
-                            <div id="move-pp" class="move-detail"></div>
-                            <div id="move-accuracy" class="move-detail"></div>
-                            <div id="move-level" class="move-detail"></div>
-                        </div>
+                    <div id="moves-screen" >
+                        <ul id="pokemon-move-stats">
+                            <li id="move-name" style="margin-top: 5px;"><p></p></li>
+                            <li id="move-type" style="margin-top: 5px;"><p></p></li>
+                            <li id="move-learn-method" style="margin-top: 5px;"><p></p></li>
+                            <li id="move-level-learn" style="margin-top: 5px;"><p></p></li>
+                            <li id="move-category" style="margin-top: 5px;"><p></p></li>
+                            <li id="move-accuracy" style="margin-top: 5px;"><p></p></li>
+                            <li id="move-power" style="margin-top: 5px;"><p></p></li>
+                            <li id="move-pp" style="margin-top: 5px;"><p></p></li>
+                            
+                        </ul>                        
                     </div>
                 </div>
             </div>
 
             <div id="button-next-move-container">
-                <div id="button-move" onclick="clickNextMove()">                                 
+                <div id="button-move"  onclick="window.clickNextMove()">                                 
                 </div>
             </div>
             
@@ -221,6 +225,9 @@
 
 </body>
 <footer>
-    <medium>&copy; Copyright {{currentYear}}, Kael Moreira</medium>
+    <medium>&copy; Copyright <span id="currentYear"></span>, Kael Moreira</medium>
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
 </footer>
 </html>

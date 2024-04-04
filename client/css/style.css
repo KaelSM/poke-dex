@@ -763,7 +763,8 @@ body, html {
    position:fixed;     
   } 
 
-#moves-screen{ 
+  
+#move-name {
   background-color: #000000; 
   color: white; 
   height: 80px; 
@@ -771,19 +772,24 @@ body, html {
   border: 1px solid #000000; 
   text-align: left; 
   font-size: 10px; 
-  display:flex; 
+  display:flex;   
   align-items: center; 
+  text-align: left;
   padding-left: 20px; 
   text-transform: capitalize; 
   box-shadow: inset 1px 1px #ffff, inset 2px 2px #ffffff; 
-  transform: translate(327px, 190px);
+  transform: translate(290px, 170px);
+  display: block;       /* or 'inline', 'inline-block', etc. */
+  visibility: visible;
+  color: white;         /* or any color that stands out */
+  font-size: 10px;      /* or any appropriate size */
+  z-index: 1000;        /* to bring it to the front */
 }
 
-#moves-screen ul {
+#pokemon-move-stats li {
+  margin-top: 10px;
+  padding-top: 10px;
   list-style-type: none;
-  padding: 0;
-  margin-left: 10px;
-  text-align: left;
 }
 
 #button-next-move-container {
