@@ -5,9 +5,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const maleIcon = document.querySelector('.fa-mars-stroke');
     const femaleIcon = document.querySelector('.fa-venus');
     const type1Element = document.getElementById("type-screen-text"); 
-    const type2Element = document.getElementById("typ-placeholder-screen-text");    const placeholderPokemonImg = document.getElementById('placeholder-pokemon-img');
+    const type2Element = document.getElementById("typ-placeholder-screen-text");    
+    const placeholderPokemonImg = document.getElementById('placeholder-pokemon-img');
     const staticImg = document.getElementById('static-img');
-    const nameScreenText = document.getElementById('name-screen-text');
+    const nameScreenText = document.getElementById('name-screen-text'); 
     const errorElementId = 'error-message'; // ID for the error message element
     let gender = 'male'; // Default gender
     let shiny = false; // Assuming 'shiny' and 'frontView' are defined here for demonstration
@@ -94,133 +95,20 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }
 
-    // Function to activate stats and light up the green button
-    function activateStats() {
-      // Toggle stats active state and D-pad visibility
-      document.getElementById('light-button-green-form').classList.add('on');
-      document.getElementById('light-button-red-form').classList.remove('on');
-      
-      // Enable D-pad usage
-      let dpad = document.querySelector('.dpad');
-      dpad.classList.remove('disabled');
-      
-      // Additional logic for enabling stats...
-    }
-    function handleDpadClick(direction) {
-      if (document.getElementById('light-button-green-form').classList.contains('on')) {
-        // Perform action based on direction e.g., 'up', 'down', 'left', 'right'
-        console.log('D-pad direction clicked:', direction);
-        // ... Your code for handling D-pad actions ...
+    window.toggleBackgroundSound = function() {
+      var audio = document.getElementById("background-sound");
+      if (audio.paused) {
+          audio.play();
+          // If you have a visual indicator (like a light) that shows when music is playing:
+          document.getElementById("light-button-green-form").classList.replace("off", "on");
       } else {
-        alert('Please activate stats to use the D-pad.');
+          audio.pause();
+          // If you have a visual indicator (like a light) that shows when music is paused:
+          document.getElementById("light-button-green-form").classList.replace("on", "off");
       }
-    }
-    
-    // Function to activate alternative forms and enable "Previous/Next" buttons
-    function activateAlternativeForms() {
-      // Toggle alternative forms active state
-      document.getElementById('light-button-red-form').classList.add('on');
-      document.getElementById('light-button-green-form').classList.remove('on');
-      
-      // Enable "Previous/Next" buttons
-      let prevButton = document.getElementById('button-prev');
-      let nextButton = document.getElementById('button-next');
-      prevButton.classList.remove('disabled');
-      nextButton.classList.remove('disabled');
-      
-      // Additional logic for enabling alternative forms...
-    }
-    
-    // Functions for handling "Previous/Next" button clicks
-    function clickPrev() {
-      if (document.getElementById('light-button-red-form').classList.contains('on')) {
-        // Logic to go to previous alternative form
-        console.log('Previous form');
-        // ... Your code for handling previous form ...
-      } else {
-        alert('Please activate alternative forms to use the Previous button.');
-      }
-    }
-    
-    function clickNext() {
-      if (document.getElementById('light-button-red-form').classList.contains('on')) {
-        // Logic to go to next alternative form
-        console.log('Next form');
-        // ... Your code for handling next form ...
-      } else {
-        alert('Please activate alternative forms to use the Next button.');
-      }
-    }
-    
-// Event listeners for D-pad
-document.querySelector('.up').addEventListener('click', () => handleDpadClick('up'));
-document.querySelector('.right').addEventListener('click', () => handleDpadClick('right'));
-document.querySelector('.down').addEventListener('click', () => handleDpadClick('down'));
-document.querySelector('.left').addEventListener('click', () => handleDpadClick('left'));
+  };
 
-// Initialize buttons to disabled state
-function initializeButtons() {
-  document.querySelector('.dpad').classList.add('disabled');
-  document.getElementById('button-prev').classList.add('disabled');
-  document.getElementById('button-next').classList.add('disabled');
-}
-
-// Call this function when the DOM is fully loaded
-initializeButtons();
-
-// Assign these functions to the respective buttons
-document.getElementById('button-stats').onclick = activateStats;
-document.getElementById('button-form').onclick = activateAlternativeForms;
-
-    // This function is called when the "Stats" button is pressed to activate the red light
-window.toggleStats = function() {
-  var statsActive = document.getElementById("light-button-red").classList.contains("on");
-
-  // If stats are active, turn them off, else turn them on
-  if(statsActive) {
-      document.getElementById("light-button-red").classList.remove("on");
-      document.getElementById("light-button-red").classList.add("off");
-      document.getElementById("button-previous").disabled = true;
-      document.getElementById("button-next").disabled = true;
-  } else {
-      document.getElementById("light-button-red").classList.add("on");
-      document.getElementById("light-button-red").classList.remove("off");
-      document.getElementById("button-previous").disabled = false;
-      document.getElementById("button-next").disabled = false;
-  }
-};
-
-function clickFormr() {
-  var redLight = document.getElementById("light-button-red-form");
-  var greenLight = document.getElementById("light-button-green-form");
-
-  // Toggle the red light on and off
-  redLight.classList.toggle("on");
-  redLight.classList.toggle("off");
-
-  // If the red light is now on, enable the Previous and Next buttons
-  if (redLight.classList.contains("on")) {
-      document.getElementById("button-prev").classList.add("active");
-      document.getElementById("button-next").classList.add("active");
-
-      // Optionally, turn off the green light and any associated functionality
-      greenLight.classList.remove("on");
-      greenLight.classList.add("off");
-  } else { // If the red light is now off, disable the Previous and Next buttons
-      document.getElementById("button-prev").classList.remove("active");
-      document.getElementById("button-next").classList.remove("active");
-  }
-}
-
-// You might also want to define the clickPrev and clickNext functions if not already defined
-function clickPrev() {
-  // Define what happens when Previous is clicked
-}
-
-function clickNext() {
-  // Define what happens when Next is clicked
-}
-  
+ 
     // Helper function to fetch and display Pokémon
     function fetchAndDisplayPokemon(query, isUserInitiated) {
       fetch(`https://pokeapi.co/api/v2/pokemon/${query.toLowerCase()}`)

@@ -749,6 +749,100 @@ body, html {
     box-shadow: inset 1px 1px #ffff, inset 2px 2px #ffffff; 
 }
 
+#weight-row{ 
+  display: flex;
+  justify-content: center;
+} 
+
+#weight-container{
+   width: 400px;
+   height: 100px; 
+   display: flex; 
+   align-items: fixed; 
+   justify-content: space-between; 
+   position:fixed; 
+   transform: translate(290px, 140px);
+  } 
+
+#weight-screen{ 
+  background-color: #000000; 
+  color: white; 
+  height: 35px; 
+  width: 120px; 
+  border: 1px solid #000000; 
+  text-align: center; 
+  font-size: 14px; 
+  display:flex; 
+  align-items: center; 
+  padding-left: 5px; 
+  text-transform: capitalize; 
+  box-shadow: inset 1px 1px #ffff, inset 2px 2px #ffffff; 
+}
+
+#abilities-row{ 
+  display: flex;
+  justify-content: center;
+} 
+
+#abilities-container{
+   width: 400px;
+   height: 100px; 
+   display: flex; 
+   align-items: fixed; 
+   justify-content: space-between; 
+   position:fixed; 
+   transform: translate(430px, 100px);
+  } 
+
+#abilities-screen{ 
+  background-color: #000000; 
+  color: white; 
+  height: 70px; 
+  width: 140px; 
+  border: 1px solid #000000; 
+  text-align: center; 
+  font-size: 14px; 
+  display:flex; 
+  align-items: center; 
+  padding-left: 5px; 
+  text-transform: capitalize; 
+  box-shadow: inset 1px 1px #ffff, inset 2px 2px #ffffff; 
+}
+
+#ability-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: fixed;
+}
+
+
+#button-ability {
+  width: 30px; /* Diameter of the circle */
+  height: 30px; /* Diameter of the circle */
+  background-color: #0e5df0; 
+  border-radius: 50%; /* This makes it circular */
+  border: 1px solid #000000;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 1px 1px #0e5df0,
+              2px 2px #0e5df0,
+              3px 3px #000000;             
+  position: relative;
+  transform: translate(390px, 140px); 
+}
+
+#button-ability:active {
+  box-shadow: none;
+  top: 3px;
+  right: -3px;
+}
+
+
+
 #moves-container{ 
     display: flex;
     justify-content: center;
@@ -800,12 +894,6 @@ body, html {
     
   } 
 
-
-  .disabled {
-    pointer-events: none;
-    opacity: 0.5; /* Example style */
-  }
-
 #button-next-move-container {
   display: flex;
   justify-content: center;
@@ -844,37 +932,9 @@ body, html {
     align-items: center;
     flex-direction: column;
     position: fixed;
-    transform: translate(340px, 90px);
-  }
+    transform: translate(340px, 60px);
+  }  
   
-  #button-form{
-    width: 140px;
-    height: 35px;
-    background-color: #710000;
-    border-radius: 20px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #000000;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-right: 4px;
-    box-shadow: 1px 1px #89061c,
-                2px 2px #89061c,
-                3px 3px #000000;
-    position: relative;
-    text-align: center;
-    color: white;
-    font-size: 12px;
-  }
-
-  #button-form:active{
-    box-shadow: none;
-    top: 3px;
-    right: -3px;
-  } 
-
   #button-stats{
     width: 140px;
     height: 35px;
@@ -908,74 +968,8 @@ body, html {
     border: 1px solid #232323;
     border-radius: 50%;
   }
-
-  #move-details {
-    display: none; /* Hide by default */
-  }
-
-  #buttons-prev-next-container{
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    position: fixed;
-    transform: translate(340px, 80px);
-  }
-  #button-prev{
-    width: 70px;
-    height: 25px;
-    background-color: #000000;
-    border-radius: 20px;
-    margin-bottom: 3px;
-    border: 1px solid #ffffff;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-right: 4px;
-    box-shadow: 1px 1px #ffffff,
-                2px 2px #ffffff,
-                3px 3px #000000;
-    position: relative;
-    text-align: center;
-    color: white;
-    font-size: 10px;
-    transform: translate(-60px, 100px);
-  }
-
-  #button-prev:active{
-    box-shadow: none;
-    top: 3px;
-    right: -3px;
-  }
-
-  #button-next{
-    width: 70px;
-    height: 25px;
-    background-color: #000000;
-    border-radius: 20px;
-    margin-bottom: 3px;
-    border: 1px solid #ffffff;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-right: 4px;
-    box-shadow: 1px 1px #ffffff,
-                2px 2px #ffffff,
-                3px 3px #000000;
-    position: relative;
-    text-align: center;
-    color: white;
-    font-size: 10px;
-    transform: translate(30px, 70px);
-  }
-
-  #button-next:active{
-    box-shadow: none;
-    top: 3px;
-    right: -3px;
-  }
+  
+  
 
   footer {
     position: fixed;
