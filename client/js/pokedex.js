@@ -380,7 +380,19 @@ window.clickNextAbility = function() {
   }
 }
 
+function clickUp(){
+  // Calculate the new number for the previous Pokemon
+  const newNum = numPokemon > 1 ? numPokemon - 1 : lastPokemon;
+  // Fetch and display the Pokemon
+  fetchAndDisplayPokemon(newNum.toString(), true);
+}
 
+function clickDown(){
+  // Calculate the new number for the next Pokemon
+  const newNum = numPokemon < lastPokemon ? numPokemon + 1 : 1;
+  // Fetch and display the Pokemon
+  fetchAndDisplayPokemon(newNum.toString(), true);
+}
 
 });
   
