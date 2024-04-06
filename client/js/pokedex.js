@@ -20,7 +20,25 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentAbilityIndex = 0; // To keep track of the current ability index
     let pokemonAbilities = [];
 
-
+    document.querySelector('.up').addEventListener('click', function() {
+      // Call a function when the up arrow is clicked
+      clickUp();
+    });
+  
+    document.querySelector('.right').addEventListener('click', function() {
+      // Call a function when the right arrow is clicked
+      clickLeftRight();
+    });
+  
+    document.querySelector('.down').addEventListener('click', function() {
+      // Call a function when the down arrow is clicked
+      clickDown();
+    });
+  
+    document.querySelector('.left').addEventListener('click', function() {
+      // Call a function when the left arrow is clicked
+      clickLeftRight(); // If left should do the same as right, like toggle view
+    });
     
     // Fetch and populate the dropdown with Pokémon names
     fetch('https://pokeapi.co/api/v2/pokemon?limit=1025')
@@ -228,7 +246,15 @@ document.addEventListener('DOMContentLoaded', function() {
         displayError(errorElementId, 'Failed to fetch Pokémon details!');
       }
     });
+
+    setURLimage();
 }
+
+window.clickLeftRight = function() {
+  // This function is for the UI button to toggle the sprite view
+  frontView = !frontView; // Toggle between front and back
+  setURLimage(); // Update the image source based on the new view
+};
   
   
     async function setURLimage() {
@@ -353,6 +379,8 @@ window.clickNextAbility = function() {
     displayCurrentAbility(); // Update the displayed ability
   }
 }
+
+
 
 });
   
