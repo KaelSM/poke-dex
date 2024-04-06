@@ -17,6 +17,10 @@ document.addEventListener('DOMContentLoaded', function() {
     let lastPokemon = 1025;
     let currentMoveIndex = 0; // Added this to keep track of the current move index
     let pokemonMoves = [];
+    let currentAbilityIndex = 0; // To keep track of the current ability index
+    let pokemonAbilities = [];
+
+
     
     // Fetch and populate the dropdown with Pokémon names
     fetch('https://pokeapi.co/api/v2/pokemon?limit=1025')
@@ -128,7 +132,17 @@ document.addEventListener('DOMContentLoaded', function() {
               type2Element.src = '';
               pokemonMoves = data.moves;
               currentMoveIndex = 0; 
+              pokemonAbilities = data.abilities; // Store the abilities
+              currentAbilityIndex = 0; // Reset the ability index
   
+
+              pokemonAbilities = data.abilities.map(ability => ({
+                name: ability.ability.name,
+                url: ability.ability.url,
+                effect: null // Placeholder for storing the effect once fetched
+              }));
+
+
               // Update Stats 
               document.getElementById('stat-hp').textContent = `HP.................................................... ${data.stats.find(stat => stat.stat.name === 'hp').base_stat}`;
               document.getElementById('stat-attack').textContent = `Attack....................................... ${data.stats.find(stat => stat.stat.name === 'attack').base_stat}`;
@@ -257,6 +271,11 @@ document.addEventListener('DOMContentLoaded', function() {
       const audio = new Audio(cryUrl);
       audio.play();
   }
+
+  var abilityBox = document.getElementById('abilities-screen'); // Replace 'ability-box' with your actual element ID
+  abilityBox.style.maxHeight = '150px';
+  abilityBox.style.overflowY = 'auto';
+  abilityBox.style.overflowX = 'hidden';
   
   // Implementation of the clickShinyColor function
   // Making clickShinyColor globally accessible
@@ -304,6 +323,36 @@ window.clickBottom = function() {
   }
   fetchAndDisplayPokemon(numPokemon.toString(), true);
 };
+
+function displayCurrentAbility() {
+  if (pokemonAbilities.length > 0) {
+    const ability = pokemonAbilities[currentAbilityIndex];
+    
+    if (ability.effect) {
+      // Effect already fetched, just display it
+      document.getElementById('abilities-text').textContent = `${ability.name}: ${ability.effect}`;
+    } else {
+      // Fetch the detailed information about the ability
+      fetch(ability.url)
+        .then(response => response.json())
+        .then(abilityDetails => {
+          // Extract the "effect" or "short_effect" from the abilityDetails
+          const effectEntry = abilityDetails.effect_entries.find(entry => entry.language.name === 'en');
+          ability.effect = effectEntry.effect; // Store for future use without refetching
+          document.getElementById('abilities-text').textContent = `${ability.name}: ${ability.effect}`;
+        })
+        .catch(error => console.error("Failed to fetch ability details:", error));
+    }
+  } else {
+    document.getElementById('abilities-text').textContent = 'No abilities';
+  }
+}
+window.clickNextAbility = function() {
+  if (pokemonAbilities.length > 0) {
+    currentAbilityIndex = (currentAbilityIndex + 1) % pokemonAbilities.length; // Cycle through abilities
+    displayCurrentAbility(); // Update the displayed ability
+  }
+}
 
 });
   
