@@ -652,7 +652,8 @@ body, html {
         display: flex; 
         align-items: fixed; 
         justify-content: space-between; 
-        position:absolute;     
+        position:absolute; 
+        transform: translate(330px, -120px);    
     } 
 
     #desc-screen{ 
@@ -668,7 +669,6 @@ body, html {
         padding-left: 20px; 
         text-transform: capitalize; 
         box-shadow: inset 1px 1px #ffff, inset 2px 2px #ffffff; 
-        transform: translate(327px, -120px);
     }
 
     #desc-screen ul {
@@ -718,7 +718,7 @@ body, html {
         display: flex; 
         align-items: fixed; 
         justify-content: space-between; 
-        position:fixed; 
+        position:absolute; 
         transform: translate(290px, 40px);
     } 
 
@@ -748,7 +748,7 @@ body, html {
         display: flex; 
         align-items: fixed; 
         justify-content: space-between; 
-        position:fixed; 
+        position:absolute; 
         transform: translate(370px, 40px);
     } 
 
@@ -778,7 +778,7 @@ body, html {
         display: flex; 
         align-items: fixed; 
         justify-content: space-between; 
-        position:fixed; 
+        position:absolute; 
         transform: translate(290px,90px);     
     } 
 
@@ -808,7 +808,7 @@ body, html {
         display: flex; 
         align-items: fixed; 
         justify-content: space-between; 
-        position:fixed; 
+        position:absolute; 
         transform: translate(290px, 140px);
     } 
 
@@ -885,7 +885,7 @@ body, html {
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      position: fixed;
+      position: absolute;
       transform: translate(270px, 40px);
     }  
     
@@ -934,7 +934,7 @@ body, html {
       display: flex; 
       align-items: fixed; 
       justify-content: space-between; 
-      position:fixed; 
+      position:absolute; 
       transform: translate(430px, 100px);
       max-height: 150px; 
         overflow-y: auto; 
@@ -980,12 +980,17 @@ body, html {
     } 
 
     #screen-moves-container{
-      width: 480px;
-      height: 100px; 
+      width: 40px;
+      height: 5px; 
       display: flex; 
       align-items: fixed; 
       justify-content: space-between; 
-      position:fixed;     
+      position:absolute;     
+    }
+
+    #moves-screen{ 
+        height: 2px;
+        width: 1px;
     }
 
     #pokemon-move-stats {
@@ -1003,7 +1008,7 @@ body, html {
         text-align: left;
         text-transform: capitalize; 
         box-shadow: inset 1px 1px #ffff, inset 2px 2px #ffffff; 
-        transform: translate(325px, 175px);
+        transform: translate(105px, 175px);
         display:flex; 
         flex-direction: column;      
         visibility: visible;
