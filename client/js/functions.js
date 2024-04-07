@@ -1,4 +1,10 @@
-
+/*
+ * @file index.html
+ * @description This file contains the HTML structure of the Pokedex application.
+ * Author: Kael Moreira
+ * Date: April 2024
+ * API: https://pokeapi.co/docs/v2
+ */
 
 // Defines utility functions related to updating UI components and fetching data
 let isAttackShown = false;

@@ -1,4 +1,21 @@
+/*
+ * @file index.html
+ * @description This file contains the HTML structure of the Pokedex application.
+ * Author: Kael Moreira
+ * Date: April 2024
+ * API: https://pokeapi.co/docs/v2
+ */
 
+/*Description:
+  This project is a web-based Pokedex application designed to allow users
+  to browse through Pokémon, view detailed information about each one,
+  and listen to their unique cries. Developed using HTML, CSS,
+  and JavaScript, it leverages the PokéAPI for fetching Pokémon data.
+  The user interface mimics the classic Pokedex device, featuring
+  search functionality by Pokémon ID or name, display for Pokémon
+  images (including shiny and gender variations), and detailed
+  information such as stats, types, abilities, and moves.
+*/
 
 // Event listener for when the DOM is fully loaded
 document.addEventListener('DOMContentLoaded', function() {
