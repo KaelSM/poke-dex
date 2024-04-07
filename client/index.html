@@ -9,7 +9,6 @@
     <link rel="icon" href="source/img/favicon-32x32.png">
 </head>
 <body>
-
     <!-- Background files-->
     <div class="bg" style=" position: fixed;">
         <div class="mainsc">            
@@ -28,7 +27,6 @@
             <source src="source/sound/pokemon_music-bg.mp3" type="audio/mpeg">            
         </audio>
     </div>
-
     <!-- Main content -->
     <div class="wrapper">
         <div class="mainDex">
@@ -55,7 +53,7 @@
                     </div>
                 </div>
             </div>         
-            <!-- mid part of the pokedex left side -->
+            <!-- Mid part of the pokedex left side -->
             <div class="midWrapper"> 
                 <!-- Pokemon image -->                      
                 <div class="container-IMG">
@@ -82,7 +80,7 @@
                     <i class="fas fa-venus fa-lg gender" aria-hidden="true"></i>
                 </div>
             </div>               
-            <!-- bottom part of the pokedex left side -->
+            <!-- Bottom part of the pokedex left side -->
             <div class="lowWrapper">
                 <!-- Name of Pokemon selected-->
                 <div id="name-row">
@@ -129,7 +127,9 @@
                     </div>
                 </div>
             </div>
-            
+            <!-- Top part of the pokedex right side -->
+            <div class="topWrapperDex">
+                <!-- Cries of the pokemon -->
                 <div id="sound-container">
                     <img id="sound-img" src="source/img/sound-svg.png" alt="sound"
                     style="
@@ -140,7 +140,7 @@
                     cursor: pointer;
                 ">
                 </div>
-
+                <!-- Stats and Desc pokemon -->
                 <div id="stats-container">
                     <div id="screen-container">
                         <div id="desc-screen">
@@ -158,37 +158,17 @@
                         </div>
                     </div>                
                 </div>
-
+            </div>
+            <!-- Mid part of the pokedex right side -->
+            <div class="midWrapperDex">
+                <!-- Type of Pokemon -->
                 <div id="type-container">
                     <img id="type-screen-text" src="" alt="Type 1" />
                 </div>
                 <div id="typ-placeholder-container">
                     <img id="typ-placeholder-screen-text" src="" alt="Type 2" />
                 </div>
-
-                <div id="moves-container">
-                    <div id="screen-moves-container">
-                        <div id="moves-screen" >
-                            <ul id="pokemon-move-stats">
-                                <li id="move-name" style="margin-top: 10px; margin-bottom: 20px; font-size: 14px; "><p></p></li>
-                                <li id="move-type" style=" font-size: 12px; translate: 137px -35px;"><p></p></li>
-                                <li id="move-learn-method" style="translate: 0px -25px;"><p></p></li>
-                                <li id="move-level-learn" style="translate: 0px -20px;"><p></p></li>
-                                <li id="move-category"  style="translate: 0px -15px;"><p></p></li>
-                                <li id="move-accuracy"  style="translate: 137px -60px;"><p></p></li>
-                                <li id="move-power" style="translate: 137px -55px;"><p></p></li>
-                                <li id="move-pp" style="translate: 137px -50px;"><p></p></li>
-                                
-                            </ul>                        
-                        </div>
-                    </div>
-                </div>
-
-                <div id="button-next-move-container">
-                    <div id="button-move"  onclick="window.clickNextMove()">                                 
-                    </div>
-                </div>
-                
+                <!-- Pokemon height and weight -->
                 <div id="height-row">
                     <div id="height-container">
                     <div id="height-screen">
@@ -203,14 +183,14 @@
                     </div>                  
                     </div>
                 </div> 
-
+                <!-- Pokemon background sound on and off -->
                 <div id="buttons-form-attk-container">
                     <div id="button-stats" onclick="toggleBackgroundSound()">
                         Background sound On/Off
                     <div id="light-button-green-form" class="lights off"></div>
                     </div>                
                 </div>
-                
+                <!-- Pokemon abilities -->
                 <div id="abilities-row">
                     <div id="abilities-container">
                     <div id="abilities-screen">
@@ -220,23 +200,42 @@
                     </div>                  
                     </div>
                 </div>
-
                 <div class="ability-button-container">
                     <div id="button-ability" onclick="window.clickNextAbility()">                    
                     </div>
                 </div>
-
-                
+            </div>
+            <!-- Bottom part of the pokedex right side -->
+            <div class="lowWrapperDex">
+                <div id="moves-container">
+                    <div id="screen-moves-container">
+                        <div id="moves-screen" >
+                            <ul id="pokemon-move-stats">
+                                <li id="move-name" style="margin-top: 10px; margin-bottom: 20px; font-size: 14px; "><p></p></li>
+                                <li id="move-type" style=" font-size: 12px; translate: 137px -35px;"><p></p></li>
+                                <li id="move-learn-method" style="translate: 0px -25px;"><p></p></li>
+                                <li id="move-level-learn" style="translate: 0px -20px;"><p></p></li>
+                                <li id="move-category"  style="translate: 0px -15px;"><p></p></li>
+                                <li id="move-accuracy"  style="translate: 137px -60px;"><p></p></li>
+                                <li id="move-power" style="translate: 137px -55px;"><p></p></li>
+                                <li id="move-pp" style="translate: 137px -50px;"><p></p></li>                               
+                            </ul>                        
+                        </div>
+                    </div>
+                </div>
+                <div id="button-next-move-container">
+                    <div id="button-move"  onclick="window.clickNextMove()">                                 
+                    </div>
+                </div>
+            </div>                                              
         </div> 
-    </div>   
-
+    </div>
     <!-- Java -->
     <script src="https://unpkg.com/vue@next"></script>
     <!-- Global usage-->    
     <script src="js/design.js"></script>
     <script src="js/functions.js"></script>
     <script src="js/pokedex.js"></script>
-
 </body>
 <footer>
     <medium>&copy; Copyright <span id="currentYear"></span>, Kael Moreira</medium>

@@ -111,7 +111,7 @@ body, html {
     position: relative;
     width: 259px;
     height: 160px;
-    transform: translate(130px , 0px);
+    transform: translate(115px , 0px);
   } 
 
     #circle-container {
@@ -242,7 +242,7 @@ body, html {
     position: relative;
     width: 259px;
     height: 160px;
-    transform: translate(14px , 80px); 
+    transform: translate(0px , 80px); 
   }
 
     #placeholder-pokemon-img {
@@ -317,8 +317,7 @@ body, html {
     position: relative;
     width: 0px;
     height: 0px;
-    transform: translate(0px , 0px); 
-      
+    transform: translate(-20px , 0px);       
  }
 
     #name-row{
@@ -631,169 +630,213 @@ body, html {
   
 /* right side of the pokedex */
   /* Wrapper for the top part of the dex */
+  .topWrapperDex {
+    float: left;
+    height: 100%;
+    position: relative;
+    width: 0px;
+    height: 0px;
+    transform: translate(-255px , 0px); 
+  }
+    .soundContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+    }
 
-  .soundContainer {
+    #stats-container{ 
+        display: flex;
+        justify-content: center;
+    } 
+
+    #screen-container{
+        width: 480px;
+        height: 100px; 
+        display: flex; 
+        align-items: fixed; 
+        justify-content: space-between; 
+        position:absolute;     
+    } 
+
+    #desc-screen{ 
+        background-color: #000000; 
+        color: white; 
+        height: 150px; 
+        width: 310px; 
+        border: 1px solid #000000; 
+        text-align: left; 
+        font-size: 10px; 
+        display:flex; 
+        align-items: center; 
+        padding-left: 20px; 
+        text-transform: capitalize; 
+        box-shadow: inset 1px 1px #ffff, inset 2px 2px #ffffff; 
+        transform: translate(327px, -120px);
+    }
+
+    #desc-screen ul {
+        list-style-type: none;
+        padding: 0;
+        margin-left: 10px;
+        text-align: left;
+    }
+
+  /* Wrapper for the mid part of the dex */
+  .midWrapperDex{
+    float: left;
+    height: 100%;
+    position: relative;
+    width: 0px;
+    height: 0px;
+    transform: translate(-260px , 0px); 
+  }
+
+    #type-screen-text, #typ-placeholder-screen-text {
+      display: inline-block;
+      text-align: center;
+      padding: 0.5px 7px;
+      font-weight: bold;
+      color: white;
+      transform: translate(-200px, 10px);
+    }
+
+    #type-screen-text, #typ-placeholder-screen-text {
+      width: 50px; 
+      height: 20px; 
+      border-radius: 10px; 
+    }
+
+    #type-screen-text, #typ-placeholder-screen-text {
+      display: none;
+    }
+
+    #type-row{ 
+        display: flex;
+        justify-content: center;
+    } 
+
+    #type-container{
+        width: 400px;
+        height: 100px; 
+        display: flex; 
+        align-items: fixed; 
+        justify-content: space-between; 
+        position:fixed; 
+        transform: translate(290px, 40px);
+    } 
+
+    #type-screen{ 
+        background-color: #fff; 
+        color: black; 
+        height: 35px; 
+        width: 70px; 
+        border: 1px solid #000000; 
+        text-align: center; 
+        font-size: 16px; 
+        display:flex; 
+        align-items: center; 
+        padding-left: 5px; 
+        text-transform: capitalize; 
+        box-shadow: inset 1px 1px #ffff, inset 2px 2px #000000; 
+    }
+
+    #typ-placeholder-row{ 
+        display: flex;
+        justify-content: center;
+    } 
+
+    #typ-placeholder-container{
+        width: 400px;
+        height: 100px; 
+        display: flex; 
+        align-items: fixed; 
+        justify-content: space-between; 
+        position:fixed; 
+        transform: translate(370px, 40px);
+    } 
+
+    #typ-placeholder-screen{ 
+        background-color: #fff; 
+        color: black; 
+        height: 35px; 
+        width: 70px; 
+        border: 1px solid #000000; 
+        text-align: center; 
+        font-size: 16px; 
+        display:flex; 
+        align-items: center; 
+        padding-left: 5px; 
+        text-transform: capitalize; 
+        box-shadow: inset 1px 1px #ffff, inset 2px 2px #000000; 
+    }
+
+    #height-row{ 
+        display: flex;
+        justify-content: center;
+    } 
+
+    #height-container{
+        width: 400px;
+        height: 100px; 
+        display: flex; 
+        align-items: fixed; 
+        justify-content: space-between; 
+        position:fixed; 
+        transform: translate(290px,90px);     
+    } 
+
+    #height-screen{ 
+        background-color: #000000; 
+        color: white; 
+        height: 35px; 
+        width: 120px; 
+        border: 1px solid #000000; 
+        text-align: center; 
+        font-size: 14px; 
+        display:flex; 
+        align-items: center; 
+        padding-left: 5px; 
+        text-transform: capitalize; 
+        box-shadow: inset 1px 1px #ffff, inset 2px 2px #ffffff; 
+    }
+
+    #weight-row{ 
+        display: flex;
+        justify-content: center;
+    } 
+
+    #weight-container{
+        width: 400px;
+        height: 100px; 
+        display: flex; 
+        align-items: fixed; 
+        justify-content: space-between; 
+        position:fixed; 
+        transform: translate(290px, 140px);
+    } 
+
+    #weight-screen{ 
+        background-color: #000000; 
+        color: white; 
+        height: 35px; 
+        width: 120px; 
+        border: 1px solid #000000; 
+        text-align: center; 
+        font-size: 14px; 
+        display:flex; 
+        align-items: center; 
+        padding-left: 5px; 
+        text-transform: capitalize; 
+        box-shadow: inset 1px 1px #ffff, inset 2px 2px #ffffff; 
+    }
+
+    #weight-row{ 
       display: flex;
       justify-content: center;
-      align-items: center;
-      position: fixed;
-      transform: translate(40px, -100px);
-  }
+    } 
 
-  #stats-container{ 
-      display: flex;
-      justify-content: center;
-  } 
-
-  #screen-container{
-      width: 480px;
-      height: 100px; 
-      display: flex; 
-      align-items: fixed; 
-      justify-content: space-between; 
-      position:fixed;     
-      } 
-
-  #desc-screen{ 
-      background-color: #000000; 
-      color: white; 
-      height: 150px; 
-      width: 310px; 
-      border: 1px solid #000000; 
-      text-align: left; 
-      font-size: 10px; 
-      display:flex; 
-      align-items: center; 
-      padding-left: 20px; 
-      text-transform: capitalize; 
-      box-shadow: inset 1px 1px #ffff, inset 2px 2px #ffffff; 
-      transform: translate(327px, -120px);
-  }
-
-  #desc-screen ul {
-      list-style-type: none;
-      padding: 0;
-      margin-left: 10px;
-      text-align: left;
-  }
-
-  #type-screen-text, #typ-placeholder-screen-text {
-    display: inline-block;
-    text-align: center;
-    padding: 0.5px 7px;
-    font-weight: bold;
-    color: white;
-    transform: translate(5px, 60px);
-  }
-
-  #type-screen-text, #typ-placeholder-screen-text {
-    width: 50px; /* Fixed width, adjust as needed */
-    height: 20px; /* Maintain aspect ratio */
-    border-radius: 10px; /* If you want rounded corners for your images */
-
-  }
-
-  /* You may want to hide the images by default and only show them when a source is set */
-  #type-screen-text, #typ-placeholder-screen-text {
-    display: none;
-  }
-
-  #type-row{ 
-      display: flex;
-      justify-content: center;
-  } 
-
-  #type-container{
-      width: 400px;
-      height: 100px; 
-      display: flex; 
-      align-items: fixed; 
-      justify-content: space-between; 
-      position:fixed; 
-      transform: translate(290px, 40px);
-      } 
-
-  #type-screen{ 
-      background-color: #fff; 
-      color: black; 
-      height: 35px; 
-      width: 70px; 
-      border: 1px solid #000000; 
-      text-align: center; 
-      font-size: 16px; 
-      display:flex; 
-      align-items: center; 
-      padding-left: 5px; 
-      text-transform: capitalize; 
-      box-shadow: inset 1px 1px #ffff, inset 2px 2px #000000; 
-  }
-
-  #typ-placeholder-row{ 
-      display: flex;
-      justify-content: center;
-  } 
-
-  #typ-placeholder-container{
-      width: 400px;
-      height: 100px; 
-      display: flex; 
-      align-items: fixed; 
-      justify-content: space-between; 
-      position:fixed; 
-      transform: translate(370px, 40px);
-      } 
-
-  #typ-placeholder-screen{ 
-      background-color: #fff; 
-      color: black; 
-      height: 35px; 
-      width: 70px; 
-      border: 1px solid #000000; 
-      text-align: center; 
-      font-size: 16px; 
-      display:flex; 
-      align-items: center; 
-      padding-left: 5px; 
-      text-transform: capitalize; 
-      box-shadow: inset 1px 1px #ffff, inset 2px 2px #000000; 
-  }
-
-  #height-row{ 
-      display: flex;
-      justify-content: center;
-  } 
-
-  #height-container{
-      width: 400px;
-      height: 100px; 
-      display: flex; 
-      align-items: fixed; 
-      justify-content: space-between; 
-      position:fixed; 
-      transform: translate(290px,90px);     
-      } 
-
-  #height-screen{ 
-      background-color: #000000; 
-      color: white; 
-      height: 35px; 
-      width: 120px; 
-      border: 1px solid #000000; 
-      text-align: center; 
-      font-size: 14px; 
-      display:flex; 
-      align-items: center; 
-      padding-left: 5px; 
-      text-transform: capitalize; 
-      box-shadow: inset 1px 1px #ffff, inset 2px 2px #ffffff; 
-  }
-
-  #weight-row{ 
-      display: flex;
-      justify-content: center;
-  } 
-
-  #weight-container{
+    #weight-container{
       width: 400px;
       height: 100px; 
       display: flex; 
@@ -801,9 +844,9 @@ body, html {
       justify-content: space-between; 
       position:fixed; 
       transform: translate(290px, 140px);
-      } 
+    } 
 
-  #weight-screen{ 
+    #weight-screen{ 
       background-color: #000000; 
       color: white; 
       height: 35px; 
@@ -816,195 +859,38 @@ body, html {
       padding-left: 5px; 
       text-transform: capitalize; 
       box-shadow: inset 1px 1px #ffff, inset 2px 2px #ffffff; 
-  }
+    }
 
-  #weight-row{ 
-    display: flex;
-    justify-content: center;
-  } 
-
-  #weight-container{
-    width: 400px;
-    height: 100px; 
-    display: flex; 
-    align-items: fixed; 
-    justify-content: space-between; 
-    position:fixed; 
-    transform: translate(290px, 140px);
-    } 
-
-  #weight-screen{ 
-    background-color: #000000; 
-    color: white; 
-    height: 35px; 
-    width: 120px; 
-    border: 1px solid #000000; 
-    text-align: center; 
-    font-size: 14px; 
-    display:flex; 
-    align-items: center; 
-    padding-left: 5px; 
-    text-transform: capitalize; 
-    box-shadow: inset 1px 1px #ffff, inset 2px 2px #ffffff; 
-  }
-
-  #abilities-row{ 
-    display: flex;
-    justify-content: center;
-  } 
-
-  #abilities-container{
-    width: 400px;
-    height: 100px; 
-    display: flex; 
-    align-items: fixed; 
-    justify-content: space-between; 
-    position:fixed; 
-    transform: translate(430px, 100px);
-    max-height: 150px; /* Adjust the height as needed */
-      overflow-y: auto; /* This will add a vertical scrollbar when the content overflows */
-      overflow-x: hidden;
-    } 
-
-  #abilities-screen{ 
-    background-color: #000000; 
-    color: white; 
-    height: 70px; 
-    width: 140px; 
-    border: 1px solid #000000; 
-    text-align: left; 
-    font-size: 9px; 
-    display:flex; 
-    align-items: center; 
-    padding-left: 5px; 
-    text-transform: capitalize; 
-    box-shadow: inset 1px 1px #ffff, inset 2px 2px #ffffff; 
-  }
-
-  #ability-button-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    position: fixed;
-  }
-
-
-  #button-ability {
-    width: 30px; /* Diameter of the circle */
-    height: 30px; /* Diameter of the circle */
-    background-color: #0e5df0; 
-    border-radius: 50%; /* This makes it circular */
-    border: 1px solid #000000;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 1px 1px #0e5df0,
-                2px 2px #0e5df0,
-                3px 3px #000000;             
-    position: relative;
-    transform: translate(390px, 140px); 
-  }
-
-  #button-ability:active {
-    box-shadow: none;
-    top: 3px;
-    right: -3px;
-  }
-
-
-
-  #moves-container{ 
+    #button-ability {
+      width: 30px; 
+      height: 30px; 
+      background-color: #0e5df0; 
+      border-radius: 50%; 
+      border: 1px solid #000000;
+      cursor: pointer;
       display: flex;
       justify-content: center;
-  } 
-
-  #screen-moves-container{
-    width: 480px;
-    height: 100px; 
-    display: flex; 
-    align-items: fixed; 
-    justify-content: space-between; 
-    position:fixed;     
+      align-items: center;
+      box-shadow: 1px 1px #0e5df0,
+                  2px 2px #0e5df0,
+                  3px 3px #000000;             
+      position: relative;
+      transform: translate(390px, 120px); 
     }
 
-    #pokemon-move-stats {
-      list-style-type: none;
-      padding: 0;
-      background-color: #000000; 
-      color: white; 
-      height: 95px; 
-      width: 245px; 
-      border: 1px solid #000000; 
-      text-align: left; 
-      font-size: 12px; 
-      display:flex;   
-      align-items: center; 
-      text-align: left;
-      text-transform: capitalize; 
-      box-shadow: inset 1px 1px #ffff, inset 2px 2px #ffffff; 
-      transform: translate(325px, 175px);
-      display:flex; 
-      flex-direction: column;      
-      visibility: visible;
-      color: white;         
-      font-size: 10px;     
-      z-index: 1000;        
+    #button-ability:active {
+      box-shadow: none;
+      top: 3px;
+      right: -3px;
     }
 
-    #pokemon-move-stats li {
-      width: 100%; /* Each li will take full width of the ul */
-      transform: translate(10px, 0px);
-    
-      white-space: nowrap; /* Prevent text wrapping */
-      text-overflow: ellipsis; /* Show an ellipsis when text overflows */
-    }
-
-    #pokemon-move-stats p {
-      margin: 0; /* Remove default margin */
-      
-    } 
-
-  #button-next-move-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    position: fixed;
-    /* Adjust the transform values to place the button where you need it */
-    transform: translate(370px, 230px); 
-  }
-
-  #button-move {
-    width: 50px; /* Diameter of the circle */
-    height: 50px; /* Diameter of the circle */
-    background-color: #f8e825; /* Yellow color */
-    border-radius: 50%; /* This makes it circular */
-    border: 1px solid #000000;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 1px 1px #f8e825,
-                2px 2px #f8e825,
-                3px 3px #000000;             
-    position: relative;
-  }
-
-  #button-move:active {
-    box-shadow: none;
-    top: 3px;
-    right: -3px;
-  }
-
-  #buttons-form-attk-container{
+    #buttons-form-attk-container{
       display:flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
       position: fixed;
-      transform: translate(340px, 60px);
+      transform: translate(270px, 40px);
     }  
     
     #button-stats{
@@ -1040,10 +926,139 @@ body, html {
       border: 1px solid #232323;
       border-radius: 50%;
     }
-    
-    
 
-    footer {
+    #abilities-row{ 
+      display: flex;
+      justify-content: center;
+    } 
+
+    #abilities-container{
+      width: 400px;
+      height: 100px; 
+      display: flex; 
+      align-items: fixed; 
+      justify-content: space-between; 
+      position:fixed; 
+      transform: translate(430px, 100px);
+      max-height: 150px; 
+        overflow-y: auto; 
+        overflow-x: hidden;
+    } 
+
+    #abilities-screen{ 
+      background-color: #000000; 
+      color: white; 
+      height: 70px; 
+      width: 140px; 
+      border: 1px solid #000000; 
+      text-align: left; 
+      font-size: 9px; 
+      display:flex; 
+      align-items: center; 
+      padding-left: 5px; 
+      text-transform: capitalize; 
+      box-shadow: inset 1px 1px #ffff, inset 2px 2px #ffffff; 
+    }
+
+    #ability-button-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      position: fixed;
+    }
+
+  /* Wrapper for the lower part of the dex */
+  .lowWrapperDex{
+    float: left;
+    height: 100%;
+    position: relative;
+    width: 0px;
+    height: 0px;
+    transform: translate(-255px , 0px); 
+  }  
+
+    #moves-container{ 
+        display: flex;
+        justify-content: center;
+    } 
+
+    #screen-moves-container{
+      width: 480px;
+      height: 100px; 
+      display: flex; 
+      align-items: fixed; 
+      justify-content: space-between; 
+      position:fixed;     
+    }
+
+    #pokemon-move-stats {
+        list-style-type: none;
+        padding: 0;
+        background-color: #000000; 
+        color: white; 
+        height: 95px; 
+        width: 245px; 
+        border: 1px solid #000000; 
+        text-align: left; 
+        font-size: 12px; 
+        display:flex;   
+        align-items: center; 
+        text-align: left;
+        text-transform: capitalize; 
+        box-shadow: inset 1px 1px #ffff, inset 2px 2px #ffffff; 
+        transform: translate(325px, 175px);
+        display:flex; 
+        flex-direction: column;      
+        visibility: visible;
+        color: white;         
+        font-size: 10px;     
+        z-index: 1000;        
+    }
+
+    #pokemon-move-stats li {
+        width: 100%; 
+        transform: translate(10px, 0px);      
+        white-space: nowrap; 
+        text-overflow: ellipsis; 
+    }
+
+    #pokemon-move-stats p {
+        margin: 0;         
+    } 
+
+    #button-next-move-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      position: fixed;
+      transform: translate(350px, 210px); 
+    }
+
+    #button-move {
+      width: 50px; 
+      height: 50px; 
+      background-color: #f8e825; 
+      border-radius: 50%; 
+      border: 1px solid #000000;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 1px 1px #f8e825,
+                  2px 2px #f8e825,
+                  3px 3px #000000;             
+      position: relative;
+    }
+
+    #button-move:active {
+      box-shadow: none;
+      top: 3px;
+      right: -3px;
+    }
+
+footer {
       position: fixed;
       bottom: 0;
       left: 0;
@@ -1055,4 +1070,4 @@ body, html {
       background-color: #000000;
       color: white;
       font-family: 'BitGame', sans-serif;
-    }
+}
