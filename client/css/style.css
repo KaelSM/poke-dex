@@ -103,13 +103,15 @@ body, html {
       position: absolute;
   }
 
-/* Wrapper for the top part of the dex */
+/* left side of the pokedex */
+  /* Wrapper for the top part of the dex */
   .topWrapper {
     float: left;
     height: 100%;
     position: relative;
     width: 259px;
     height: 160px;
+    transform: translate(130px , 0px);
   } 
 
     #circle-container {
@@ -142,8 +144,7 @@ body, html {
 
     /*The lightCircleBlinks CSS animation creates a blinking effect.
      It maintains a blue background color for most of the duration, 
-     then briefly changes to a semi-transparent cyan with a glowing effect at the end of each cycle.*/
-    
+     then briefly changes to a semi-transparent cyan with a glowing effect at the end of each cycle.*/   
      @keyframes lightCircleBlinks{
       0%{
         background-color: #146b9f;
@@ -234,10 +235,15 @@ body, html {
       opacity: 1; 
     }
     
-
 /* wrapper for the middle part of the dex*/
-
-
+  .midWrapper {
+    float: left;
+    height: 100%;
+    position: relative;
+    width: 259px;
+    height: 160px;
+    transform: translate(14px , 80px); 
+  }
 
     #placeholder-pokemon-img {
       display: none; 
@@ -258,6 +264,7 @@ body, html {
       border-radius: 50%;
       border: 1px solid #000000;
       position: absolute;
+      transform: translate(-280px, 80px)
     }
 
     #small-circle-menu {
@@ -284,7 +291,7 @@ body, html {
       justify-content: center;
       align-items: center;
       position: absolute;
-      transform: translate(-180px, 95px);
+      transform: translate(-220px, 80px);
     }
 
     .gender {
@@ -293,9 +300,9 @@ body, html {
       border-radius: 50%;
       margin-right: 10px;
       cursor: pointer;
-  }
+    }
 
-  .gender.selected {
+    .gender.selected {
       opacity: 1;   
     }
     
@@ -303,9 +310,16 @@ body, html {
       opacity: 0.5; 
     } 
 
-
-
-  /* lower dex styles */
+  /* wrapper for the lower part of the dex */
+  .lowWrapper {
+    float: left;
+    height: 100%;
+    position: relative;
+    width: 0px;
+    height: 0px;
+    transform: translate(0px , 0px); 
+      
+ }
 
     #name-row{
       display: flex;
@@ -316,10 +330,10 @@ body, html {
       width: 400px; 
       height: 100px;
       display: flex;
-      position:fixed;
+      position:absolute;
       align-items: center;
       justify-content: center;
-      transform: translate(-270px, 115px);
+      transform: translate(-500px, 120px);
     }
 
     #name-screen{
@@ -334,14 +348,14 @@ body, html {
       align-items: center;
       padding-left: 5px;
       text-transform: capitalize;
-      box-shadow: inset 1px 1px #306938, inset 2px 2px #000000;
+      box-shadow: inset 1px 1px #306938, inset 2px 2px #000000;      
     } 
 
     #controls-container {
       display: flex;
-      transform: translate(-70px, 200px);
-      position: fixed;
+      position: absolute;
       justify-content:space-between;
+      transform: translate(-360px, 180px);
         
       .dpad {
         position:relative;
@@ -472,17 +486,17 @@ body, html {
           height:20px;
         }
       }
-    }
-    
+    }    
     
     #buttons-container{
       display:flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      position: fixed;
-      transform: translate(-150px, 170px);
+      position: absolute;      
+      transform: translate(-375px, 160px);
     }
+
     #button-red{
       width: 40px;
       height: 10px;
@@ -498,13 +512,16 @@ body, html {
       box-shadow: 1px 1px #89061c,
                   2px 2px #89061c,
                   3px 3px #000000;
-      position: relative;
+      position: absolute;
+      transform: translate(0px, 0px);
     }
+
     #button-red:active{
       box-shadow: none;
       top: 3px;
       right: -3px;
     }
+
     #button-blue{
       width: 40px;
       height: 10px;
@@ -520,55 +537,58 @@ body, html {
       box-shadow: 1px 1px #0f537b,
                   2px 2px #0f537b,
                   3px 3px #000000;
-      position: relative;
+      position: absolute;
+      transform: translate(0px, 20px);
+
     }
+
     #button-blue:active{
       box-shadow: none;
       top: 3px;
       right: -3px;
     }
+
     .light{
       height: 5px;
       width: 5px;
       border: 1px solid #232323;
       border-radius: 50%;
     }
+
     .on{
       background-color: #ffe600;
     }
+
     .off{
       background-color: #232323;
-    }
+    } 
     
-    /* Footer left dex styles */
-  .footer-left {
-      position: fixed;
+    .footer-left {
+      position: absolute;
       bottom: 0;
       left: 0;
       display: flex;
       justify-content: center;
       align-items: center;
-  } 
+    } 
 
-  #list-row{ 
+    #list-row{ 
       display: flex;
       justify-content: center;
-  } 
+    } 
 
-  #list-container{
+    #list-container{
       width: 40px;
       height: 100px; 
       display: flex; 
       align-items: fixed; 
       justify-content: space-between; 
-      position:fixed; 
-      transform: translate(-348px, 215px);
-      } 
+      position:absolute; 
+      transform: translate(-580px, 210px);
+    } 
 
-
-
-  #pokemon-select {
-      background-color: #52af5f; /* Same background as the box */
+    #pokemon-select {
+      background-color: #52af5f; 
       color: white;
       height: 45px;
       width: 150px;
@@ -584,31 +604,33 @@ body, html {
     #pokemon-select option {
       background-color: #52af5f; 
       color: white; 
-      padding: 5px;         /* Adjust padding as needed */
+      padding: 5px;         
     }
     
-    /* Optional: Hover effect */
     #pokemon-select option:hover {
-    background-color: #38793f; /* Slightly darker on hover */
+    background-color: #38793f; 
     }
 
-  @media only screen and (max-width: 1026px) {
-      .mainDex, .mainsc {
-          display: none;
-      }
-      .bgTooSmall {
-          display: show;
-      }
-  }
+    @media only screen and (max-width: 1026px) {
+        .mainDex, .mainsc {
+            display: none;
+        }
+        .bgTooSmall {
+            display: show;
+        }
+    }
 
-  @media only screen and (min-width: 1026px) {
-      .midDex, .mainsc {
-          display: show;
-      }
-      .bgTooSmall {
-          display: none;
-      }
-  }
+    @media only screen and (min-width: 1026px) {
+        .midDex, .mainsc {
+            display: show;
+        }
+        .bgTooSmall {
+            display: none;
+        }
+    }
+  
+/* right side of the pokedex */
+  /* Wrapper for the top part of the dex */
 
   .soundContainer {
       display: flex;

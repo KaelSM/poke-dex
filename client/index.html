@@ -25,15 +25,16 @@
             <img src="source/img/animation_definitivo_nat_lesscol.gif" alt="bg">
         </div>
         <audio id="background-sound" loop>
-            <source src="source/sound/pokemon_music-bg.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
+            <source src="source/sound/pokemon_music-bg.mp3" type="audio/mpeg">            
         </audio>
     </div>
 
     <!-- Main content -->
     <div class="wrapper">
         <div class="mainDex">
+            <!-- Top part of the pokedex left side -->
             <div class="topWrapper">
+                <!-- circle beeping -->
                 <div id="circle-container">
                     <!-- Big blue circle with a blinking light inside -->
                     <div id="big-circle">
@@ -45,6 +46,7 @@
                     <div id="small-circle-yellow" class="small-circle"></div>
                     <div id="small-circle-green" class="small-circle"></div>
                 </div>  
+                <!-- Search bar -->
                 <div id="search-row">
                     <div id="search-container">
                     <div id="search-screen">
@@ -52,11 +54,11 @@
                     </div>
                     </div>
                 </div>
-            </div>
-
-            
-
-            <div class="container-IMG">
+            </div>         
+            <!-- mid part of the pokedex left side -->
+            <div class="midWrapper"> 
+                <!-- Pokemon image -->                      
+                <div class="container-IMG">
                 <img id="placeholder-pokemon-img" src="" alt="pokemon"
                 style="
                     height: 200px;
@@ -71,14 +73,17 @@
                     transform: translate(-185px , -40px);
                     position: fixed;
                 ">
-            </div>
-        
+                </div>
+                <!-- Mid beeping circle-->
                 <div id="small-circle-menu" class="small-circle-menu"></div>
+                <!-- Gender icons-->
                 <div class="gender-icons">
                     <i class="fas fa-mars-stroke fa-lg gender selected" aria-hidden="true"></i>
                     <i class="fas fa-venus fa-lg gender" aria-hidden="true"></i>
                 </div>
-                
+            </div>               
+            <!-- bottom part of the pokedex left side -->
+            <div class="lowWrapper">
                 <!-- Name of Pokemon selected-->
                 <div id="name-row">
                     <div id="name-container">
@@ -87,7 +92,7 @@
                     </div>                  
                     </div>
                 </div>         
-
+                <!-- Pokemon switch normal and shiny color -->
                 <div id="buttons-container">
                     <div id="button-red" onclick="clickNormalColor()">
                     <div id="light-button-red" class="light on"></div>
@@ -96,7 +101,7 @@
                     <div id="light-button-blue" class="light off"></div>
                     </div>
                 </div>   
-
+                <!-- DPad Controller -->
                 <div id="controls-container">
                     <div class="dpad">
                         <div class="up"><i class="fa fa-caret-up"></i></div>
@@ -106,22 +111,22 @@
                         <div class=middle></div>
                     </div>
                 </div>
-
-            <!-- list to select pokemon -->        
-            <div id="footer-left">
-                <div id="footer-left-screen">
-                <div id="List-row">
-                    <div id="list-container">
-                    <div id="list-screen">
-                        <div id="list-screen-text">
-                        <select id="pokemon-select">
-                            <option value="">Select a Pokémon</option>
-                            <!-- JavaScript will populate this select with options from the api-->
-                        </select>
-                        </div>        
+                <!-- list to select pokemon -->        
+                <div id="footer-left">
+                    <div id="footer-left-screen">
+                    <div id="List-row">
+                        <div id="list-container">
+                        <div id="list-screen">
+                            <div id="list-screen-text">
+                            <select id="pokemon-select">
+                                <option value="">Select a Pokémon</option>
+                                <!-- JavaScript will populate this select with options from the api-->
+                            </select>
+                            </div>        
+                        </div>
+                        </div>
                     </div>
                     </div>
-                </div>
                 </div>
             </div>
             
