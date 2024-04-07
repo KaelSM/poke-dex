@@ -1,6 +1,20 @@
 
 /* General styles */
 
+/**
+ * @file style.css
+ * @description This file contains the styles for the Poke-dex client application.
+ * Author: Kael Moreira
+ * Date: April 2024
+ **/
+
+/**
+ * @font-face
+ * The @font-face rule allows custom fonts to be loaded on a webpage.
+   It specifies the name of the font, the source file, and other properties
+   such as font weight and style.
+**/
+
 @font-face {
     font-family: 'BitGame';
     src: url('../source/font/Compixs-Regular.otf') format('opentype'),
@@ -63,927 +77,960 @@ body, html {
     font-family: 'BitGame', sans-serif;
 }
 
-/* Left main dex styles */
-
-.mainDex {
-    background-image: url('../source/img/2.png');
-    width: 110%; 
-    height: 110%; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    position: fixed;
-}
-
-#placeholder-pokemon-img {
-    display: none; 
+/* Main dex styles */
+/* Main Wrapper */
+  .wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      width: 100%;
+      position: fixed;
+      font-family: 'BitGame', sans-serif;
   }
 
-  #circle-container {
-    display: flex; 
-    justify-content: start; 
-    position: fixed;
-    top: 10px; 
-    transform: translate(-350px, 205px);
-    z-index: 2; 
-  }
-  
-  #big-circle {
-    width: 70px;
-    height: 70px;
-    background-color: #146b9f;
-    border-radius: 50%;
-    box-shadow: 0 0 0 1px #000000, 0 0 0 15px #e9eef3, 0 0 0 16px #000000;
-    position: fixed;
-    margin-right: 30px;
-  }
-  
-  #blinking-light {
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  position: fixed;
-  top: 17px;
-  left: 17px;
-  animation: lightCircleBlinks 5s ease 0s infinite alternate none;
+/* Main Dex body*/
+  .mainDex {
+      background-image: url('../source/img/2.png');
+      width: 1000px; 
+      height: 12000px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      position: absolute;
   }
 
-  @keyframes lightCircleBlinks{
-    0%{
-      background-color: #146b9f;
-      box-shadow: none;
-    }
-    97%{
-      background-color: #146b9f;
-      box-shadow: none;
-    }
-    100%{
-      background-color: rgb(0 255 255 / 25%);
-      box-shadow: 0 0 40px 0 #0ff;
-    }
-  }
-  
-  .small-circle {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    position: fixed;
-    border: 1px solid #000000;
-    transition: all 2s;
-    margin-right: 10px;
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.25); 
-  }
-  
-  #small-circle-red {
-    background-color: #710000;
-    top: 20px; 
-    left: 100px;
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.25); 
-  }
-  
-  #small-circle-yellow {
-    background-color: #c3ba00; 
-    top: 20px;
-    left: 130px;
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.25); 
-  }
-  
-  #small-circle-green {
-    background-color: #1f743b;
-    top: 20px; 
-    left: 160px;
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.25); 
-  }
-
-  /* mid dex styles */
-
-  .container-IMG {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    transform: translate(0px, 0px);
-  }
-
-  .small-circle-menu {
-    background-color: #710000; 
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    border: 1px solid #000000;
-    position: fixed;
-    transform: translate(-290px, 90px);
-  }
-
-  #small-circle-menu {
-    animation: circleMenuBlinks 2s ease 3s infinite;
-  }
-
-  @keyframes circleMenuBlinks{
-    0%{
-      background-color: #710000;
-      box-shadow: none;
-    }
-    90%{
-      background-color: #710000;
-      box-shadow: none;
-    }
-    100%{
-      background-color: rgb(255 0 0 / 25%);
-      box-shadow: 0 0 9px 0 #f00;
-    }
-  }
-
-  .gender-icons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    transform: translate(-180px, 95px);
-  }
-
-  .gender {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    margin-right: 10px;
-    cursor: pointer;
-}
-
-.gender.selected {
-    opacity: 1;   
-  }
-  
-  .gender { 
-    opacity: 0.5; 
-  } 
-
-  #search-row{
-    display: flex;
-    justify-content: center;
-  }
-
-  #search-container{
-    width: 410px; 
-    height: 100px;
-    display: flex;
-    position:fixed;
-    align-items: center;
-    justify-content: center;
-    transform: translate(-82px, -250px);
-  }
-
-  #search-input {
-    background-color: #52af5f; /* Same background as the box */
-    color: white;
-    height: 45px;
-    width: 120px;
-    border: 1px solid #000000;  
-    text-align: center;
-    font-family: 'BitGame', sans-serif;
-    font-size: 10px;         
-    text-transform: capitalize; 
-    box-shadow: inset 1px 1px #306938, inset 2px 2px #000000;
-  }
-/* Remove the focus outline to match the dropdown style */
-#search-input:focus {
-  outline: none;
-}
-
-/* Match the search input placeholder color to the dropdown's style */
-#search-input::placeholder {
-  color: white;
-  background-color: #52af5f;
-  opacity: 1; 
-}
-
-/* lower dex styles */
-
-  #name-row{
-    display: flex;
-    justify-content: center;
-  }
-
-  #name-container{
-    width: 400px; 
-    height: 100px;
-    display: flex;
-    position:fixed;
-    align-items: center;
-    justify-content: center;
-    transform: translate(-270px, 115px);
-  }
-
-  #name-screen{
-    background-color: #52af5f;
-    color: white;
-    height: 45px;
-    width: 150px;
-    border: 1px solid #000000;
-    text-align: center;
-    font-size: 12px;
-    display:flex;
-    align-items: center;
-    padding-left: 5px;
-    text-transform: capitalize;
-    box-shadow: inset 1px 1px #306938, inset 2px 2px #000000;
-  } 
-
-  #controls-container {
-    display: flex;
-    transform: translate(-70px, 200px);
-    position: fixed;
-    justify-content:space-between;
-      
-    .dpad {
-      position:relative;
-      display:inline-block;
-      width:90px;
-      height:90px;
-      z-index:5;
-      
-      > * {
-        width:33%;
-        height:33%;
-        position:absolute;
-        background-color:#565e6a;
-        cursor:pointer;
-        
-        i {
-          position:relative;
-          display:block;
-          margin:0 auto;
-          text-align:center;
-          height:100%;
-          font-size:28px;
-          color:#333a4a;
-          text-shadow:0px -0.5px 0px #aaa;
-        }
-      }
-      
-      .up {
-        top:calc(0% + 4px);
-        left:33%;
-        border-top:4px solid black;
-        border-left:4px solid black;
-        border-right:4px solid black;
-        border-radius:5px 5px 0px 0px;
-        
-        &:active {
-          background:linear-gradient(to top, #565e6a 0%, #333 100%);
-        }
-        
-        i {
-          top:-5px;
-        }
-      }
-      .right {
-        top:33%;
-        left:calc(75% - 4px);
-        border-top:4px solid black;
-        border-bottom:4px solid black;
-        border-right:4px solid black;
-        border-radius:0px 5px 5px 0px;
-        box-shadow:0px -2px 0px #888 inset;
-        
-        &:active {
-          background:linear-gradient(to right, #565e6a 0%, #333 100%);
-        }
-        
-        i {
-          top:-5px;
-        }
-      }
-      .down {
-        top: calc(75% - 4px);
-        left: 33%;
-        border-left: 4px solid black;
-        border-bottom: 4px solid black;
-        border-right: 4px solid black;
-        border-radius: 0px 0px 5px 5px;
-        box-shadow: 0px -2px 0px #888 inset;
-        cursor: pointer; /* Ensure the cursor changes to a pointer */
-      
-        &:active {
-          background: linear-gradient(to bottom, #565e6a 0%, #333 100%);
-        }
-      }
-      
-      .left {
-        top:33%;
-        left:calc(-5% + 4px);
-        border-top:4px solid black;
-        border-bottom:4px solid black;
-        border-left:4px solid black;
-        border-radius:5px 0px 0px 5px;
-        box-shadow:0px -2px 0px #888 inset;
-        
-        i {
-          top:-5px;
-        }
-        
-        &:active {
-          background:linear-gradient(to left, #565e6a 0%, #333 100%);
-        }
-      }
-      .middle {
-        top:33%;
-        left:33%;
-        width:40%;
-        height:40%;
-        z-index:-5;
-        
-        &::after {
-          content:'';
-          position:absolute;
-          top:20%;
-          left:20%;
-          display:inline-block;
-          border:1px solid #6e737a;
-          background:linear-gradient(to bottom, #6d7075 0%, #6d7075 30%, #23272f 70%, #23272f 100%);
-          border-radius:50%;
-          height:60%;
-          width:60%;
-        }
-      }
-      
-      .up-down {
-        background-color:#565e6a;
-        border:4px solid black;
-                border-radius:5px;
-        width:20px;
-        height:60px;
-      }
-      .left-right {
-        background-color:#565e6a;
-        border:4px solid black;
-        border-radius:5px;
-        width:60px;
-        height:20px;
-      }
-    }
-  }
-  
-  
-  #buttons-container{
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    position: fixed;
-    transform: translate(-150px, 170px);
-  }
-  #button-red{
-    width: 40px;
-    height: 10px;
-    background-color: #710000;
-    border-radius: 20px;
-    margin-bottom: 3px;
-    border: 1px solid #000000;
-    cursor: pointer;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding-right: 4px;
-    box-shadow: 1px 1px #89061c,
-                2px 2px #89061c,
-                3px 3px #000000;
+/* Wrapper for the top part of the dex */
+  .topWrapper {
+    float: left;
+    height: 100%;
     position: relative;
-  }
-  #button-red:active{
-    box-shadow: none;
-    top: 3px;
-    right: -3px;
-  }
-  #button-blue{
-    width: 40px;
-    height: 10px;
-    background-color: #146b9f;
-    margin-top: 3px;
-    border: 1px solid #000000;
-    border-radius: 20px;
-    cursor: pointer;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding-right: 4px;
-    box-shadow: 1px 1px #0f537b,
-                2px 2px #0f537b,
-                3px 3px #000000;
-    position: relative;
-  }
-  #button-blue:active{
-    box-shadow: none;
-    top: 3px;
-    right: -3px;
-  }
-  .light{
-    height: 5px;
-    width: 5px;
-    border: 1px solid #232323;
-    border-radius: 50%;
-  }
-  .on{
-    background-color: #ffe600;
-  }
-  .off{
-    background-color: #232323;
-  }
-  
-  /* Footer left dex styles */
-.footer-left {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-} 
-
-#list-row{ 
-    display: flex;
-    justify-content: center;
-} 
-
-#list-container{
-     width: 400px;
-     height: 100px; 
-     display: flex; 
-     align-items: fixed; 
-     justify-content: space-between; 
-     position:fixed; 
-     transform: translate(-348px, 215px);
-    } 
-
-
-
-#pokemon-select {
-    background-color: #52af5f; /* Same background as the box */
-    color: white;
-    height: 45px;
-    width: 150px;
-    border: 1px solid #000000;  
-    text-align: center;
-    font-family: 'BitGame', sans-serif;
-    font-size: 12px;         
-    text-transform: capitalize; 
-    box-shadow: inset 1px 1px #306938, inset 2px 2px #000000;
-  }
-  
-  /* Style for the individual options */
-  #pokemon-select option {
-    background-color: #52af5f; 
-    color: white; 
-    padding: 5px;         /* Adjust padding as needed */
-  }
-  
-  /* Optional: Hover effect */
-  #pokemon-select option:hover {
-   background-color: #38793f; /* Slightly darker on hover */
-  }
-
-@media only screen and (max-width: 1026px) {
-    .mainDex, .mainsc {
-        display: none;
-    }
-    .bgTooSmall {
-        display: show;
-    }
-}
-
-@media only screen and (min-width: 1026px) {
-    .midDex, .mainsc {
-        display: show;
-    }
-    .bgTooSmall {
-        display: none;
-    }
-}
-
-.soundContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    transform: translate(40px, -100px);
-}
-
-#stats-container{ 
-    display: flex;
-    justify-content: center;
-} 
-
-#screen-container{
-     width: 480px;
-     height: 100px; 
-     display: flex; 
-     align-items: fixed; 
-     justify-content: space-between; 
-     position:fixed;     
-    } 
-
-#desc-screen{ 
-    background-color: #000000; 
-    color: white; 
-    height: 150px; 
-    width: 310px; 
-    border: 1px solid #000000; 
-    text-align: left; 
-    font-size: 10px; 
-    display:flex; 
-    align-items: center; 
-    padding-left: 20px; 
-    text-transform: capitalize; 
-    box-shadow: inset 1px 1px #ffff, inset 2px 2px #ffffff; 
-    transform: translate(327px, -120px);
-}
-
-#desc-screen ul {
-    list-style-type: none;
-    padding: 0;
-    margin-left: 10px;
-    text-align: left;
-}
-
-#type-screen-text, #typ-placeholder-screen-text {
-  display: inline-block;
-  text-align: center;
-  padding: 0.5px 7px;
-  font-weight: bold;
-  color: white;
-  transform: translate(5px, 60px);
-}
-
-#type-screen-text, #typ-placeholder-screen-text {
-  width: 50px; /* Fixed width, adjust as needed */
-  height: 20px; /* Maintain aspect ratio */
-  border-radius: 10px; /* If you want rounded corners for your images */
-
-}
-
-/* You may want to hide the images by default and only show them when a source is set */
-#type-screen-text, #typ-placeholder-screen-text {
-  display: none;
-}
-
-#type-row{ 
-    display: flex;
-    justify-content: center;
-} 
-
-#type-container{
-     width: 400px;
-     height: 100px; 
-     display: flex; 
-     align-items: fixed; 
-     justify-content: space-between; 
-     position:fixed; 
-     transform: translate(290px, 40px);
-    } 
-
-#type-screen{ 
-    background-color: #fff; 
-    color: black; 
-    height: 35px; 
-    width: 70px; 
-    border: 1px solid #000000; 
-    text-align: center; 
-    font-size: 16px; 
-    display:flex; 
-    align-items: center; 
-    padding-left: 5px; 
-    text-transform: capitalize; 
-    box-shadow: inset 1px 1px #ffff, inset 2px 2px #000000; 
-}
-
-#typ-placeholder-row{ 
-    display: flex;
-    justify-content: center;
-} 
-
-#typ-placeholder-container{
-     width: 400px;
-     height: 100px; 
-     display: flex; 
-     align-items: fixed; 
-     justify-content: space-between; 
-     position:fixed; 
-     transform: translate(370px, 40px);
-    } 
-
-#typ-placeholder-screen{ 
-    background-color: #fff; 
-    color: black; 
-    height: 35px; 
-    width: 70px; 
-    border: 1px solid #000000; 
-    text-align: center; 
-    font-size: 16px; 
-    display:flex; 
-    align-items: center; 
-    padding-left: 5px; 
-    text-transform: capitalize; 
-    box-shadow: inset 1px 1px #ffff, inset 2px 2px #000000; 
-}
-
-#height-row{ 
-    display: flex;
-    justify-content: center;
-} 
-
-#height-container{
-     width: 400px;
-     height: 100px; 
-     display: flex; 
-     align-items: fixed; 
-     justify-content: space-between; 
-     position:fixed; 
-     transform: translate(290px,90px);     
-    } 
-
-#height-screen{ 
-    background-color: #000000; 
-    color: white; 
-    height: 35px; 
-    width: 120px; 
-    border: 1px solid #000000; 
-    text-align: center; 
-    font-size: 14px; 
-    display:flex; 
-    align-items: center; 
-    padding-left: 5px; 
-    text-transform: capitalize; 
-    box-shadow: inset 1px 1px #ffff, inset 2px 2px #ffffff; 
-}
-
-#weight-row{ 
-    display: flex;
-    justify-content: center;
-} 
-
-#weight-container{
-     width: 400px;
-     height: 100px; 
-     display: flex; 
-     align-items: fixed; 
-     justify-content: space-between; 
-     position:fixed; 
-     transform: translate(290px, 140px);
-    } 
-
-#weight-screen{ 
-    background-color: #000000; 
-    color: white; 
-    height: 35px; 
-    width: 120px; 
-    border: 1px solid #000000; 
-    text-align: center; 
-    font-size: 14px; 
-    display:flex; 
-    align-items: center; 
-    padding-left: 5px; 
-    text-transform: capitalize; 
-    box-shadow: inset 1px 1px #ffff, inset 2px 2px #ffffff; 
-}
-
-#weight-row{ 
-  display: flex;
-  justify-content: center;
-} 
-
-#weight-container{
-   width: 400px;
-   height: 100px; 
-   display: flex; 
-   align-items: fixed; 
-   justify-content: space-between; 
-   position:fixed; 
-   transform: translate(290px, 140px);
+    width: 259px;
+    height: 160px;
   } 
 
-#weight-screen{ 
-  background-color: #000000; 
-  color: white; 
-  height: 35px; 
-  width: 120px; 
-  border: 1px solid #000000; 
-  text-align: center; 
-  font-size: 14px; 
-  display:flex; 
-  align-items: center; 
-  padding-left: 5px; 
-  text-transform: capitalize; 
-  box-shadow: inset 1px 1px #ffff, inset 2px 2px #ffffff; 
-}
-
-#abilities-row{ 
-  display: flex;
-  justify-content: center;
-} 
-
-#abilities-container{
-   width: 400px;
-   height: 100px; 
-   display: flex; 
-   align-items: fixed; 
-   justify-content: space-between; 
-   position:fixed; 
-   transform: translate(430px, 100px);
-   max-height: 150px; /* Adjust the height as needed */
-    overflow-y: auto; /* This will add a vertical scrollbar when the content overflows */
-    overflow-x: hidden;
-  } 
-
-#abilities-screen{ 
-  background-color: #000000; 
-  color: white; 
-  height: 70px; 
-  width: 140px; 
-  border: 1px solid #000000; 
-  text-align: left; 
-  font-size: 9px; 
-  display:flex; 
-  align-items: center; 
-  padding-left: 5px; 
-  text-transform: capitalize; 
-  box-shadow: inset 1px 1px #ffff, inset 2px 2px #ffffff; 
-}
-
-#ability-button-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  position: fixed;
-}
-
-
-#button-ability {
-  width: 30px; /* Diameter of the circle */
-  height: 30px; /* Diameter of the circle */
-  background-color: #0e5df0; 
-  border-radius: 50%; /* This makes it circular */
-  border: 1px solid #000000;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 1px 1px #0e5df0,
-              2px 2px #0e5df0,
-              3px 3px #000000;             
-  position: relative;
-  transform: translate(390px, 140px); 
-}
-
-#button-ability:active {
-  box-shadow: none;
-  top: 3px;
-  right: -3px;
-}
-
-
-
-#moves-container{ 
-    display: flex;
-    justify-content: center;
-} 
-
-#screen-moves-container{
-   width: 480px;
-   height: 100px; 
-   display: flex; 
-   align-items: fixed; 
-   justify-content: space-between; 
-   position:fixed;     
-  }
-
-  #pokemon-move-stats {
-    list-style-type: none;
-    padding: 0;
-    background-color: #000000; 
-    color: white; 
-    height: 95px; 
-    width: 245px; 
-    border: 1px solid #000000; 
-    text-align: left; 
-    font-size: 12px; 
-    display:flex;   
-    align-items: center; 
-    text-align: left;
-    text-transform: capitalize; 
-    box-shadow: inset 1px 1px #ffff, inset 2px 2px #ffffff; 
-    transform: translate(325px, 175px);
-    display:flex; 
-    flex-direction: column;      
-    visibility: visible;
-    color: white;         
-    font-size: 10px;     
-    z-index: 1000;        
-  }
-
-  #pokemon-move-stats li {
-    width: 100%; /* Each li will take full width of the ul */
-    transform: translate(10px, 0px);
-   
-    white-space: nowrap; /* Prevent text wrapping */
-    text-overflow: ellipsis; /* Show an ellipsis when text overflows */
-  }
-
-  #pokemon-move-stats p {
-    margin: 0; /* Remove default margin */
+    #circle-container {
+      left: 50%;
+      position: absolute;
+      top: 50%;
+      
+    }
     
+    #big-circle {
+      width: 70px;
+      height: 70px;
+      background-color: #146b9f;
+      border-radius: 50%;
+      box-shadow: 0 0 0 1px #000000, 0 0 0 15px #e9eef3, 0 0 0 16px #000000;
+      position: absolute;
+      margin-right: 30px;
+      transform: translate(-470%, -410%);
+    }
+    
+    #blinking-light {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    position: absolute;
+    top: 17px;
+    left: 17px;
+    animation: lightCircleBlinks 5s ease 0s infinite alternate none;
+    }
+
+    /*The lightCircleBlinks CSS animation creates a blinking effect.
+     It maintains a blue background color for most of the duration, 
+     then briefly changes to a semi-transparent cyan with a glowing effect at the end of each cycle.*/
+    
+     @keyframes lightCircleBlinks{
+      0%{
+        background-color: #146b9f;
+        box-shadow: none;
+      }
+      97%{
+        background-color: #146b9f;
+        box-shadow: none;
+      }
+      100%{
+        background-color: rgb(0 255 255 / 25%);
+        box-shadow: 0 0 40px 0 #0ff;
+      }
+    }
+    
+    .small-circle {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      position: absolute;
+      border: 1px solid #000000;
+      transition: all 2s;
+      margin-right: 10px;
+      box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.25); 
+    }
+    
+    #small-circle-red {
+      background-color: #710000;
+      top: 20px; 
+      left: 100px;
+      box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.25); 
+      transform: translate(-1500%, -1300%);
+    }
+    
+    #small-circle-yellow {
+      background-color: #c3ba00; 
+      top: 20px;
+      left: 130px;
+      box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.25); 
+      transform: translate(-1490%, -1300%)
+    }
+    
+    #small-circle-green {
+      background-color: #1f743b;
+      top: 20px; 
+      left: 160px;
+      box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.25); 
+      transform: translate(-1490%, -1300%)
+    }
+
+    #search-row{
+      display: flex;
+      justify-content: center;
+    }
+
+    #search-container{
+      width: 410px; 
+      height: 100px;
+      display: flex;
+      position:absolute;
+      align-items: center;
+      justify-content: center;
+      transform: translate(-60px, -180px);
+    }
+
+    #search-input {
+      background-color: #52af5f; 
+      color: white;
+      height: 45px;
+      width: 120px;
+      border: 1px solid #000000;  
+      text-align: center;
+      font-family: 'BitGame', sans-serif;
+      font-size: 10px;         
+      text-transform: capitalize; 
+      box-shadow: inset 1px 1px #306938, inset 2px 2px #000000;
+    }
+
+    /* Remove the focus outline to match the dropdown style */
+    #search-input:focus {
+      outline: none;
+    }
+
+    /* Match the search input placeholder color to the dropdown's style */
+    #search-input::placeholder {
+      color: white;
+      background-color: #52af5f;
+      opacity: 1; 
+    }
+    
+
+/* wrapper for the middle part of the dex*/
+
+
+
+    #placeholder-pokemon-img {
+      display: none; 
+    }
+
+    .container-IMG {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      transform: translate(0px, 0px);
+    }
+
+    .small-circle-menu {
+      background-color: #710000; 
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 1px solid #000000;
+      position: absolute;
+    }
+
+    #small-circle-menu {
+      animation: circleMenuBlinks 2s ease 3s infinite;
+    }
+
+    @keyframes circleMenuBlinks{
+      0%{
+        background-color: #710000;
+        box-shadow: none;
+      }
+      90%{
+        background-color: #710000;
+        box-shadow: none;
+      }
+      100%{
+        background-color: rgb(255 0 0 / 25%);
+        box-shadow: 0 0 9px 0 #f00;
+      }
+    }
+
+    .gender-icons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      transform: translate(-180px, 95px);
+    }
+
+    .gender {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      margin-right: 10px;
+      cursor: pointer;
+  }
+
+  .gender.selected {
+      opacity: 1;   
+    }
+    
+    .gender { 
+      opacity: 0.5; 
+    } 
+
+
+
+  /* lower dex styles */
+
+    #name-row{
+      display: flex;
+      justify-content: center;
+    }
+
+    #name-container{
+      width: 400px; 
+      height: 100px;
+      display: flex;
+      position:fixed;
+      align-items: center;
+      justify-content: center;
+      transform: translate(-270px, 115px);
+    }
+
+    #name-screen{
+      background-color: #52af5f;
+      color: white;
+      height: 45px;
+      width: 150px;
+      border: 1px solid #000000;
+      text-align: center;
+      font-size: 12px;
+      display:flex;
+      align-items: center;
+      padding-left: 5px;
+      text-transform: capitalize;
+      box-shadow: inset 1px 1px #306938, inset 2px 2px #000000;
+    } 
+
+    #controls-container {
+      display: flex;
+      transform: translate(-70px, 200px);
+      position: fixed;
+      justify-content:space-between;
+        
+      .dpad {
+        position:relative;
+        display:inline-block;
+        width:90px;
+        height:90px;
+        z-index:5;
+        
+        > * {
+          width:33%;
+          height:33%;
+          position:absolute;
+          background-color:#565e6a;
+          cursor:pointer;
+          
+          i {
+            position:relative;
+            display:block;
+            margin:0 auto;
+            text-align:center;
+            height:100%;
+            font-size:28px;
+            color:#333a4a;
+            text-shadow:0px -0.5px 0px #aaa;
+          }
+        }
+        
+        .up {
+          top:calc(0% + 4px);
+          left:33%;
+          border-top:4px solid black;
+          border-left:4px solid black;
+          border-right:4px solid black;
+          border-radius:5px 5px 0px 0px;
+          
+          &:active {
+            background:linear-gradient(to top, #565e6a 0%, #333 100%);
+          }
+          
+          i {
+            top:-5px;
+          }
+        }
+        .right {
+          top:33%;
+          left:calc(75% - 4px);
+          border-top:4px solid black;
+          border-bottom:4px solid black;
+          border-right:4px solid black;
+          border-radius:0px 5px 5px 0px;
+          box-shadow:0px -2px 0px #888 inset;
+          
+          &:active {
+            background:linear-gradient(to right, #565e6a 0%, #333 100%);
+          }
+          
+          i {
+            top:-5px;
+          }
+        }
+        .down {
+          top: calc(75% - 4px);
+          left: 33%;
+          border-left: 4px solid black;
+          border-bottom: 4px solid black;
+          border-right: 4px solid black;
+          border-radius: 0px 0px 5px 5px;
+          box-shadow: 0px -2px 0px #888 inset;
+          z-index: 1000;      
+          &:active {
+            background: linear-gradient(to bottom, #565e6a 0%, #333 100%);
+          }
+          i {
+            top:-5px;
+          }
+        }
+        
+        .left {
+          top:33%;
+          left:calc(-5% + 4px);
+          border-top:4px solid black;
+          border-bottom:4px solid black;
+          border-left:4px solid black;
+          border-radius:5px 0px 0px 5px;
+          box-shadow:0px -2px 0px #888 inset;
+          
+          i {
+            top:-5px;
+          }
+          
+          &:active {
+            background:linear-gradient(to left, #565e6a 0%, #333 100%);
+          }
+        }
+        .middle {
+          top:33%;
+          left:33%;
+          width:40%;
+          height:40%;
+          z-index:-5; 
+          
+          &::after {
+            content:'';
+            position:absolute;
+            top:20%;
+            left:20%;
+            display:inline-block;
+            border:1px solid #6e737a;
+            background:linear-gradient(to bottom, #6d7075 0%, #6d7075 30%, #23272f 70%, #23272f 100%);
+            border-radius:50%;
+            height:60%;
+            width:60%;
+          }
+        }
+        
+        .up-down {
+          background-color:#565e6a;
+          border:4px solid black;
+                  border-radius:5px;
+          width:20px;
+          height:60px;
+        }
+        .left-right {
+          background-color:#565e6a;
+          border:4px solid black;
+          border-radius:5px;
+          width:60px;
+          height:20px;
+        }
+      }
+    }
+    
+    
+    #buttons-container{
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      position: fixed;
+      transform: translate(-150px, 170px);
+    }
+    #button-red{
+      width: 40px;
+      height: 10px;
+      background-color: #710000;
+      border-radius: 20px;
+      margin-bottom: 3px;
+      border: 1px solid #000000;
+      cursor: pointer;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding-right: 4px;
+      box-shadow: 1px 1px #89061c,
+                  2px 2px #89061c,
+                  3px 3px #000000;
+      position: relative;
+    }
+    #button-red:active{
+      box-shadow: none;
+      top: 3px;
+      right: -3px;
+    }
+    #button-blue{
+      width: 40px;
+      height: 10px;
+      background-color: #146b9f;
+      margin-top: 3px;
+      border: 1px solid #000000;
+      border-radius: 20px;
+      cursor: pointer;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding-right: 4px;
+      box-shadow: 1px 1px #0f537b,
+                  2px 2px #0f537b,
+                  3px 3px #000000;
+      position: relative;
+    }
+    #button-blue:active{
+      box-shadow: none;
+      top: 3px;
+      right: -3px;
+    }
+    .light{
+      height: 5px;
+      width: 5px;
+      border: 1px solid #232323;
+      border-radius: 50%;
+    }
+    .on{
+      background-color: #ffe600;
+    }
+    .off{
+      background-color: #232323;
+    }
+    
+    /* Footer left dex styles */
+  .footer-left {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
   } 
 
-#button-next-move-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  position: fixed;
-  /* Adjust the transform values to place the button where you need it */
-  transform: translate(370px, 230px); 
-}
+  #list-row{ 
+      display: flex;
+      justify-content: center;
+  } 
 
-#button-move {
-  width: 50px; /* Diameter of the circle */
-  height: 50px; /* Diameter of the circle */
-  background-color: #f8e825; /* Yellow color */
-  border-radius: 50%; /* This makes it circular */
-  border: 1px solid #000000;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 1px 1px #f8e825,
-              2px 2px #f8e825,
-              3px 3px #000000;             
-  position: relative;
-}
+  #list-container{
+      width: 40px;
+      height: 100px; 
+      display: flex; 
+      align-items: fixed; 
+      justify-content: space-between; 
+      position:fixed; 
+      transform: translate(-348px, 215px);
+      } 
 
-#button-move:active {
-  box-shadow: none;
-  top: 3px;
-  right: -3px;
-}
 
-#buttons-form-attk-container{
-    display:flex;
+
+  #pokemon-select {
+      background-color: #52af5f; /* Same background as the box */
+      color: white;
+      height: 45px;
+      width: 150px;
+      border: 1px solid #000000;  
+      text-align: center;
+      font-family: 'BitGame', sans-serif;
+      font-size: 12px;         
+      text-transform: capitalize; 
+      box-shadow: inset 1px 1px #306938, inset 2px 2px #000000;
+    }
+    
+    /* Style for the individual options */
+    #pokemon-select option {
+      background-color: #52af5f; 
+      color: white; 
+      padding: 5px;         /* Adjust padding as needed */
+    }
+    
+    /* Optional: Hover effect */
+    #pokemon-select option:hover {
+    background-color: #38793f; /* Slightly darker on hover */
+    }
+
+  @media only screen and (max-width: 1026px) {
+      .mainDex, .mainsc {
+          display: none;
+      }
+      .bgTooSmall {
+          display: show;
+      }
+  }
+
+  @media only screen and (min-width: 1026px) {
+      .midDex, .mainsc {
+          display: show;
+      }
+      .bgTooSmall {
+          display: none;
+      }
+  }
+
+  .soundContainer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      transform: translate(40px, -100px);
+  }
+
+  #stats-container{ 
+      display: flex;
+      justify-content: center;
+  } 
+
+  #screen-container{
+      width: 480px;
+      height: 100px; 
+      display: flex; 
+      align-items: fixed; 
+      justify-content: space-between; 
+      position:fixed;     
+      } 
+
+  #desc-screen{ 
+      background-color: #000000; 
+      color: white; 
+      height: 150px; 
+      width: 310px; 
+      border: 1px solid #000000; 
+      text-align: left; 
+      font-size: 10px; 
+      display:flex; 
+      align-items: center; 
+      padding-left: 20px; 
+      text-transform: capitalize; 
+      box-shadow: inset 1px 1px #ffff, inset 2px 2px #ffffff; 
+      transform: translate(327px, -120px);
+  }
+
+  #desc-screen ul {
+      list-style-type: none;
+      padding: 0;
+      margin-left: 10px;
+      text-align: left;
+  }
+
+  #type-screen-text, #typ-placeholder-screen-text {
+    display: inline-block;
+    text-align: center;
+    padding: 0.5px 7px;
+    font-weight: bold;
+    color: white;
+    transform: translate(5px, 60px);
+  }
+
+  #type-screen-text, #typ-placeholder-screen-text {
+    width: 50px; /* Fixed width, adjust as needed */
+    height: 20px; /* Maintain aspect ratio */
+    border-radius: 10px; /* If you want rounded corners for your images */
+
+  }
+
+  /* You may want to hide the images by default and only show them when a source is set */
+  #type-screen-text, #typ-placeholder-screen-text {
+    display: none;
+  }
+
+  #type-row{ 
+      display: flex;
+      justify-content: center;
+  } 
+
+  #type-container{
+      width: 400px;
+      height: 100px; 
+      display: flex; 
+      align-items: fixed; 
+      justify-content: space-between; 
+      position:fixed; 
+      transform: translate(290px, 40px);
+      } 
+
+  #type-screen{ 
+      background-color: #fff; 
+      color: black; 
+      height: 35px; 
+      width: 70px; 
+      border: 1px solid #000000; 
+      text-align: center; 
+      font-size: 16px; 
+      display:flex; 
+      align-items: center; 
+      padding-left: 5px; 
+      text-transform: capitalize; 
+      box-shadow: inset 1px 1px #ffff, inset 2px 2px #000000; 
+  }
+
+  #typ-placeholder-row{ 
+      display: flex;
+      justify-content: center;
+  } 
+
+  #typ-placeholder-container{
+      width: 400px;
+      height: 100px; 
+      display: flex; 
+      align-items: fixed; 
+      justify-content: space-between; 
+      position:fixed; 
+      transform: translate(370px, 40px);
+      } 
+
+  #typ-placeholder-screen{ 
+      background-color: #fff; 
+      color: black; 
+      height: 35px; 
+      width: 70px; 
+      border: 1px solid #000000; 
+      text-align: center; 
+      font-size: 16px; 
+      display:flex; 
+      align-items: center; 
+      padding-left: 5px; 
+      text-transform: capitalize; 
+      box-shadow: inset 1px 1px #ffff, inset 2px 2px #000000; 
+  }
+
+  #height-row{ 
+      display: flex;
+      justify-content: center;
+  } 
+
+  #height-container{
+      width: 400px;
+      height: 100px; 
+      display: flex; 
+      align-items: fixed; 
+      justify-content: space-between; 
+      position:fixed; 
+      transform: translate(290px,90px);     
+      } 
+
+  #height-screen{ 
+      background-color: #000000; 
+      color: white; 
+      height: 35px; 
+      width: 120px; 
+      border: 1px solid #000000; 
+      text-align: center; 
+      font-size: 14px; 
+      display:flex; 
+      align-items: center; 
+      padding-left: 5px; 
+      text-transform: capitalize; 
+      box-shadow: inset 1px 1px #ffff, inset 2px 2px #ffffff; 
+  }
+
+  #weight-row{ 
+      display: flex;
+      justify-content: center;
+  } 
+
+  #weight-container{
+      width: 400px;
+      height: 100px; 
+      display: flex; 
+      align-items: fixed; 
+      justify-content: space-between; 
+      position:fixed; 
+      transform: translate(290px, 140px);
+      } 
+
+  #weight-screen{ 
+      background-color: #000000; 
+      color: white; 
+      height: 35px; 
+      width: 120px; 
+      border: 1px solid #000000; 
+      text-align: center; 
+      font-size: 14px; 
+      display:flex; 
+      align-items: center; 
+      padding-left: 5px; 
+      text-transform: capitalize; 
+      box-shadow: inset 1px 1px #ffff, inset 2px 2px #ffffff; 
+  }
+
+  #weight-row{ 
+    display: flex;
+    justify-content: center;
+  } 
+
+  #weight-container{
+    width: 400px;
+    height: 100px; 
+    display: flex; 
+    align-items: fixed; 
+    justify-content: space-between; 
+    position:fixed; 
+    transform: translate(290px, 140px);
+    } 
+
+  #weight-screen{ 
+    background-color: #000000; 
+    color: white; 
+    height: 35px; 
+    width: 120px; 
+    border: 1px solid #000000; 
+    text-align: center; 
+    font-size: 14px; 
+    display:flex; 
+    align-items: center; 
+    padding-left: 5px; 
+    text-transform: capitalize; 
+    box-shadow: inset 1px 1px #ffff, inset 2px 2px #ffffff; 
+  }
+
+  #abilities-row{ 
+    display: flex;
+    justify-content: center;
+  } 
+
+  #abilities-container{
+    width: 400px;
+    height: 100px; 
+    display: flex; 
+    align-items: fixed; 
+    justify-content: space-between; 
+    position:fixed; 
+    transform: translate(430px, 100px);
+    max-height: 150px; /* Adjust the height as needed */
+      overflow-y: auto; /* This will add a vertical scrollbar when the content overflows */
+      overflow-x: hidden;
+    } 
+
+  #abilities-screen{ 
+    background-color: #000000; 
+    color: white; 
+    height: 70px; 
+    width: 140px; 
+    border: 1px solid #000000; 
+    text-align: left; 
+    font-size: 9px; 
+    display:flex; 
+    align-items: center; 
+    padding-left: 5px; 
+    text-transform: capitalize; 
+    box-shadow: inset 1px 1px #ffff, inset 2px 2px #ffffff; 
+  }
+
+  #ability-button-container {
+    display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     position: fixed;
-    transform: translate(340px, 60px);
-  }  
-  
-  #button-stats{
-    width: 140px;
-    height: 35px;
-    background-color: #0e7e1d;
-    margin-top: 10px;
+  }
+
+
+  #button-ability {
+    width: 30px; /* Diameter of the circle */
+    height: 30px; /* Diameter of the circle */
+    background-color: #0e5df0; 
+    border-radius: 50%; /* This makes it circular */
     border: 1px solid #000000;
-    border-radius: 20px;
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 1px 1px #0e7e1d,
-                2px 2px #0e7e1d,
-                3px 3px #000000;
+    box-shadow: 1px 1px #0e5df0,
+                2px 2px #0e5df0,
+                3px 3px #000000;             
     position: relative;
-    text-align: center;
-    color: white;
-    font-size: 12px;
+    transform: translate(390px, 140px); 
   }
 
-  #button-stats:active{
+  #button-ability:active {
     box-shadow: none;
     top: 3px;
     right: -3px;
   }
 
-  .lights{
-    height: 10px;
-    width: 10px;
-    margin: 5px;
-    border: 1px solid #232323;
-    border-radius: 50%;
-  }
-  
-  
 
-  footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
+
+  #moves-container{ 
+      display: flex;
+      justify-content: center;
+  } 
+
+  #screen-moves-container{
+    width: 480px;
+    height: 100px; 
+    display: flex; 
+    align-items: fixed; 
+    justify-content: space-between; 
+    position:fixed;     
+    }
+
+    #pokemon-move-stats {
+      list-style-type: none;
+      padding: 0;
+      background-color: #000000; 
+      color: white; 
+      height: 95px; 
+      width: 245px; 
+      border: 1px solid #000000; 
+      text-align: left; 
+      font-size: 12px; 
+      display:flex;   
+      align-items: center; 
+      text-align: left;
+      text-transform: capitalize; 
+      box-shadow: inset 1px 1px #ffff, inset 2px 2px #ffffff; 
+      transform: translate(325px, 175px);
+      display:flex; 
+      flex-direction: column;      
+      visibility: visible;
+      color: white;         
+      font-size: 10px;     
+      z-index: 1000;        
+    }
+
+    #pokemon-move-stats li {
+      width: 100%; /* Each li will take full width of the ul */
+      transform: translate(10px, 0px);
+    
+      white-space: nowrap; /* Prevent text wrapping */
+      text-overflow: ellipsis; /* Show an ellipsis when text overflows */
+    }
+
+    #pokemon-move-stats p {
+      margin: 0; /* Remove default margin */
+      
+    } 
+
+  #button-next-move-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    height: 50px;
-    background-color: #000000;
-    color: white;
-    font-family: 'BitGame', sans-serif;
+    flex-direction: column;
+    position: fixed;
+    /* Adjust the transform values to place the button where you need it */
+    transform: translate(370px, 230px); 
   }
+
+  #button-move {
+    width: 50px; /* Diameter of the circle */
+    height: 50px; /* Diameter of the circle */
+    background-color: #f8e825; /* Yellow color */
+    border-radius: 50%; /* This makes it circular */
+    border: 1px solid #000000;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 1px 1px #f8e825,
+                2px 2px #f8e825,
+                3px 3px #000000;             
+    position: relative;
+  }
+
+  #button-move:active {
+    box-shadow: none;
+    top: 3px;
+    right: -3px;
+  }
+
+  #buttons-form-attk-container{
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      position: fixed;
+      transform: translate(340px, 60px);
+    }  
+    
+    #button-stats{
+      width: 140px;
+      height: 35px;
+      background-color: #0e7e1d;
+      margin-top: 10px;
+      border: 1px solid #000000;
+      border-radius: 20px;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 1px 1px #0e7e1d,
+                  2px 2px #0e7e1d,
+                  3px 3px #000000;
+      position: relative;
+      text-align: center;
+      color: white;
+      font-size: 12px;
+    }
+
+    #button-stats:active{
+      box-shadow: none;
+      top: 3px;
+      right: -3px;
+    }
+
+    .lights{
+      height: 10px;
+      width: 10px;
+      margin: 5px;
+      border: 1px solid #232323;
+      border-radius: 50%;
+    }
+    
+    
+
+    footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 50px;
+      background-color: #000000;
+      color: white;
+      font-family: 'BitGame', sans-serif;
+    }

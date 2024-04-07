@@ -30,195 +30,200 @@
         </audio>
     </div>
 
-    <div class="mainDex"style="position: fixed;">
-
-        <div id="circle-container">
-            <!-- Big blue circle with a blinking light inside -->
-            <div id="big-circle">
-                <div id="blinking-light" style="opacity: 1;"></div>
-            </div>
-          
-            <!-- Small circles that light up in sequence -->
-            <div id="small-circle-red" class="small-circle"></div>
-            <div id="small-circle-yellow" class="small-circle"></div>
-            <div id="small-circle-green" class="small-circle"></div>
-        </div>  
-
-        <div id="search-row">
-            <div id="search-container">
-              <div id="search-screen">
-                <input type="text" id="search-input" placeholder="Enter Pokémon ID">
-              </div>
-            </div>
-        </div>
-
-        <div class="container-IMG">
-            <img id="placeholder-pokemon-img" src="" alt="pokemon"
-            style="
-                height: 200px;
-                width: 200px;
-                transform: translate(-190px , -35px);
-                position: fixed;
-            ">
-            <img id="static-img" src="source/img/static.gif" alt="static"
-            style="
-                height: 210px;
-                width: 290px;
-                transform: translate(-185px , -40px);
-                position: fixed;
-            ">
-        </div>
-     
-            <div id="small-circle-menu" class="small-circle-menu"></div>
-            <div class="gender-icons">
-                <i class="fas fa-mars-stroke fa-lg gender selected" aria-hidden="true"></i>
-                <i class="fas fa-venus fa-lg gender" aria-hidden="true"></i>
-            </div>
-               
-            <!-- Name of Pokemon selected-->
-            <div id="name-row">
-                <div id="name-container">
-                  <div id="name-screen">
-                    <div id="name-screen-text"></div>
-                  </div>                  
-                </div>
-            </div>         
-
-            <div id="buttons-container">
-                <div id="button-red" onclick="clickNormalColor()">
-                  <div id="light-button-red" class="light on"></div>
-                </div>
-                <div id="button-blue" onclick="clickShinyColor()">
-                  <div id="light-button-blue" class="light off"></div>
-                </div>
-            </div>   
-
-            <div id="controls-container">
-                <div class="dpad">
-                    <div class="up"><i class="fa fa-caret-up"></i></div>
-                    <div class="right"><i class="fa fa-caret-right"></i></div>
-                    <div class="down"><i class="fa fa-caret-down"></i></div>
-                    <div class="left"><i class="fa fa-caret-left"></i></div>
-                    <div class=middle></div>
+    <!-- Main content -->
+    <div class="wrapper">
+        <div class="mainDex">
+            <div class="topWrapper">
+                <div id="circle-container">
+                    <!-- Big blue circle with a blinking light inside -->
+                    <div id="big-circle">
+                        <div id="blinking-light" style="opacity: 1;"></div>
+                    </div>
+                
+                    <!-- Small circles that light up in sequence -->
+                    <div id="small-circle-red" class="small-circle"></div>
+                    <div id="small-circle-yellow" class="small-circle"></div>
+                    <div id="small-circle-green" class="small-circle"></div>
+                </div>  
+                <div id="search-row">
+                    <div id="search-container">
+                    <div id="search-screen">
+                        <input type="text" id="search-input" placeholder="Enter Pokémon ID">
+                    </div>
+                    </div>
                 </div>
             </div>
 
-        <!-- list to select pokemon -->        
-        <div id="footer-left">
-            <div id="footer-left-screen">
-            <div id="List-row">
-                <div id="list-container">
-                <div id="list-screen">
-                    <div id="list-screen-text">
-                    <select id="pokemon-select">
-                        <option value="">Select a Pokémon</option>
-                        <!-- JavaScript will populate this select with options from the api-->
-                    </select>
-                    </div>        
-                </div>
-                </div>
-            </div>
-            </div>
-        </div>
-          
-            <div id="sound-container">
-                <img id="sound-img" src="source/img/sound-svg.png" alt="sound"
+            
+
+            <div class="container-IMG">
+                <img id="placeholder-pokemon-img" src="" alt="pokemon"
                 style="
-                height: 40px;
-                width: 90px;
-                transform: translate(100px , -200px);
-                position: fixed;
-                cursor: pointer;
-            ">
+                    height: 200px;
+                    width: 200px;
+                    transform: translate(-190px , -35px);
+                    position: fixed;
+                ">
+                <img id="static-img" src="source/img/static.gif" alt="static"
+                style="
+                    height: 210px;
+                    width: 290px;
+                    transform: translate(-185px , -40px);
+                    position: fixed;
+                ">
             </div>
+        
+                <div id="small-circle-menu" class="small-circle-menu"></div>
+                <div class="gender-icons">
+                    <i class="fas fa-mars-stroke fa-lg gender selected" aria-hidden="true"></i>
+                    <i class="fas fa-venus fa-lg gender" aria-hidden="true"></i>
+                </div>
+                
+                <!-- Name of Pokemon selected-->
+                <div id="name-row">
+                    <div id="name-container">
+                    <div id="name-screen">
+                        <div id="name-screen-text"></div>
+                    </div>                  
+                    </div>
+                </div>         
 
-            <div id="stats-container">
-                <div id="screen-container">
-                    <div id="desc-screen">
-                        <div id="description-screen-text">
-                            <p id="pokemon-description"></p>
-                            <ul id="pokemon-stats">
-                                <li id="stat-hp"></li>
-                                <li id="stat-attack"></li>
-                                <li id="stat-defense"> </li>
-                                <li id="stat-special-attack"> </li>
-                                <li id="stat-special-defense"> </li>
-                                <li id="stat-speed"> </li>
-                            </ul>
+                <div id="buttons-container">
+                    <div id="button-red" onclick="clickNormalColor()">
+                    <div id="light-button-red" class="light on"></div>
+                    </div>
+                    <div id="button-blue" onclick="clickShinyColor()">
+                    <div id="light-button-blue" class="light off"></div>
+                    </div>
+                </div>   
+
+                <div id="controls-container">
+                    <div class="dpad">
+                        <div class="up"><i class="fa fa-caret-up"></i></div>
+                        <div class="right"><i class="fa fa-caret-right"></i></div>
+                        <div class="down"><i class="fa fa-caret-down"></i></div>
+                        <div class="left"><i class="fa fa-caret-left"></i></div>
+                        <div class=middle></div>
+                    </div>
+                </div>
+
+            <!-- list to select pokemon -->        
+            <div id="footer-left">
+                <div id="footer-left-screen">
+                <div id="List-row">
+                    <div id="list-container">
+                    <div id="list-screen">
+                        <div id="list-screen-text">
+                        <select id="pokemon-select">
+                            <option value="">Select a Pokémon</option>
+                            <!-- JavaScript will populate this select with options from the api-->
+                        </select>
+                        </div>        
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            
+                <div id="sound-container">
+                    <img id="sound-img" src="source/img/sound-svg.png" alt="sound"
+                    style="
+                    height: 40px;
+                    width: 90px;
+                    transform: translate(100px , -200px);
+                    position: fixed;
+                    cursor: pointer;
+                ">
+                </div>
+
+                <div id="stats-container">
+                    <div id="screen-container">
+                        <div id="desc-screen">
+                            <div id="description-screen-text">
+                                <p id="pokemon-description"></p>
+                                <ul id="pokemon-stats">
+                                    <li id="stat-hp"></li>
+                                    <li id="stat-attack"></li>
+                                    <li id="stat-defense"> </li>
+                                    <li id="stat-special-attack"> </li>
+                                    <li id="stat-special-defense"> </li>
+                                    <li id="stat-speed"> </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>                
+                </div>
+
+                <div id="type-container">
+                    <img id="type-screen-text" src="" alt="Type 1" />
+                </div>
+                <div id="typ-placeholder-container">
+                    <img id="typ-placeholder-screen-text" src="" alt="Type 2" />
+                </div>
+
+                <div id="moves-container">
+                    <div id="screen-moves-container">
+                        <div id="moves-screen" >
+                            <ul id="pokemon-move-stats">
+                                <li id="move-name" style="margin-top: 10px; margin-bottom: 20px; font-size: 14px; "><p></p></li>
+                                <li id="move-type" style=" font-size: 12px; translate: 137px -35px;"><p></p></li>
+                                <li id="move-learn-method" style="translate: 0px -25px;"><p></p></li>
+                                <li id="move-level-learn" style="translate: 0px -20px;"><p></p></li>
+                                <li id="move-category"  style="translate: 0px -15px;"><p></p></li>
+                                <li id="move-accuracy"  style="translate: 137px -60px;"><p></p></li>
+                                <li id="move-power" style="translate: 137px -55px;"><p></p></li>
+                                <li id="move-pp" style="translate: 137px -50px;"><p></p></li>
+                                
+                            </ul>                        
                         </div>
                     </div>
-                </div>                
-            </div>
+                </div>
 
-            <div id="type-container">
-                <img id="type-screen-text" src="" alt="Type 1" />
-            </div>
-            <div id="typ-placeholder-container">
-                <img id="typ-placeholder-screen-text" src="" alt="Type 2" />
-            </div>
-
-            <div id="moves-container">
-                <div id="screen-moves-container">
-                    <div id="moves-screen" >
-                        <ul id="pokemon-move-stats">
-                            <li id="move-name" style="margin-top: 10px; margin-bottom: 20px; font-size: 14px; "><p></p></li>
-                            <li id="move-type" style=" font-size: 12px; translate: 137px -35px;"><p></p></li>
-                            <li id="move-learn-method" style="translate: 0px -25px;"><p></p></li>
-                            <li id="move-level-learn" style="translate: 0px -20px;"><p></p></li>
-                            <li id="move-category"  style="translate: 0px -15px;"><p></p></li>
-                            <li id="move-accuracy"  style="translate: 137px -60px;"><p></p></li>
-                            <li id="move-power" style="translate: 137px -55px;"><p></p></li>
-                            <li id="move-pp" style="translate: 137px -50px;"><p></p></li>
-                            
-                        </ul>                        
+                <div id="button-next-move-container">
+                    <div id="button-move"  onclick="window.clickNextMove()">                                 
                     </div>
                 </div>
-            </div>
-
-            <div id="button-next-move-container">
-                <div id="button-move"  onclick="window.clickNextMove()">                                 
-                </div>
-            </div>
-            
-            <div id="height-row">
-                <div id="height-container">
-                  <div id="height-screen">
-                    <div id="height-screen-text"></div>
-                  </div>                  
-                </div>
-            </div>
-            <div id="weight-row">
-                <div id="weight-container">
-                  <div id="weight-screen">
-                    <div id="weight-screen-text"></div>
-                  </div>                  
-                </div>
-            </div> 
-
-            <div id="buttons-form-attk-container">
-                <div id="button-stats" onclick="toggleBackgroundSound()">
-                    Background sound On/Off
-                  <div id="light-button-green-form" class="lights off"></div>
-                </div>                
-            </div>
-            
-            <div id="abilities-row">
-                <div id="abilities-container">
-                  <div id="abilities-screen">
-                    <div id="abilities-screen-text">
-                        <p id="abilities-text"></p>
+                
+                <div id="height-row">
+                    <div id="height-container">
+                    <div id="height-screen">
+                        <div id="height-screen-text"></div>
+                    </div>                  
                     </div>
-                  </div>                  
                 </div>
-            </div>
+                <div id="weight-row">
+                    <div id="weight-container">
+                    <div id="weight-screen">
+                        <div id="weight-screen-text"></div>
+                    </div>                  
+                    </div>
+                </div> 
 
-            <div class="ability-button-container">
-                <div id="button-ability" onclick="window.clickNextAbility()">                    
+                <div id="buttons-form-attk-container">
+                    <div id="button-stats" onclick="toggleBackgroundSound()">
+                        Background sound On/Off
+                    <div id="light-button-green-form" class="lights off"></div>
+                    </div>                
                 </div>
-            </div>
+                
+                <div id="abilities-row">
+                    <div id="abilities-container">
+                    <div id="abilities-screen">
+                        <div id="abilities-screen-text">
+                            <p id="abilities-text"></p>
+                        </div>
+                    </div>                  
+                    </div>
+                </div>
 
-            
-    </div>    
+                <div class="ability-button-container">
+                    <div id="button-ability" onclick="window.clickNextAbility()">                    
+                    </div>
+                </div>
+
+                
+        </div> 
+    </div>   
 
     <!-- Java -->
     <script src="https://unpkg.com/vue@next"></script>
