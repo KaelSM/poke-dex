@@ -1,4 +1,5 @@
 
+
 /**
  * Initiates a light sequence by modifying the styles of light indicator elements.
  * Each light element is targeted by its ID and set to "light up" with an RGB color and box shadow effect.
