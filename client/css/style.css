@@ -513,13 +513,10 @@ body, html {
                     2px 2px #89061c,
                     3px 3px #000000;
         position: absolute;
-        transform: translate(0px, 0px);
       }
 
       #button-red:active{
-        box-shadow: none;
-        top: 3px;
-        right: -3px;
+        box-shadow: none;    
       }
 
       #button-blue{
@@ -544,8 +541,6 @@ body, html {
 
       #button-blue:active{
         box-shadow: none;
-        top: 3px;
-        right: -3px;
       }
 
       .light{
