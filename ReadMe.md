@@ -22,6 +22,9 @@ This Pokédex Client Application is an interactive web tool designed for Pokémo
    - Toggle the "Shiny" button to switch between standard and shiny appearances.
    - Click on the gender icons to see gender-specific variations, if available.
    - Use the arrow buttons to view the Pokémon from different angles.
+   - Interact with sound with the toggle
+   - Use the blue button to toggle the abilities of each pokemon and cycle through them if they have more than one.
+   - Use the yellow button to toggle all the different moves the pokemon can do.
 
 ## Project Structure
 - `index.html` - Structures the content and layout of the application.
